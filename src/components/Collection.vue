@@ -69,18 +69,7 @@ export default defineComponent({
 @import "../styles/_mixins.scss";
 @import "../styles/_variables.scss";
 
-&__collection {
-    width: 100vw;
-    margin-top: 45px;
-    height: 600px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    padding-top: 400px;
-    &::-webkit-scrollbar {
-      display: none;
-    }
-
-    &__single {
+.collection__single {
       display: flex;
       align-items: flex-end;
       overflow-y: scroll;
@@ -113,6 +102,6 @@ export default defineComponent({
         padding-left: 15px;
       }
     }
-  }
+
 
 </style>

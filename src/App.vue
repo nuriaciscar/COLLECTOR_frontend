@@ -17,6 +17,8 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
+@import "./styles/_mixins";
+@import "./styles/_variables";
 #app,
 html,
 body,
@@ -33,16 +35,11 @@ body,
   padding: 0;
   text-decoration: none;
   font-family: "Public Sans", sans-serif;
+  font-weight: 200;
+  background-color: $beige;
 }
 
 ::-webkit-scrollbar-track {
   border: 1px solid black;
-
-  @font-face {
-    font-family: "Public Sans";
-    font-weight: 200;
-    src: local("Public Sans"),
-      url(./fonts/Public_Sans/static/PublicSans-ExtraLight.ttf) format("truetype");
-  }
 }
 </style>

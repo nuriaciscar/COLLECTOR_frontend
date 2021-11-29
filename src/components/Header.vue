@@ -24,7 +24,7 @@ export default defineComponent({
   display: flex;
   flex-direction: row;
 
-  font-family: "Public Sans";
+  font-family: $font;
   font-weight: 200;
 }
 </style>

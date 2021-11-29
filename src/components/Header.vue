@@ -17,8 +17,14 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
+@import "../styles/_mixins.scss";
+@import "../styles/_variables.scss";
+
 .header {
   display: flex;
   flex-direction: row;
+
+  font-family: "Public Sans";
+  font-weight: 200;
 }
 </style>

@@ -15,6 +15,7 @@ export default defineComponent({
   },
 });
 </script>
+
 <style lang="scss">
 #app,
 html,
@@ -36,6 +37,12 @@ body,
 
 ::-webkit-scrollbar-track {
   border: 1px solid black;
-  background-color: #ffff;
+
+  @font-face {
+    font-family: "Public Sans";
+    font-weight: 200;
+    src: local("Public Sans"),
+      url(./fonts/Public_Sans/static/PublicSans-ExtraLight.ttf) format("truetype");
+  }
 }
 </style>

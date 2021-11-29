@@ -1,8 +1,6 @@
-// ** COLORS **
-$beige: #f4f1ea;
-$blue: #a9b9b7;
-$red: #bd563d;
-$pink: #eed2c9;
+@import "./_variables";
 
-// ** FONT **
-$font: "Public Sans", "Roboto Mono", "Courier new", "Arial", monospace;
+@mixin container {
+  font-family: $font;
+  background-color: $beige;
+}

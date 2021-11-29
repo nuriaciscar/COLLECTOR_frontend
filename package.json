@@ -7,7 +7,8 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lintt": "npx eslint --ignore-path .gitignore ./src/**/*.vue"
   },
   "dependencies": {
     "core-js": "^3.6.5",

@@ -16,24 +16,26 @@ export default defineComponent({
 });
 </script>
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+#app,
+html,
+body,
+.view {
+  height: 100%;
 }
 
-#nav {
-  padding: 30px;
+.body--overflow-hidden {
+  overflow: hidden;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-family: "Public Sans", sans-serif;
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+::-webkit-scrollbar-track {
+  border: 1px solid black;
+  background-color: #ffff;
 }
 </style>

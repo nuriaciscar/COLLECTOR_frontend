@@ -25,17 +25,31 @@ export default defineComponent({
 
 .footer {
   display: flex;
-  flex-direction: row;
   font-family: "Canela";
-  font-size: 20px;
-  margin-bottom: 20px;
+  font-size: 14px;
   align-items: flex-end;
   margin-left: 7px;
   margin-right: 7px;
+  bottom: 0;
+  position: fixed;
+  margin-top: 50px;
+  padding-bottom: 40px;
+  width: 100%;
 
-  &__left__name {
+  &__left {
     display: flex;
-    width: 30%;
+    flex-direction: row;
+    margin-left: 20px;
+    width: 65%;
+
+    &__name {
+      padding-right: 20px;
+    }
+  }
+  &__right {
+    display: flex;
+    justify-content: flex-start;
+    margin-right: 20px;
   }
 }
 </style>

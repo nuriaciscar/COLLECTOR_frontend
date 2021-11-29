@@ -9,390 +9,62 @@
       <p class="home__image__date">INDIA 2 YEARS AGO</p>
     </section>
     <section class="home__collections">
-      <div class="home__collections__single">
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="69px"
-          height="94px"
-        />
-        <div class="home__collections__single__text">
-          <p class="home__collections__single__text__date">June - August 2021</p>
-          <p class="home__collections__single__text__name">Italia summer 2021</p>
+      <div class="scroll">
+        <div class="home__collections__single">
+          <img
+            class="home__collections__single__image"
+            src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
+            alt="Description of image"
+            width="100px"
+            height="65px"
+          />
+          <img
+            class="home__collections__single__image"
+            src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
+            alt="Description of image"
+            width="69px"
+            height="94px"
+          />
+          <div class="home__collections__single__text">
+            <p class="home__collections__single__text__date">June - August 2021</p>
+            <p class="home__collections__single__text__name">Italia summer 2021</p>
+          </div>
+          <img
+            class="home__collections__single__image"
+            src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
+            alt="Description of image"
+            width="100px"
+            height="65px"
+          />
+          <img
+            class="home__collections__single__image"
+            src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
+            alt="Description of image"
+            width="100px"
+            height="65px"
+          />
+          <img
+            class="home__collections__single__image"
+            src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
+            alt="Description of image"
+            width="100px"
+            height="65px"
+          />
+          <img
+            class="home__collections__single__image"
+            src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
+            alt="Description of image"
+            width="100px"
+            height="65px"
+          />
+          <img
+            class="home__collections__single__image"
+            src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
+            alt="Description of image"
+            width="100px"
+            height="65px"
+          />
         </div>
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-      </div>
-      <div class="home__collections__single">
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="69px"
-          height="94px"
-        />
-        <div class="home__collections__single__text">
-          <p class="home__collections__single__text__date">June - August 2021</p>
-          <p class="home__collections__single__text__name">Italia summer 2021</p>
-        </div>
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-      </div>
-      <div class="home__collections__single">
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="69px"
-          height="94px"
-        />
-        <div class="home__collections__single__text">
-          <p class="home__collections__single__text__date">June - August 2021</p>
-          <p class="home__collections__single__text__name">Italia summer 2021</p>
-        </div>
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-      </div>
-      <div class="home__collections__single">
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="69px"
-          height="94px"
-        />
-        <div class="home__collections__single__text">
-          <p class="home__collections__single__text__date">June - August 2021</p>
-          <p class="home__collections__single__text__name">Italia summer 2021</p>
-        </div>
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-      </div>
-      <div class="home__collections__single">
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="69px"
-          height="94px"
-        />
-        <div class="home__collections__single__text">
-          <p class="home__collections__single__text__date">June - August 2021</p>
-          <p class="home__collections__single__text__name">Italia summer 2021</p>
-        </div>
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-      </div>
-      <div class="home__collections__single">
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="69px"
-          height="94px"
-        />
-        <div class="home__collections__single__text">
-          <p class="home__collections__single__text__date">June - August 2021</p>
-          <p class="home__collections__single__text__name">Italia summer 2021</p>
-        </div>
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-      </div>
-      <div class="home__collections__single">
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="69px"
-          height="94px"
-        />
-        <div class="home__collections__single__text">
-          <p class="home__collections__single__text__date">June - August 2021</p>
-          <p class="home__collections__single__text__name">Italia summer 2021</p>
-        </div>
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
-        <img
-          class="home__collections__single__image"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
-          width="100px"
-          height="65px"
-        />
       </div>
     </section>
   </div>
@@ -412,23 +84,24 @@ export default defineComponent({
 @import "../styles/mixins";
 .home {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
   margin: 0;
   box-sizing: border-box;
-
+  justify-content: space-between;
   &__image {
     width: 100%;
     margin: 0;
     padding: 0;
-    position: sticky;
+    height: 280px;
+    position: fixed;
+    z-index: 3;
     &__big {
       width: 100%;
-      height: 220px;
+      height: 210px;
       margin: 0;
-      margin-top: 65px;
+      padding-top: 65px;
       object-fit: cover;
     }
     &__date {
@@ -440,9 +113,15 @@ export default defineComponent({
   }
 
   &__collections {
-    height: 100%;
     width: 100vw;
     margin-top: 45px;
+    height: 600px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-top: 400px;
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     &__single {
       display: flex;

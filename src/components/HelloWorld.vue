@@ -87,8 +87,6 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-const a = 3;
-
 export default defineComponent({
   name: "HelloWorld",
   props: {

@@ -25,12 +25,14 @@ export default defineComponent({
   display: flex;
   flex-direction: row;
   font-family: "Canela";
+  position: fixed;
   font-size: 20px;
-  margin-top: 20px;
+  margin-top: 10px;
   justify-content: space-around;
   align-items: flex-end;
-  margin-left: 7px;
-  margin-right: 7px;
+  margin-left: 8px;
+  margin-right: 8px;
+  width: 100vw;
 
   &__avatar {
     border-radius: 50%;

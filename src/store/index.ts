@@ -1,12 +1,9 @@
-import { createStore } from 'vuex';
+import { State } from "@/types/interfaces";
 
-export default createStore({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-  },
-});
+const state = {
+  user: "",
+  collections: [],
+  images: [],
+};
+
+export default state;

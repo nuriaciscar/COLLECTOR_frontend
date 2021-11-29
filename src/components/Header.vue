@@ -37,6 +37,7 @@ export default defineComponent({
   justify-content: center;
   align-items: flex-end;
   width: 100vw;
+  z-index: 0;
 
   &__avatar {
     border-radius: 50%;

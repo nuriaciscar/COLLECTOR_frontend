@@ -84,20 +84,19 @@ export default defineComponent({
 @import "../styles/mixins";
 .home {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
   margin: 0;
   box-sizing: border-box;
-
+  justify-content: space-between;
   &__image {
     width: 100%;
     margin: 0;
     padding: 0;
     height: 280px;
     position: fixed;
-    z-index: 0;
+    z-index: 3;
     &__big {
       width: 100%;
       height: 210px;
@@ -117,10 +116,12 @@ export default defineComponent({
     width: 100vw;
     margin-top: 45px;
     height: 600px;
-
-    z-index: 10px;
     overflow-y: scroll;
     overflow-x: hidden;
+    padding-top: 400px;
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     &__single {
       display: flex;

@@ -1,9 +1,10 @@
 <template>
   <nav class="header">
-    <p>Home</p>
-    <p>Feed</p>
-    <p>COLLECTOR</p>
-    <img src= https://cdn-icons.flaticon.com/png/512/3405/premium/3405771.png>
+    <img class="header__home" src="@/assets/home.png" alt="Home icon" width="28" height="27" />
+    <p class="header__feed">Feed</p>
+    <p class="header__logo">COLLECTOR</p>
+    <img src="@/assets/lupa.png" alt="Search lens icon" width="30" height="27" />
+    <img class="header__avatar" src="@/assets/popular2.jpeg" alt="Avatar" width="35" height="35" />
   </nav>
 </template>
 
@@ -25,5 +26,19 @@ export default defineComponent({
   flex-direction: row;
   font-family: "Canela";
   font-size: 20px;
+  margin-top: 20px;
+  justify-content: space-around;
+  align-items: flex-end;
+  margin-left: 7px;
+  margin-right: 7px;
+
+  &__avatar {
+    border-radius: 50%;
+  }
+
+  &__logo {
+    padding-left: 11px;
+    padding-right: 11px;
+  }
 }
 </style>

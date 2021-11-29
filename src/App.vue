@@ -19,6 +19,11 @@ export default defineComponent({
 <style lang="scss">
 @import "./styles/_mixins";
 @import "./styles/_variables";
+$font-dir: "/fonts/";
+@font-face {
+  font-family: "Canela";
+  src: local("Canela"), url(./fonts/Canela/Canela-Thin.woff) format("woff");
+}
 #app,
 html,
 body,
@@ -34,7 +39,7 @@ body,
   margin: 0;
   padding: 0;
   text-decoration: none;
-  font-family: "Public Sans", sans-serif;
+  font-family: "Canela";
   font-weight: 200;
   background-color: $beige;
 }

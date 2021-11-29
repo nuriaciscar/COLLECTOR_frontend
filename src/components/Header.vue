@@ -23,8 +23,7 @@ export default defineComponent({
 .header {
   display: flex;
   flex-direction: row;
-
-  font-family: $font;
-  font-weight: 200;
+  font-family: "Canela";
+  font-size: 20px;
 }
 </style>

@@ -24,7 +24,7 @@ export default defineComponent({
 @import "./styles/_variables";
 $font-dir: "/fonts/";
 @font-face {
-  font-family: "Canela";
+  font-family: "Canela", sans-serif;
   src: local("Canela"), url(./fonts/Canela/Canela-Thin.woff) format("woff");
 }
 #app,

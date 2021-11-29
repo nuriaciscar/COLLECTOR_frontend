@@ -29,8 +29,8 @@ export default defineComponent({
   margin-top: 20px;
   justify-content: space-around;
   align-items: flex-end;
-  margin-left: 7px;
-  margin-right: 7px;
+  margin-left: 8px;
+  margin-right: 8px;
 
   &__avatar {
     border-radius: 50%;

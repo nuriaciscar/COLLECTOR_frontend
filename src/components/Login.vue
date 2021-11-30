@@ -111,50 +111,11 @@ export default defineComponent({
   }
 
   &__title {
-    font-family: "Canela", serif;
-    font-size: 50px;
-    margin-top: 20px;
-    font-weight: inherit;
-    font-weight: 100;
-    padding-bottom: 20px;
+    @include title_form;
   }
 
   &__form {
-    width: 250px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-
-    & input {
-      border: 0.1px solid #000000;
-      box-sizing: border-box;
-      border-radius: 60px;
-      background-color: transparent;
-      width: 250px;
-      height: 30px;
-      color: #000;
-      font-family: "Public Sans", sans-serif;
-      padding: 10px;
-
-      & input ::placeholder {
-        color: #000;
-      }
-    }
-
-    & label {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      font-family: "Public Sans", sans-serif;
-      font-size: 13px;
-      padding-top: 13px;
-      padding-bottom: 7px;
-      &.wrong {
-        color: red;
-      }
-    }
+    @include form;
   }
 }
 
@@ -164,15 +125,7 @@ export default defineComponent({
   justify-content: flex-end;
   width: 20%;
   &__button {
-    border: none;
-    font: inherit;
-    cursor: pointer;
-    outline: inherit;
-    border-radius: 50%;
-    background-color: $brown;
-    width: 50px;
-    height: 50px;
-    font-size: 22px;
+    @include button;
   }
 }
 

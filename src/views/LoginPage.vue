@@ -13,8 +13,8 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@import "../../assets/styles/_variables.scss";
-@import "../../assets/styles/_mixins.scss";
+@import "../styles/variables";
+@import "../styles/mixins";
 
 body {
   background-color: $red;

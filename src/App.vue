@@ -26,6 +26,9 @@ $font-dir: "/fonts/";
 @font-face {
   font-family: "Canela", sans-serif;
   src: local("Canela"), url(./fonts/Canela/Canela-Thin.woff) format("woff");
+  src: local("Canela Light"), url(./fonts/Canela/Canela-Light.woff) format("woff");
+  src: local("Canela Medium"), url(./fonts/Canela/Canela-Medium.woff) format("woff");
+  src: local("Canela Regular"), url(./fonts/Canela/Canela-Regular.woff) format("woff");
 }
 #app,
 html,

@@ -1,5 +1,5 @@
 <template>
-  <nav class="header">
+  <nav class="header" v-if="!['/login', '/register'].includes($route.path)">
     <img class="header__home" src="@/assets/home.png" alt="Home icon" width="24" height="23" />
     <p class="header__feed">Feed</p>
     <p class="header__logo">COLLECTOR</p>

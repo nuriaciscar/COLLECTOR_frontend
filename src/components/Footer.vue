@@ -1,5 +1,5 @@
 <template>
-  <nav class="footer">
+  <nav :class="!['/login', '/register'].includes($route.path) ? 'footer' : 'footer--red'">
     <div class="footer__left">
       <p class="footer__left__name">Núria Ciscar</p>
       <p class="footer__left__date">December 2021</p>
@@ -37,6 +37,7 @@ export default defineComponent({
   width: 100%;
   background-color: $beige;
   padding-top: 40px;
+  z-index: 0;
 
   &__left {
     display: flex;
@@ -52,6 +53,39 @@ export default defineComponent({
     display: flex;
     justify-content: flex-start;
     margin-right: 20px;
+  }
+  &--red {
+    background-color: $red;
+    display: flex;
+    font-family: "Canela", sans-serif;
+    font-size: 14px;
+    align-items: flex-end;
+    margin-left: 7px;
+    margin-right: 7px;
+    bottom: 0;
+    position: fixed;
+    margin-top: 50px;
+    padding-bottom: 40px;
+    width: 100%;
+
+    padding-top: 40px;
+    z-index: 0;
+
+    &__left {
+      display: flex;
+      flex-direction: row;
+      margin-left: 20px;
+      width: 65%;
+
+      &__name {
+        padding-right: 20px;
+      }
+    }
+    &__right {
+      display: flex;
+      justify-content: flex-start;
+      margin-right: 20px;
+    }
   }
 }
 </style>

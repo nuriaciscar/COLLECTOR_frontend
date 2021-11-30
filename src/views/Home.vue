@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" v-if="!['login', 'register'].includes($route.name)">
     <section class="home__image">
       <img
         class="home__image__big"

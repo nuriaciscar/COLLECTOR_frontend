@@ -3,8 +3,25 @@ interface userModel {
   password: string;
 }
 
-interface State {
-  user: userModel;
+interface Image {
+  description: string;
+  date: Date;
+  image: string;
+  imageLocal: string;
+  category: string;
+  owner: Array<string>;
+}
+interface Collection {
+  name: string;
+  date: string;
+  images: Array<Image>;
 }
 
-export { State, userModel };
+interface State {
+  user: userModel;
+  collections: Collection;
+  image: Image;
+  userId: string;
+}
+
+export { State, userModel, Collection, Image };

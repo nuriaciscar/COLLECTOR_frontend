@@ -9,7 +9,7 @@
         v-model="username"
         :class="isIncorrect ? 'incorrect' : ''"
       />
-      <label for="password" type="text">Password</label>
+      <label for="password" type="password">Password</label>
       <input
         id="password"
         placeholder="******"
@@ -40,7 +40,7 @@
 
 <script lang="ts" scoped>
 import { defineComponent } from "vue";
-import { mapActions, mapState } from "vuex";
+import { mapActions } from "vuex";
 import { UserLogin } from "@/types/interfaces";
 
 export default defineComponent({

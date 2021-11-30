@@ -29,7 +29,10 @@ $font-dir: "/fonts/";
 }
 #app,
 html,
-body,
+body {
+  background-color: $beige;
+}
+
 .view {
   height: 100%;
 }
@@ -44,7 +47,6 @@ body,
   text-decoration: none;
   font-family: "Canela";
   font-weight: 200;
-  background-color: $beige;
 }
 
 ::-webkit-scrollbar-track {

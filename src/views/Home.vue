@@ -10,6 +10,12 @@
     </section>
     <section class="home__collections">
       <Collection />
+      <Collection />
+      <Collection />
+      <Collection />
+      <Collection />
+      <Collection />
+      <Collection />
     </section>
   </div>
 </template>
@@ -39,10 +45,10 @@ export default defineComponent({
   justify-content: space-between;
   &__image {
     width: 100%;
-    margin: 0;
+    margin-bottom: 20px;
     padding: 0;
     height: 280px;
-    position: fixed;
+    position: absolute;
     z-index: 3;
     &__big {
       width: 100%;

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { ActionContext } from "vuex";
-import { State } from "@/types/interfaces";
+import { State, UserLogin } from "@/types/interfaces";
 
 const actions = {
   async fetchLoadCollections({ commit }: ActionContext<State, State>): Promise<void> {
@@ -17,9 +17,10 @@ const actions = {
     commit("loadImages", data);
   },
 
-  async fetchLoginUser({ commit }: ActionContext<State, State>): Promise<void> {
-    const { data } = await axios.post(`${process.env.VUE_APP_API_URL}/user/login`);
-    commit("loginUser", data);
+  async fetchLoginUser({ commit }: ActionContext<State, State>, user: UserLogin): Promise<void> {
+    const { data: userData } = await axios.post(`${process.env.VUE_APP_API_URL}/user/login`, user);
+    localStorage.setItem("user", JSON.stringify(userData));
+    commit("loginUser", userData);
   },
 };
 

@@ -7,8 +7,11 @@ const actions = {
     const { data } = await axios.get(`${process.env.VUE_APP_API_URL}/collections`);
     commit("loadCollections", data);
   },
-  async fetchLoadCollection({ commit }: ActionContext<State, State>, id: string): Promise<void> {
-    const { data } = await axios.get(`${process.env.VUE_APP_API_URL}/${id}`);
+  async fetchLoadCollection(
+    { commit }: ActionContext<State, State>,
+    idCollection: string
+  ): Promise<void> {
+    const { data } = await axios.get(`${process.env.VUE_APP_API_URL}/${idCollection}`);
     commit("loadCollection", data);
   },
 

@@ -21,8 +21,8 @@ interface State {
   user: userModel;
   collections: Array<Collection>;
   collection: Collection;
+  images: Array<Image>;
   image: Image;
-  userId: string;
 }
 
 export { State, userModel, Collection, Image };

@@ -22,6 +22,18 @@ const actions = {
     localStorage.setItem("user", JSON.stringify(userData));
     commit("loginUser", userData);
   },
+
+  async fetchRegisterUser(
+    { commit }: ActionContext<State, State>,
+    user: UserRegister
+  ): Promise<void> {
+    const { data: userData } = await axios.post(
+      `${process.env.VUE_APP_API_URL}/user/register`,
+      user
+    );
+    localStorage.setItem("user", JSON.stringify(userData));
+    commit("loginUser", userData);
+  },
 };
 
 export default actions;

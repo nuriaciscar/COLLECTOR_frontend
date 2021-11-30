@@ -1,4 +1,4 @@
-interface userModel {
+interface User {
   username: string;
   password: string;
 }
@@ -20,11 +20,11 @@ interface Collection {
 }
 
 interface State {
-  user: userModel;
+  user: User;
   collections: Array<Collection>;
   collection: Collection;
   images: Array<Image>;
   image: Image;
 }
 
-export { State, userModel, Collection, Image };
+export { State, User, Collection, Image };

@@ -123,19 +123,20 @@ export default defineComponent({
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
-  width: 20%;
+  width: 25%;
   &__button {
     @include button;
   }
 }
 
 .sign {
-  width: 80%;
+  width: 75%;
   &__signIn {
     font: "Canela", serif;
     color: #000;
     outline: inherit;
     margin-left: 0;
+    font-size: 22px;
   }
 }
 

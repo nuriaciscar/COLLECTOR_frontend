@@ -74,13 +74,13 @@ export default defineComponent({
 .collection__single {
   display: flex;
   align-items: flex-end;
-  // overflow-y: scroll;
+  overflow-y: scroll;
   padding-top: 20px;
-  // -webkit-overflow-scrolling: touch;
-  // -ms-overflow-style: -ms-autohiding-scrollbar;
-  // &::-webkit-scrollbar {
-  //   display: none;
-  // }
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   &__text {
     padding-left: 15px;
     display: flex;

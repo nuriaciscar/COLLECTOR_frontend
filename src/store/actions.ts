@@ -3,7 +3,7 @@ import { ActionContext } from "vuex";
 import { State } from "@/types/interfaces";
 
 const actions = {
-  async fetchCollections({ commit }: ActionContext<State, State>): Promise<void> {
+  async fetchLoadCollections({ commit }: ActionContext<State, State>): Promise<void> {
     const { data } = await axios.get(`${process.env.VUE_APP_API_URL}/collections`);
 
     commit("loadCollections", data);

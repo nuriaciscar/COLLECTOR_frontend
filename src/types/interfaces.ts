@@ -19,7 +19,8 @@ interface Collection {
 
 interface State {
   user: userModel;
-  collections: Collection;
+  collections: Array<Collection>;
+  collection: Collection;
   image: Image;
   userId: string;
 }

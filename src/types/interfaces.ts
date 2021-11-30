@@ -1,8 +1,16 @@
-interface User {
+interface UserLogin {
   username: string;
   password: string;
 }
 
+interface User {
+  name: string;
+  username: string;
+  password: string;
+  email: string;
+  avatar: string;
+  collections: Array<string>;
+}
 interface Image {
   description: string;
   date: Date;
@@ -27,4 +35,4 @@ interface State {
   image: Image;
 }
 
-export { State, User, Collection, Image };
+export { State, User, Collection, Image, UserLogin };

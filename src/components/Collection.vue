@@ -1,6 +1,6 @@
 <template>
   <section class="collection">
-    <div class="collection__single">
+    <div v-for="collectionOne in collection" :key="collectionOne._id" class="collection__single">
       <ul v-for="image in images" :key="image.id">
         <Image
           :description="image.description"
@@ -30,15 +30,15 @@ export default defineComponent({
     Image,
   },
   computed: {
-    ...mapState(["images", "collections"]),
+    ...mapState(["images", "collection"]),
   },
   methods: {
-    ...mapActions(["fetchLoadImages", "fetchLoadCollections"]),
+    ...mapActions(["fetchLoadImages", "fetchLoadCollection"]),
   },
 
   mounted() {
     this.fetchLoadImages();
-    this.fetchLoadCollections();
+    this.fetchLoadCollection();
   },
 });
 </script>

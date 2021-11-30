@@ -8,6 +8,11 @@ const actions = {
 
     commit("loadCollections", data);
   },
+  async fetchLoadImages({ commit }: ActionContext<State, State>): Promise<void> {
+    const { data } = await axios.get(`${process.env.VUE_APP_API_URL}/image`);
+
+    commit("loadImages", data);
+  },
 };
 
 export default actions;

@@ -63,7 +63,7 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "Collection",
-  data: () => ({}),
+  props: { name: String, date: String, images: Array },
 });
 </script>
 

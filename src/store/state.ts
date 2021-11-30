@@ -1,3 +1,5 @@
+import { State } from "@/types/interfaces";
+
 const state = {
   user: "",
   collections: [],
@@ -18,4 +20,4 @@ const state = {
   },
 };
 
-export default state;
+export default state as unknown as State;

@@ -33,6 +33,7 @@ interface State {
   collection: Collection;
   images: Array<Image>;
   image: Image;
+  isAuthenticated: boolean;
 }
 
 export { State, User, Collection, Image, UserLogin };

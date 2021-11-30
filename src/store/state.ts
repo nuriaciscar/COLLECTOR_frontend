@@ -2,6 +2,7 @@ import { State } from "@/types/interfaces";
 
 const state = {
   user: "",
+  isAuthenticated: false,
   collections: [],
   collection: {
     _id: "",

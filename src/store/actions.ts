@@ -12,6 +12,11 @@ const actions = {
     const { data } = await axios.get(`${process.env.VUE_APP_API_URL}/image`);
     commit("loadImages", data);
   },
+
+  async fetchLoginUser({ commit }: ActionContext<State, State>): Promise<void> {
+    const { data } = await axios.post(`${process.env.VUE_APP_API_URL}/user/login`);
+    commit("loginUser", data);
+  },
 };
 
 export default actions;

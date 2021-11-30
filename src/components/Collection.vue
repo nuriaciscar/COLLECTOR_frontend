@@ -1,69 +1,44 @@
 <template>
   <section class="collection">
     <div class="collection__single">
-      <img
-        class="collection__single__image"
-        src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-        alt="Description of image"
-        width="100px"
-        height="65px"
-      />
-      <img
-        class="collection__single__image"
-        src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-        alt="Description of image"
-        width="69px"
-        height="94px"
-      />
+      <ul v-for="photo in photos" :key="photo.id">
+        <Image
+          :description="photo.description"
+          :date="photo.date"
+          :image="photo.image"
+          :category="photo.category"
+          :owner="photo.owner"
+        />
+      </ul>
       <div class="collection__single__text">
-        <p class="collection__single__text__date">June - August 2021</p>
-        <p class="collection__single__text__name">Italia summer 2021</p>
+        <p class="collection__single__text__date">{{ date }}</p>
+        <p class="collection__single__text__name">{{ name }}</p>
       </div>
-      <img
-        class="collection__single__image"
-        src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-        alt="Description of image"
-        width="100px"
-        height="65px"
-      />
-      <img
-        class="collection__single__image"
-        src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-        alt="Description of image"
-        width="100px"
-        height="65px"
-      />
-      <img
-        class="collection__single__image"
-        src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-        alt="Description of image"
-        width="100px"
-        height="65px"
-      />
-      <img
-        class="collection__single__image"
-        src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-        alt="Description of image"
-        width="100px"
-        height="65px"
-      />
-      <img
-        class="collection__single__image"
-        src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-        alt="Description of image"
-        width="100px"
-        height="65px"
-      />
     </div>
   </section>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { mapActions, mapState } from "vuex";
+import Image from "@/components/Image.vue";
 
 export default defineComponent({
   name: "Collection",
-  props: { name: String, date: String, images: Array },
+  props: { name: String, date: String, images: Array, id: String },
+  components: {
+    Image,
+  },
+  computed: {
+    ...mapState(["photos"]),
+  },
+  methods: {
+    ...mapActions(["fetchLoadImages"]),
+  },
+
+  monted() {
+    this.fetchLoadImages();
+  },
 });
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <div class="image">
-    <img class="image__img" :src="image" alt="Description of image" width="100px" height="65px" />
+    <img :src="imageLocal" alt="{{description}}" width="100px" height="65px" class="image__img" />
   </div>
 </template>
 
@@ -9,7 +9,15 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "Image",
-  props: { images: String },
+  props: {
+    image: String,
+    description: String,
+    date: Date,
+    imageLocal: String,
+    category: String,
+    owner: Array,
+    id: String,
+  },
 });
 </script>
 
@@ -20,6 +28,7 @@ export default defineComponent({
 .collection__single {
   .image {
     object-fit: cover;
+    padding-left: 15px;
   }
 }
 </style>

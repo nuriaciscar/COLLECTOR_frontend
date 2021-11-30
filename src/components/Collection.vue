@@ -48,15 +48,6 @@ export default defineComponent({
 @import "../styles/_variables.scss";
 
 .collection__single {
-  display: flex;
-  align-items: flex-end;
-  overflow-y: scroll;
-  padding-top: 20px;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
-  &::-webkit-scrollbar {
-    display: none;
-  }
   &__text {
     padding-left: 15px;
     display: flex;

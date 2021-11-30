@@ -1,13 +1,13 @@
 <template>
   <section class="collection">
     <div class="collection__single">
-      <ul v-for="photo in photos" :key="photo.id">
+      <ul v-for="image in images" :key="image.id">
         <Image
-          :description="photo.description"
-          :date="photo.date"
-          :image="photo.image"
-          :category="photo.category"
-          :owner="photo.owner"
+          :description="image.description"
+          :date="image.date"
+          :image="image.image"
+          :category="image.category"
+          :owner="image.owner"
         />
       </ul>
       <div class="collection__single__text">
@@ -30,14 +30,15 @@ export default defineComponent({
     Image,
   },
   computed: {
-    ...mapState(["photos"]),
+    ...mapState(["images", "collections"]),
   },
   methods: {
-    ...mapActions(["fetchLoadImages"]),
+    ...mapActions(["fetchLoadImages", "fetchLoadCollections"]),
   },
 
-  monted() {
+  mounted() {
     this.fetchLoadImages();
+    this.fetchLoadCollections();
   },
 });
 </script>

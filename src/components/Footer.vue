@@ -25,7 +25,7 @@ export default defineComponent({
 
 .footer {
   display: flex;
-  font-family: "Canela";
+  font-family: "Canela", sans-serif;
   font-size: 14px;
   align-items: flex-end;
   margin-left: 7px;
@@ -35,6 +35,8 @@ export default defineComponent({
   margin-top: 50px;
   padding-bottom: 40px;
   width: 100%;
+  background-color: $beige;
+  padding-top: 40px;
 
   &__left {
     display: flex;

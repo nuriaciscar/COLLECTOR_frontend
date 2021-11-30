@@ -10,11 +10,13 @@ interface Image {
   imageLocal: string;
   category: string;
   owner: Array<string>;
+  id: string;
 }
 interface Collection {
   name: string;
   date: string;
   images: Array<Image>;
+  id: string;
 }
 
 interface State {

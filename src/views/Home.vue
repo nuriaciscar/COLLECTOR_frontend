@@ -10,12 +10,6 @@
     </section>
     <section class="home__collections">
       <Collection />
-      <Collection />
-      <Collection />
-      <Collection />
-      <Collection />
-      <Collection />
-      <Collection />
     </section>
   </div>
 </template>

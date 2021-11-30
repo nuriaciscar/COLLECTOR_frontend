@@ -1,13 +1,13 @@
 <template>
   <section class="collection">
     <div v-for="collectionOne in collection" :key="collectionOne._id" class="collection__single">
-      <ul v-for="image in images" :key="image.id">
+      <ul v-for="imageOne in images" :key="imageOne.id">
         <Image
-          :description="image.description"
-          :date="image.date"
-          :image="image.image"
-          :category="image.category"
-          :owner="image.owner"
+          :description="imageOne.description"
+          :date="imageOne.date"
+          :image="imageOne.image"
+          :category="imageOne.category"
+          :owner="imageOne.owner"
         />
       </ul>
       <div class="collection__single__text">
@@ -21,6 +21,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapActions, mapState } from "vuex";
+import { useRoute } from "vue-router";
 import Image from "@/components/Image.vue";
 
 export default defineComponent({
@@ -38,7 +39,9 @@ export default defineComponent({
 
   mounted() {
     this.fetchLoadImages();
-    this.fetchLoadCollection();
+    const route = useRoute();
+    const { id } = route.params;
+    this.fetchLoadCollection(id);
   },
 });
 </script>
@@ -48,15 +51,6 @@ export default defineComponent({
 @import "../styles/_variables.scss";
 
 .collection__single {
-  display: flex;
-  align-items: flex-end;
-  overflow-y: scroll;
-  padding-top: 20px;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
-  &::-webkit-scrollbar {
-    display: none;
-  }
   &__text {
     padding-left: 15px;
     display: flex;

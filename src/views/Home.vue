@@ -9,19 +9,19 @@
       <p class="home__image__date">INDIA 2 YEARS AGO</p>
     </section>
     <section class="home__collections">
-      <Collection />
+      <CollectionList />
     </section>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import Collection from "@/components/Collection.vue";
+import CollectionList from "@/components/CollectionList.vue";
 
 export default defineComponent({
   name: "Home",
   components: {
-    Collection,
+    CollectionList,
   },
 });
 </script>

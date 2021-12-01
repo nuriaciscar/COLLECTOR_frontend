@@ -29,14 +29,13 @@ interface Collection {
 
 interface State {
   user: {
-    isAuthenticated: false;
+    isAuthenticated: boolean;
     user: User;
   };
   collections: Array<Collection>;
   collection: Collection;
   images: Array<Image>;
   image: Image;
-  isAuthenticated: boolean;
 }
 
 export { State, User, Collection, Image, UserLogin };

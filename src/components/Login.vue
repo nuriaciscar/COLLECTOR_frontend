@@ -41,9 +41,12 @@
             :disabled="isDisabled"
             :class="isDisabled ? 'disabled' : ''"
           >
-            {{ isIncorrect ? "Something is wrong..." : "→" }}
+            →
           </button>
         </div>
+      </div>
+      <div class="isWrong">
+        <p class="isWrong__text">{{ isIncorrect ? "Something is wrong..." : "" }}</p>
       </div>
     </form>
   </section>
@@ -163,6 +166,19 @@ export default defineComponent({
     box-shadow: none;
     text-decoration: none;
     cursor: inherit;
+  }
+}
+
+.isWrong {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  padding-top: 25px;
+  &__text {
+    font-family: "Public Sans", sans-serif;
+    color: #4dd7ea;
+    font-size: 15px;
   }
 }
 </style>

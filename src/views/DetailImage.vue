@@ -10,6 +10,7 @@
 
     <div class="detail__image">
       <img :src="image.image" :alt="description" width="390" height="248" />
+      <p>{{ image.date }}</p>
       <p>{{ image.description }}</p>
     </div>
   </div>

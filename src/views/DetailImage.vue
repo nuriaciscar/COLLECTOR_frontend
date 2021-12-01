@@ -1,11 +1,17 @@
 <template>
   <div class="detail">
-    <div class="detail__top">
+    <div class="detail__items__top">
       <router-link to="/collections">
         <img src="../assets/next.png" class="back" width="25" height="13" />
       </router-link>
+
+      <h1 class="detail__items__top__title">{{ name }}</h1>
     </div>
-    <img :src="image" :alt="image.description" width="65" height="35" />
+
+    <div class="detail__image">
+      <img :src="image.image" :alt="description" width="390" height="248" />
+      <p>{{ image.description }}</p>
+    </div>
   </div>
 </template>
 
@@ -13,10 +19,14 @@
 import { defineComponent } from "vue";
 import { mapActions, mapState } from "vuex";
 import { useRoute } from "vue-router";
+// import Collection from "../components/Collection.vue";
 
 export default defineComponent({
   name: "DetailImage",
-
+  props: { collection: String, name: String, description: String },
+  components: {
+    // Collection,
+  },
   computed: {
     ...mapState(["image"]),
   },
@@ -39,22 +49,34 @@ export default defineComponent({
   width: 100%;
   height: 100vh;
   display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  &__items {
+    justify-content: space-around;
+    align-items: flex-start;
 
-  &__top {
+    &__top {
+      display: flex;
+      flex-direction: row;
+      border: none;
+      justify-content: center;
+      align-items: center;
+      width: 340px;
+      margin-top: 200px;
+
+      &__title {
+        font-weight: inherit;
+        font-size: 50px;
+      }
+    }
+  }
+  &__image {
+    width: 250px;
     display: flex;
-    flex-direction: row;
-    border: none;
     justify-content: center;
     align-items: center;
-    width: 340px;
-    margin-top: 200px;
-
-    &__title {
-      font-weight: inherit;
-      font-size: 50px;
-    }
+    flex-direction: column;
   }
 }
 </style>

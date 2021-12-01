@@ -18,6 +18,11 @@ const actions = {
     commit("loadImages", data);
   },
 
+  async fetchLoadImage({ commit }: ActionContext<State, State>, id: string): Promise<void> {
+    const { data } = await axios.get(`${process.env.VUE_APP_API_URL}/image/${id}`);
+    commit("loadImage", data);
+  },
+
   async fetchLoginUser({ commit }: ActionContext<State, State>, user: UserLogin): Promise<void> {
     const { data } = await axios.post(`${process.env.VUE_APP_API_URL}/user/login`, user);
     const { token } = data;

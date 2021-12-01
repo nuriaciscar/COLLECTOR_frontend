@@ -1,9 +1,12 @@
 <template>
   <div class="detail">
     <div class="detail__top">
-      <button class="back"><router-link to="/">back</router-link></button>
+      <router-link to="/">
+        <img src="../assets/next.png" class="back" width="25" height="13" />
+      </router-link>
+
       <h1 class="detail__top__title">{{ collection.name }}</h1>
-      <img src="../assets/Button.svg" class="detail__top__switch" width="70" height="40" />
+      <img src="../assets/Button.svg" class="detail__top__switch" width="65" height="35" />
     </div>
 
     <ul v-for="image in images" :key="image.id">
@@ -51,10 +54,9 @@ export default defineComponent({
 .detail {
   width: 100%;
   height: 100vh;
-  background-color: blue;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-around;
+  align-items: flex-start;
 
   &__top {
     display: flex;
@@ -63,10 +65,11 @@ export default defineComponent({
     justify-content: center;
     align-items: center;
     width: 340px;
+    margin-top: 200px;
 
     &__title {
       font-weight: inherit;
-      font-size: 43px;
+      font-size: 50px;
     }
   }
 }

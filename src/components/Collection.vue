@@ -1,13 +1,13 @@
 <template>
   <section class="collection">
-    <div v-for="collectionOne in collection" :key="collectionOne._id" class="collection__single">
-      <ul v-for="imageOne in images" :key="imageOne.id">
+    <div class="collection__single">
+      <ul v-for="image in images" :key="image.id">
         <Image
-          :description="imageOne.description"
-          :date="imageOne.date"
-          :image="imageOne.image"
-          :category="imageOne.category"
-          :owner="imageOne.owner"
+          :description="image.description"
+          :date="image.date"
+          :image="image.image"
+          :category="image.category"
+          :owner="image.owner"
         />
       </ul>
       <div class="collection__single__text">
@@ -31,7 +31,7 @@ export default defineComponent({
     Image,
   },
   computed: {
-    ...mapState(["images", "collection"]),
+    ...mapState(["collection"]),
   },
   methods: {
     ...mapActions(["fetchLoadImages", "fetchLoadCollection"]),
@@ -51,6 +51,16 @@ export default defineComponent({
 @import "../styles/_variables.scss";
 
 .collection__single {
+  padding-top: 20px;
+  display: flex;
+  align-items: flex-end;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
   &__text {
     padding-left: 15px;
     display: flex;

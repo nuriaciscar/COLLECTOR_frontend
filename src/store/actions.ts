@@ -1,5 +1,6 @@
 import axios from "axios";
 import { ActionContext } from "vuex";
+import jwtDecode from "jwt-decode";
 import { State, UserLogin, User } from "@/types/interfaces";
 
 const actions = {
@@ -18,9 +19,20 @@ const actions = {
   },
 
   async fetchLoginUser({ commit }: ActionContext<State, State>, user: UserLogin): Promise<void> {
-    const { data: userData } = await axios.post(`${process.env.VUE_APP_API_URL}/user/login`, user);
-    localStorage.setItem("user", JSON.stringify(userData));
+    const { data } = await axios.post(`${process.env.VUE_APP_API_URL}/user/login`, user);
+    const { token } = data;
+    const userData = jwtDecode(token);
+    localStorage.setItem("token", JSON.stringify({ token }));
     commit("loginUser", userData);
+  },
+
+  getToken({ commit }: ActionContext<State, State>): string | void {
+    try {
+      const token = JSON.parse(localStorage.getItem("token") || "");
+      commit("loginUser", jwtDecode(token.token));
+    } catch {
+      return "Cannot login";
+    }
   },
 
   async fetchRegisterUser({ commit }: ActionContext<State, State>, user: User): Promise<void> {

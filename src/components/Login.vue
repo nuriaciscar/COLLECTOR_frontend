@@ -56,8 +56,7 @@
           <button
             class="arrow__button"
             type="submit"
-            :disabled="isDisabled"
-            :class="username === '' || password === '' ? 'disabled' : ''"
+            :disabled="username === '' || password === ''"
           >
             →
           </button>
@@ -72,7 +71,7 @@
 
 <script lang="ts" scoped>
 import { defineComponent } from "vue";
-import { mapActions } from "vuex";
+import { mapActions, mapState } from "vuex";
 import { UserLogin } from "@/types/interfaces";
 
 export default defineComponent({
@@ -87,28 +86,41 @@ export default defineComponent({
       showPassword: false,
     };
   },
-  computed: {},
+  computed: {
+    ...mapState(["user"]),
+  },
   methods: {
-    ...mapActions(["fetchLoginUser"]),
-
+    ...mapActions(["getToken", "fetchLoginUser"]),
     async onSubmit() {
-      if (this.username !== "" && this.password !== "") {
-        const user: UserLogin = {
-          username: this.username,
-          password: this.password,
-        };
-        try {
+      try {
+        if (this.username !== "" && this.password !== "") {
+          const user: UserLogin = {
+            username: this.username,
+            password: this.password,
+          };
+
           await this.fetchLoginUser(user);
+          this.$router.push("/");
+          this.isDisabled = false;
           this.isIncorrect = false;
-        } catch (error) {
-          this.isIncorrect = true;
         }
+      } catch (error) {
+        this.isIncorrect = true;
+      }
+    },
+    goHome() {
+      if (this.user.isAuthenticated) {
+        this.$router.push("/");
       }
     },
 
     seePassword() {
       this.showPassword = !this.showPassword;
     },
+  },
+  mounted() {
+    this.getToken();
+    this.goHome();
   },
 });
 </script>

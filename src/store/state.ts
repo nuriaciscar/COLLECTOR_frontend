@@ -1,8 +1,19 @@
 import { State } from "@/types/interfaces";
 
 const state = {
-  user: "",
-  isAuthenticated: false,
+  user: {
+    isAuthenticated: false,
+    user: {
+      userId: "",
+      name: "",
+      username: "",
+      password: "",
+      email: "",
+      avatar: "",
+      collections: [],
+    },
+  },
+
   collections: [],
   collection: {
     id: "",

@@ -4,6 +4,7 @@ interface UserLogin {
 }
 
 interface User {
+  userId: string;
   name: string;
   username: string;
   password: string;
@@ -28,12 +29,14 @@ interface Collection {
 }
 
 interface State {
-  user: User;
+  user: {
+    isAuthenticated: boolean;
+    user: User;
+  };
   collections: Array<Collection>;
   collection: Collection;
   images: Array<Image>;
   image: Image;
-  isAuthenticated: boolean;
 }
 
 export { State, User, Collection, Image, UserLogin };

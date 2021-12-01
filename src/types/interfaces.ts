@@ -28,7 +28,10 @@ interface Collection {
 }
 
 interface State {
-  user: User;
+  user: {
+    isAuthenticated: false;
+    user: User;
+  };
   collections: Array<Collection>;
   collection: Collection;
   images: Array<Image>;

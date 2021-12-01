@@ -20,6 +20,7 @@
     "@vue/runtime-dom": "^3.2.23",
     "axios": "^0.24.0",
     "core-js": "^3.6.5",
+    "jwt-decode": "^3.1.2",
     "vue": "^3.0.0",
     "vue-horizontal-scroll": "^0.2.4",
     "vue-router": "^4.0.0-0",

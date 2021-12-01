@@ -1,7 +1,7 @@
 import axios from "axios";
 import { ActionContext } from "vuex";
+import jwtDecode from "jwt-decode";
 import { State, UserLogin, User } from "@/types/interfaces";
-import jwtDecode
 
 const actions = {
   async fetchLoadCollections({ commit }: ActionContext<State, State>): Promise<void> {
@@ -19,13 +19,12 @@ const actions = {
   },
 
   async fetchLoginUser({ commit }: ActionContext<State, State>, user: UserLogin): Promise<void> {
-    const { data} = await axios.post(`${process.env.VUE_APP_API_URL}/user/login`, user);
+    const { data } = await axios.post(`${process.env.VUE_APP_API_URL}/user/login`, user);
     const { token } = data;
     const userData = jwtDecode(token);
-    localStorage.setItem("token", JSON.stringify({token}));
+    localStorage.setItem("token", JSON.stringify({ token }));
     commit("loginUser", userData);
   },
-
 
   getToken({ commit }: ActionContext<State, State>): string | void {
     try {
@@ -35,7 +34,6 @@ const actions = {
       return "Cannot login";
     }
   },
-
 
   async fetchRegisterUser({ commit }: ActionContext<State, State>, user: User): Promise<void> {
     const { data: userData } = await axios.post(

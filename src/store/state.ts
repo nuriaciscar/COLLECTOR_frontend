@@ -3,7 +3,15 @@ import { State } from "@/types/interfaces";
 const state = {
   user: {
     isAuthenticated: false,
-    user: "",
+    user: {
+      userId: "",
+      name: "",
+      username: "",
+      password: "",
+      email: "",
+      avatar: "",
+      collections: [],
+    },
   },
 
   collections: [],

@@ -5,11 +5,11 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
+    "tests": "vue-cli-service test:unit --coverage",
     "lint": "vue-cli-service lint",
     "prepare": "husky install",
     "lintt": "npx eslint --ignore-path .gitignore ./src/**/*.vue",
-    "test": "vue-cli-service test:unit"
+    "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
@@ -17,6 +17,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/vue-fontawesome": "^2.0.6",
+    "@vue/runtime-dom": "^3.2.23",
     "axios": "^0.24.0",
     "core-js": "^3.6.5",
     "vue": "^3.0.0",
@@ -25,6 +26,10 @@
     "vuex": "^4.0.0-0"
   },
   "devDependencies": {
+    "@testing-library/dom": "^8.11.1",
+    "@testing-library/jest-dom": "^5.15.1",
+    "@testing-library/user-event": "^13.5.0",
+    "@testing-library/vue": "^6.4.2",
     "@types/jest": "^24.0.19",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",

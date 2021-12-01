@@ -1,6 +1,8 @@
 <template>
   <nav class="header">
-    <img class="header__home" src="@/assets/home.png" alt="Home icon" width="24" height="23" />
+    <router-link to="/collections"
+      ><img class="header__home" src="@/assets/home.png" alt="Home icon" width="24" height="23" />
+    </router-link>
     <p class="header__feed">Feed</p>
     <p class="header__logo">COLLECTOR</p>
     <img

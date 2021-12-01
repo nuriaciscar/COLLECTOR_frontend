@@ -1,83 +1,73 @@
 <template>
   <div class="detail">
+    <div class="detail__top">
+      <button class="back"><router-link to="/">back</router-link></button>
+      <h1 class="detail__top__title">{{ collection.name }}</h1>
+      <img src="../assets/Button.svg" class="detail__top__switch" width="70" height="40" />
+    </div>
 
-      <div class="detail__top">
-       <button class="back">back</button>
-       <h1 class="detail__top__title">{{collection.name}}<h1>
-       <img class="detail__top__switch" />
-      </div>
-<ul v-for="image in images" :key="image.id" >
-       <Image
-          :description="image.description"
-          :date="image.date"
-          :image="image.image"
-          :category="image.category"
-          :owner="image.owner"
-        />
-      </ul>
+    <ul v-for="image in images" :key="image.id">
+      <Image
+        :description="image.description"
+        :date="image.date"
+        :image="image.image"
+        :category="image.category"
+        :owner="image.owner"
+      />
+    </ul>
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from "vue";
 import { mapState, mapActions } from "vuex";
 import { useRoute } from "vue-router";
-import "vue-horizontal-scroll/dist/vue-horizontal-scroll.css";
-import { defineComponent } from "vue";
+import Image from "@/components/Image.vue";
 
 export default defineComponent({
   name: "DetailCollection",
-    props: { name: String, date: String, images: Array, id: String },
-     components: {
+  props: { name: String, date: String, images: Array, id: String },
+  components: {
     Image,
   },
   computed: {
-    ...mapState(["collection"]),
+    ...mapState(["images", "collection"]),
   },
   methods: {
-    ...mapActions(["fetchLoadCollection"]),
+    ...mapActions(["fetchLoadImages", "fetchLoadCollection"]),
   },
   mounted() {
+    this.fetchLoadImages();
     const route = useRoute();
-    const { id } = req.params;
-    this.fetchLoadCollection();
+    const { id } = route.params;
+    this.fetchLoadCollection(id);
   },
 });
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-.horizontal-scroll {
-  display: flex;
+<style scoped lang="scss">
+@import "../styles/_mixins.scss";
+@import "../styles/_variables.scss";
+.detail {
   width: 100%;
-  height: 150px;
-  border: solid 2px #2c3e50;
-}
-.outer {
+  height: 100vh;
+  background-color: blue;
   display: flex;
-  flex: 1;
-  width: auto;
-  height: 100%;
-  padding: 0 20px;
-  flex-flow: row nowrap;
-  align-items: center;
-}
-.inner-content {
-  flex-shrink: 0;
-  align-items: center;
   justify-content: center;
-  width: 100px;
-  height: calc(100% - 40px);
-  border: solid 1px #2c3e50;
-  border-radius: 5px;
-}
-.inner-content:not(:first-of-type) {
-  margin-left: 30px;
+  align-items: center;
+
+  &__top {
+    display: flex;
+    flex-direction: row;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    width: 340px;
+
+    &__title {
+      font-weight: inherit;
+      font-size: 43px;
+    }
+  }
 }
 </style>

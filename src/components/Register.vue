@@ -1,26 +1,27 @@
 <template>
-  <section class="login">
+  <section class="register">
     <img
-      class="login__image"
+      class="register__image"
       src="./../assets/Logo-Thin.png"
       alt="Logotype Collector"
       width="250"
       height="17"
     />
-    <h2 class="login__title">Welcome back</h2>
-    <form class="login__form" autocomplete="off" @submit.prevent="onSubmit" @change="onChangeForm">
-      <label for="username" type="text" :class="isIncorrect ? 'incorrect' : 'incorrect '"
-        >Username</label
-      >
+    <h2 class="register__title">Welcome back</h2>
+    <form
+      class="register__form"
+      autocomplete="off"
+      @submit.prevent="onSubmit"
+      @change="onChangeForm"
+    >
+      <label for="username" type="text">Username</label>
       <input
         id="username"
         placeholder="Loling"
         v-model="username"
         :class="isIncorrect ? 'incorrect' : ''"
       />
-      <label for="password" type="password" :class="isIncorrect ? 'incorrect' : 'incorrect '"
-        >Password</label
-      >
+      <label for="password" type="password">Password</label>
       <input
         id="password"
         type="password"
@@ -30,7 +31,7 @@
       />
       <div class="bottom">
         <div class="sign">
-          <router-link to="/register">
+          <router-link to="/login">
             <p class="sign__signIn">or Sign In</p>
           </router-link>
         </div>
@@ -55,18 +56,23 @@ import { mapActions } from "vuex";
 import { UserLogin } from "@/types/interfaces";
 
 export default defineComponent({
-  name: "Login",
+  name: "Register",
   components: {},
   data() {
     return {
+      name: "",
       username: "",
       password: "",
+      email: "",
+      avatar: "",
+      repeatPassword: "",
+      isWrong: false,
       isDisabled: true,
-      isIncorrect: false,
+      isWrongEmail: false,
     };
   },
   methods: {
-    ...mapActions(["fetchLoginUser"]),
+    ...mapActions(["fetchRegisterUser"]),
     onChangeForm() {
       if (this.username.length > 2 && this.password.length > 2) {
         this.isDisabled = false;
@@ -81,10 +87,10 @@ export default defineComponent({
           password: this.password,
         };
         try {
-          await this.fetchLoginUser(user);
-          this.isIncorrect = false;
+          await this.fetchRegisterUser(user);
+          this.isWrong = false;
         } catch (error) {
-          this.isIncorrect = true;
+          this.isWrong = true;
         }
       }
     },
@@ -96,7 +102,7 @@ export default defineComponent({
 @import "../styles/_mixins.scss";
 @import "../styles/_variables.scss";
 
-.login {
+.register {
   display: flex;
   flex-direction: column;
   background-color: $red;
@@ -156,7 +162,6 @@ export default defineComponent({
 
   &:focus {
     border: none;
-    color: red;
   }
 
   &.disabled {

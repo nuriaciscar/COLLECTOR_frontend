@@ -11,15 +11,6 @@ interface User {
   avatar: string;
   collections: Array<string>;
 }
-
-interface UserRegister {
-  name: string;
-  username: string;
-  password: string;
-  email: string;
-  avatar: string;
-  collections: Array<string>;
-}
 interface Image {
   description: string;
   date: Date;
@@ -45,4 +36,4 @@ interface State {
   isAuthenticated: boolean;
 }
 
-export { State, User, Collection, Image, UserLogin, UserRegister };
+export { State, User, Collection, Image, UserLogin };

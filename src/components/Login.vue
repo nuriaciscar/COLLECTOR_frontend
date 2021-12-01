@@ -21,13 +21,31 @@
       <label for="password" type="password" :class="isIncorrect ? 'incorrect' : 'incorrect '"
         >Password</label
       >
+      <div class="control">
+        <button class="eye" @click="seePassword">
+          <span class="icon">
+            <i class="fas" :class="{ 'fa-eye-slash': showPassword, 'fa-eye': !showPassword }"></i>
+          </span>
+        </button>
+      </div>
+
       <input
+        v-if="showPassword"
+        type="text"
         id="password"
-        type="password"
         placeholder="******"
         v-model="password"
         :class="isIncorrect ? 'incorrect' : ''"
       />
+      <input
+        v-else
+        type="password"
+        id="password"
+        placeholder="******"
+        v-model="password"
+        :class="isIncorrect ? 'incorrect' : ''"
+      />
+
       <div class="bottom">
         <div class="sign">
           <router-link to="/register">
@@ -66,8 +84,10 @@ export default defineComponent({
       password: "",
       isDisabled: true,
       isIncorrect: false,
+      showPassword: false,
     };
   },
+  computed: {},
   methods: {
     ...mapActions(["fetchLoginUser"]),
     onChangeForm() {
@@ -90,6 +110,13 @@ export default defineComponent({
           this.isIncorrect = true;
         }
       }
+    },
+    buttonLabel() {
+      return this.showPassword ? "Hide" : "Show";
+    },
+
+    seePassword() {
+      this.showPassword = !this.showPassword;
     },
   },
 });

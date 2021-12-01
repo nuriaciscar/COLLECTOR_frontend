@@ -18,17 +18,17 @@
         v-model="username"
         :class="isIncorrect ? 'incorrect' : ''"
       />
-      <label for="password" type="password" :class="isIncorrect ? 'incorrect' : 'incorrect '"
-        >Password</label
-      >
       <div class="control">
+        <label for="password" type="password" :class="isIncorrect ? 'incorrect' : 'incorrect '"
+          >Password</label
+        >
+
         <button class="eye" @click="seePassword">
           <span class="icon">
             <i class="fas" :class="{ 'fa-eye-slash': showPassword, 'fa-eye': !showPassword }"></i>
           </span>
         </button>
       </div>
-
       <input
         v-if="showPassword"
         type="text"
@@ -57,7 +57,7 @@
             class="arrow__button"
             type="submit"
             :disabled="isDisabled"
-            :class="isDisabled ? 'disabled' : ''"
+            :class="username === '' || password === '' ? 'disabled' : ''"
           >
             →
           </button>
@@ -110,9 +110,6 @@ export default defineComponent({
           this.isIncorrect = true;
         }
       }
-    },
-    buttonLabel() {
-      return this.showPassword ? "Hide" : "Show";
     },
 
     seePassword() {
@@ -207,5 +204,23 @@ export default defineComponent({
     color: #4dd7ea;
     font-size: 15px;
   }
+}
+
+.control {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 240px;
+  justify-content: space-between;
+}
+
+.eye {
+  background-color: transparent;
+  border: none;
+  height: 13px;
+}
+.icon {
+  padding-top: 3px;
+  display: flex;
 }
 </style>

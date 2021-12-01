@@ -1,6 +1,6 @@
 <template>
   <div class="image">
-    <img :src="imageLocal" alt="{{description}}" width="100px" height="65px" class="image__img" />
+    <img :src="image" :alt="description" width="100" height="65" class="image__img" />
   </div>
 </template>
 
@@ -13,7 +13,6 @@ export default defineComponent({
     image: String,
     description: String,
     date: Date,
-    imageLocal: String,
     category: String,
     owner: Array,
     id: String,

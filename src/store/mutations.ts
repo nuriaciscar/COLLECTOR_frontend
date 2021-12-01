@@ -10,6 +10,9 @@ const mutations = {
   loadImages(state: State, payload: Array<Image>): void {
     state.images = payload;
   },
+  loadImage(state: State, payload: Image): void {
+    state.image = payload;
+  },
   loginUser(state: State, payload: User): void {
     state.user.user = payload;
     state.user.isAuthenticated = true;

@@ -48,7 +48,7 @@ body {
   margin: 0;
   padding: 0;
   text-decoration: none;
-  font-family: "Canela";
+  font-family: "Canela", serif;
   font-weight: 200;
 }
 

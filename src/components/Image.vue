@@ -21,13 +21,13 @@ export default defineComponent({
     owner: Array,
     id: String,
   },
-  methods:{
-    getClass(){
+  methods: {
+    getClass() {
       return {
-'horizontal': {this.image.width > this.image.height;}
-      }
-    }
-  }
+        // 'horizontal': this.image(width > height)
+      };
+    },
+  },
 });
 </script>
 

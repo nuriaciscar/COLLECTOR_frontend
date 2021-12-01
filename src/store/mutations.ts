@@ -1,4 +1,4 @@
-import { State, Collection, Image, User } from "@/types/interfaces";
+import { State, Collection, Image } from "@/types/interfaces";
 
 const mutations = {
   loadCollections(state: State, payload: Array<Collection>): void {

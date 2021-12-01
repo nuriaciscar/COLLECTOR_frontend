@@ -33,7 +33,7 @@ export default defineComponent({
     Image,
   },
   computed: {
-    ...mapState(["collection"]),
+    ...mapState(["images", "collection"]),
   },
   methods: {
     ...mapActions(["fetchLoadImages", "fetchLoadCollection"]),

@@ -1,7 +1,7 @@
 <template>
   <div class="detail">
     <div class="detail__top">
-      <router-link to="/">
+      <router-link to="/collections">
         <img src="../assets/next.png" class="back" width="25" height="13" />
       </router-link>
 
@@ -23,9 +23,9 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { mapState, mapActions } from "vuex";
+import { mapActions, mapState } from "vuex";
 import { useRoute } from "vue-router";
-import Image from "@/components/Image.vue";
+import Image from "../components/Image.vue";
 
 export default defineComponent({
   name: "DetailCollection",
@@ -34,11 +34,12 @@ export default defineComponent({
     Image,
   },
   computed: {
-    ...mapState(["images", "collection"]),
+    ...mapState(["collection"]),
   },
   methods: {
     ...mapActions(["fetchLoadImages", "fetchLoadCollection"]),
   },
+
   mounted() {
     this.fetchLoadImages();
     const route = useRoute();

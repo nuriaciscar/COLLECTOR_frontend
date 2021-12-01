@@ -5,7 +5,7 @@ import DetailCollection from "../views/DetailCollection.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: "/",
+    path: "/collections",
     name: "Home",
     component: Home,
   },

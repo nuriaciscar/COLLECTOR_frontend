@@ -3,7 +3,7 @@
     <img
       :src="image"
       :alt="description"
-      :class="image.width > image.height ? 'horizontal' : 'vertical'"
+      v-bind:class="image.width > image.height ? 'horizontal' : 'vertical'"
     />
   </div>
 </template>
@@ -35,13 +35,10 @@ export default defineComponent({
 @import "../styles/_mixins.scss";
 @import "../styles/_variables.scss";
 
-.collection__single {
-  .image {
-    object-fit: cover;
-    padding-left: 15px;
-  }
+.image {
+  object-fit: cover;
+  padding-left: 15px;
 }
-
 .horizontal {
   width: 100px;
   height: 65px;

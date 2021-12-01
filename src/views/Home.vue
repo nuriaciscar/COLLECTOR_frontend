@@ -1,5 +1,5 @@
 <template>
-  <div class="home" v-if="!['login', 'register'].includes($route.name)">
+  <div class="home">
     <section class="home__image">
       <img
         class="home__image__big"
@@ -65,7 +65,7 @@ export default defineComponent({
     height: 600px;
     overflow-y: scroll;
     overflow-x: hidden;
-    padding-top: 400px;
+    padding-top: 300px;
     &::-webkit-scrollbar {
       display: none;
     }

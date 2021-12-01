@@ -5,13 +5,14 @@ const state = {
   isAuthenticated: false,
   collections: [],
   collection: {
-    _id: "",
+    id: "",
     name: "",
     date: "",
     images: [],
   },
   images: [],
   image: {
+    id: "",
     description: "",
     date: "",
     image: "",

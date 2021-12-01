@@ -90,13 +90,7 @@ export default defineComponent({
   computed: {},
   methods: {
     ...mapActions(["fetchLoginUser"]),
-    onChangeForm() {
-      if (this.username.length > 2 && this.password.length > 2) {
-        this.isDisabled = false;
-      } else {
-        this.isDisabled = true;
-      }
-    },
+
     async onSubmit() {
       if (this.username !== "" && this.password !== "") {
         const user: UserLogin = {

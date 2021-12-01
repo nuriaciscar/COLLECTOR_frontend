@@ -1,6 +1,10 @@
 <template>
   <div class="image">
-    <img :src="image" :alt="description" width="100" height="65" class="image__img" />
+    <img
+      :src="image"
+      :alt="description"
+      :class="image.width > image.height ? 'horizontal' : 'vertical'"
+    />
   </div>
 </template>
 
@@ -17,6 +21,13 @@ export default defineComponent({
     owner: Array,
     id: String,
   },
+  methods:{
+    getClass(){
+      return {
+'horizontal': {this.image.width > this.image.height;}
+      }
+    }
+  }
 });
 </script>
 
@@ -29,5 +40,15 @@ export default defineComponent({
     object-fit: cover;
     padding-left: 15px;
   }
+}
+
+.horizontal {
+  width: 100px;
+  height: 65px;
+}
+
+.vertical {
+  width: 69px;
+  height: 94px;
 }
 </style>

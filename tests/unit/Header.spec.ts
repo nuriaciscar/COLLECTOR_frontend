@@ -8,9 +8,8 @@ describe("Given a Header component", () => {
       render(Header);
 
       const logo = screen.getByText("COLLECTOR");
-      const avatar = screen.getByRole("img");
+
       expect(logo).toBeInTheDocument();
-      expect(avatar).toHaveAttribute("src", "@/assets/popular2.jpeg ");
     });
   });
 });

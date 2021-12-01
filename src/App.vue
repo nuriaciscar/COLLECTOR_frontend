@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <Header />
-    <Footer />
+    <Header v-if="!['/login', '/register'].includes($route.path)" />
+    <Footer v-if="!['/login', '/register'].includes($route.path)" />
   </div>
   <router-view />
 </template>

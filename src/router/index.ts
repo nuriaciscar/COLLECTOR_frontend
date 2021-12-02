@@ -6,6 +6,10 @@ import DetailImage from "../views/DetailImage.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
+    path: "/",
+    redirect: "/collections",
+  },
+  {
     path: "/collections",
     name: "Home",
     component: Home,

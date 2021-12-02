@@ -1,7 +1,7 @@
 <template>
   <section class="profile">
     <section class="profile__image">
-      <img src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg" alt="Avatar" />
+      <img :src="avatar" alt="Avatar" />
     </section>
     <section class="profile__data">
       <p>{{ idUser }}</p>

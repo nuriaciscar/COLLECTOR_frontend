@@ -52,9 +52,9 @@ export default defineComponent({
   display: flex;
   flex-direction: row;
   font-family: "Canela", sans-serif;
-  position: fixed;
+  position: absolute;
   font-size: 20px;
-  margin-top: 10px;
+  margin-top: 15px;
   justify-content: center;
   align-items: center;
   width: 100vw;
@@ -65,18 +65,29 @@ export default defineComponent({
   }
 
   &__logo {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 26px;
+    padding-right: 26px;
   }
   &__feed {
-    padding-left: 10px;
+    padding-left: 12px;
   }
   &__search {
-    padding-right: 10px;
+    padding-right: 12px;
     padding-bottom: 3px;
   }
   &__home {
     padding-bottom: 3px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .header {
+    font-size: 25px;
+    margin-top: 30px;
+    justify-content: space-between;
+    &__home {
+      display: none;
+    }
   }
 }
 </style>

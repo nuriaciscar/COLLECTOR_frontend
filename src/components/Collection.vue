@@ -88,4 +88,11 @@ export default defineComponent({
     padding-left: 15px;
   }
 }
+@media screen and (min-width: 800px) {
+  .collection__single {
+    overflow: hidden;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+}
 </style>

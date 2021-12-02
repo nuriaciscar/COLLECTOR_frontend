@@ -11,10 +11,12 @@
     <div class="detail__image">
       <button @click="previousImage">Previous</button>
 
-      <img :src="image.image" :alt="description" width="390" height="248" />
+      <img :src="image.image" :alt="description" width="390" height="260" />
       <button @click="nextImage">Next</button>
-      <p>{{ image.date }}</p>
-      <p>{{ image.description }}</p>
+      <div class="detail__image__text">
+        <p class="detail__image__text__date">{{ image.date }}</p>
+        <p class="detail__image__text__description">{{ image.description }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -65,9 +67,9 @@ export default defineComponent({
   width: 100%;
   height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
+
   &__items {
     justify-content: space-around;
     align-items: flex-start;
@@ -76,10 +78,10 @@ export default defineComponent({
       display: flex;
       flex-direction: row;
       border: none;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
-      width: 340px;
-      margin-top: 200px;
+      width: 320px;
+      margin-top: 130px;
 
       &__title {
         font-weight: inherit;
@@ -93,6 +95,26 @@ export default defineComponent({
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    &__text {
+      display: flex;
+      margin-top: 80px;
+      align-items: center;
+      flex-direction: column;
+
+      &__date {
+        font-size: 18px;
+        padding-bottom: 20px;
+      }
+      &__description {
+        font-family: "Public Sans", sans-serif;
+        font-size: 16px;
+      }
+    }
+  }
+
+  img {
+    object-fit: cover;
+    font-size: 18px;
   }
 }
 </style>

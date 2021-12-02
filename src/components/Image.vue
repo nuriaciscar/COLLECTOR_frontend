@@ -56,4 +56,15 @@ export default defineComponent({
   width: 69px;
   height: 94px;
 }
+
+// @media screen and (min-width: 800px) {
+//   .image {
+//     padding: 0;
+//     object-fit: cover;
+//   }
+//   .vertical {
+//     width: 360px;
+//     height: 360px;
+//   }
+// }
 </style>

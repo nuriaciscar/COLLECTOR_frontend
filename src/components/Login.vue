@@ -161,7 +161,7 @@ export default defineComponent({
   justify-content: flex-end;
   width: 25%;
   &__button {
-    @include button;
+    @include buttonForm;
   }
 }
 
@@ -228,4 +228,45 @@ export default defineComponent({
   padding-top: 3px;
   display: flex;
 }
+
+// @media screen and (min-width: 800px) {
+//   .login {
+//     &__image {
+//       object-fit: contain;
+//       padding-top: 45px;
+//       padding-bottom: 55px;
+//     }
+
+//     &__title {
+//       @include title_form;
+//       font-size: 80px;
+//       padding-top: 50px;
+//     }
+
+//     &__form {
+//       width: 380px;
+//       & input {
+//         width: 380px;
+//         height: 40px;
+//       }
+//     }
+//   }
+// }
+// .control {
+//   width: 360px;
+// }
+
+// .bottom {
+//   width: 380px;
+//   padding-top: 30px;
+// }
+
+// .arrow__button {
+//   width: 70px;
+//   height: 70px;
+// }
+
+// .sign__signIn {
+//   font-size: 27px;
+// }
 </style>

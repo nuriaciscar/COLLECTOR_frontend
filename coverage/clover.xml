@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1638371750972" clover="3.2.0">
-  <project timestamp="1638371750973" name="All files">
-    <metrics statements="19" coveredstatements="13" conditionals="4" coveredconditionals="0" methods="4" coveredmethods="2" elements="27" coveredelements="15" complexity="0" loc="19" ncloc="19" packages="2" files="7" classes="7"/>
+<coverage generated="1638436303487" clover="3.2.0">
+  <project timestamp="1638436303487" name="All files">
+    <metrics statements="20" coveredstatements="10" conditionals="6" coveredconditionals="0" methods="4" coveredmethods="1" elements="30" coveredelements="11" complexity="0" loc="20" ncloc="20" packages="2" files="6" classes="6"/>
     <package name="assets">
       <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="Logo-Thin.png" path="/Users/nuriaciscar/Downloads/skylab/collector/frontend/src/assets/Logo-Thin.png">
@@ -22,30 +22,28 @@
       </file>
     </package>
     <package name="components">
-      <metrics statements="15" coveredstatements="9" conditionals="4" coveredconditionals="0" methods="4" coveredmethods="2"/>
-      <file name="Footer.vue" path="/Users/nuriaciscar/Downloads/skylab/collector/frontend/src/components/Footer.vue">
-        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
-      </file>
+      <metrics statements="16" coveredstatements="6" conditionals="6" coveredconditionals="0" methods="4" coveredmethods="1"/>
       <file name="Header.vue" path="/Users/nuriaciscar/Downloads/skylab/collector/frontend/src/components/Header.vue">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="18" count="1" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
       </file>
       <file name="Login.vue" path="/Users/nuriaciscar/Downloads/skylab/collector/frontend/src/components/Login.vue">
-        <metrics statements="10" coveredstatements="4" conditionals="4" coveredconditionals="0" methods="3" coveredmethods="1"/>
+        <metrics statements="14" coveredstatements="4" conditionals="6" coveredconditionals="0" methods="4" coveredmethods="1"/>
+        <line num="73" count="1" type="stmt"/>
         <line num="74" count="1" type="stmt"/>
-        <line num="75" count="1" type="stmt"/>
-        <line num="78" count="1" type="stmt"/>
-        <line num="82" count="2" type="stmt"/>
+        <line num="77" count="1" type="stmt"/>
+        <line num="80" count="2" type="stmt"/>
         <line num="95" count="0" type="cond" truecount="0" falsecount="4"/>
         <line num="96" count="0" type="stmt"/>
         <line num="101" count="0" type="stmt"/>
         <line num="102" count="0" type="stmt"/>
+        <line num="103" count="0" type="stmt"/>
         <line num="104" count="0" type="stmt"/>
-        <line num="110" count="0" type="stmt"/>
+        <line num="107" count="0" type="stmt"/>
+        <line num="111" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="112" count="0" type="stmt"/>
+        <line num="117" count="0" type="stmt"/>
       </file>
     </package>
   </project>

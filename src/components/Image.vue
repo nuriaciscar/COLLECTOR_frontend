@@ -10,6 +10,8 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { useRoute } from "vue-router";
+import { mapActions } from "vuex";
 
 export default defineComponent({
   name: "Image",
@@ -21,12 +23,19 @@ export default defineComponent({
     owner: Array,
     id: String,
   },
+
   methods: {
     getClass() {
       return {
         // 'horizontal': this.image(width > height)
       };
     },
+    ...mapActions(["fetchLoadImage"]),
+  },
+  mounted() {
+    const route = useRoute();
+    const { id } = route.params;
+    this.fetchLoadImage(id);
   },
 });
 </script>

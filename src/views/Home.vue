@@ -21,12 +21,26 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { mapState } from "vuex";
 import CollectionList from "@/components/CollectionList.vue";
 
 export default defineComponent({
   name: "Home",
   components: {
     CollectionList,
+  },
+  computed: {
+    ...mapState(["user"]),
+  },
+  methods: {
+    redirectToLogin() {
+      if (!this.user.isAuthenticated) {
+        this.$router.push("/login");
+      }
+    },
+  },
+  mounted() {
+    this.redirectToLogin();
   },
 });
 </script>
@@ -42,18 +56,19 @@ export default defineComponent({
   margin: 0;
   box-sizing: border-box;
   justify-content: space-between;
+
   &__image {
     width: 100%;
     margin-bottom: 20px;
     padding: 0;
     height: 280px;
     position: absolute;
-    z-index: 3;
+
     &__big {
       width: 100%;
       height: 210px;
       margin: 0;
-      padding-top: 65px;
+      margin-top: 65px;
       object-fit: cover;
     }
     &__date {

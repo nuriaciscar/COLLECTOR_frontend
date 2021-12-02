@@ -14,31 +14,33 @@
       height="24"
     />
 
-    <router-link :to="`/user/${idUser}`">
-      <!-- <router-link :to="{ name: 'Profile', params: { user.idUser } }"> -->
-      <img class="header__avatar" src="@/assets/popular2.png" alt="Avatar" width="35" height="35" />
+    <router-link :to="`/user/${user.user.idUser}`">
+      <!-- <router-link :to="{ name: 'Profile', params: { idUser: user.user.idUser } }"> -->
+      <img class="header__avatar" :src="user.user.avatar" alt=" " width="35" height="35" />
     </router-link>
   </nav>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { mapActions } from "vuex";
+import { mapActions, mapState } from "vuex";
 import { useRoute } from "vue-router";
 
 export default defineComponent({
   name: "Header",
-  props: { user: String, idUser: String },
 
+  computed: {
+    ...mapState(["user"]),
+  },
   methods: {
     ...mapActions(["fetchUser"]),
   },
 
-  // mounted() {
-  //   const route = useRoute();
-  //   const { idUser } = route.params;
-  //   this.fetchUser(idUser);
-  // },
+  mounted() {
+    const route = useRoute();
+    const { idUser } = route.params;
+    this.fetchUser(idUser);
+  },
 });
 </script>
 
@@ -56,7 +58,7 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   width: 100vw;
-  z-index: 0;
+  z-index: 3;
 
   &__avatar {
     border-radius: 50%;

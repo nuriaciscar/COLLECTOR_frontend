@@ -7,9 +7,9 @@
         alt="Description of image"
       />
       <p class="home__image__date">INDIA 2 YEARS AGO</p>
-      <div class="button">
-        <button class="button__add"><img src="../assets/addButton.png" /></button>
-        <p class="button__sort">Sort by</p>
+      <div class="buttonn">
+        <button class="buttonn__add"><img src="../assets/addButton.png" /></button>
+        <p class="buttonn__sort">Sort by</p>
       </div>
     </section>
 
@@ -83,8 +83,6 @@ export default defineComponent({
     width: 100vw;
     margin-top: 45px;
     height: 600px;
-    overflow-y: scroll;
-    overflow-x: hidden;
     padding-top: 300px;
     &::-webkit-scrollbar {
       display: none;
@@ -92,19 +90,39 @@ export default defineComponent({
   }
 }
 
-.button {
+.buttonn {
   border: none;
-  margin-left: 75%;
+  margin-left: 72%;
   display: flex;
   flex-direction: row;
   align-items: center;
+  height: 20px;
+  background-color: transparent;
   &__add {
     border: none;
   }
   &__sort {
     font-family: "Public Sans", sans-serif;
     color: $blue;
-    padding-left: 10px;
+    padding-left: 5px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .home {
+    &__image {
+      &__big {
+        width: 100%;
+        height: 750px;
+        margin-top: 200px;
+        object-fit: cover;
+      }
+      &__date {
+        margin-top: -800px;
+        padding-left: 70px;
+        font-size: 16px;
+      }
+    }
   }
 }
 </style>

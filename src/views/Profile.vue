@@ -25,11 +25,26 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { mapActions, mapState } from "vuex";
+import { useRoute } from "vue-router";
 
 
 export default defineComponent({
   name: "Profile",
 
+ computed: {
+    ...mapState(["user"]),
+  },
+  methods: {
+    ...mapActions(["fetchUser"]),
+  },
+
+mounted() {
+
+    const route = useRoute();
+    const { id } = route.params;
+    this.fetchUser(id);
+  },
 });
 </script>
 

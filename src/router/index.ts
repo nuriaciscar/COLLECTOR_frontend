@@ -3,6 +3,7 @@ import Home from "../views/Home.vue";
 import LoginPage from "../views/LoginPage.vue";
 import DetailCollection from "../views/DetailCollection.vue";
 import DetailImage from "../views/DetailImage.vue";
+import Profile from "../views/Profile.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -29,6 +30,12 @@ const routes: Array<RouteRecordRaw> = [
     path: "/image/:id",
     name: "DetailImage",
     component: DetailImage,
+  },
+
+  {
+    path: "/user/:id",
+    name: "Profile",
+    component: Profile,
   },
 ];
 

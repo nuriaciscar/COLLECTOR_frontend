@@ -9,6 +9,7 @@
       <p class="home__image__date">INDIA 2 YEARS AGO</p>
       <div class="button">
         <button class="button__add"><img src="../assets/addButton.png" /></button>
+        <p class="button__sort">Sort by</p>
       </div>
     </section>
 
@@ -78,9 +79,17 @@ export default defineComponent({
 
 .button {
   border: none;
-  margin-left: 85%;
+  margin-left: 75%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   &__add {
     border: none;
+  }
+  &__sort {
+    font-family: "Public Sans", sans-serif;
+    color: $blue;
+    padding-left: 10px;
   }
 }
 </style>

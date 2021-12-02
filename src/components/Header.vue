@@ -23,7 +23,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { mapActions, mapState } from "vuex";
+import { mapActions } from "vuex";
 import { useRoute } from "vue-router";
 
 export default defineComponent({
@@ -34,11 +34,11 @@ export default defineComponent({
     ...mapActions(["fetchUser"]),
   },
 
-  mounted() {
-    const route = useRoute();
-    const { idUser } = route.params;
-    this.fetchUser(idUser);
-  },
+  // mounted() {
+  //   const route = useRoute();
+  //   const { idUser } = route.params;
+  //   this.fetchUser(idUser);
+  // },
 });
 </script>
 

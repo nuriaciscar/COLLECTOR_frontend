@@ -10,7 +10,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { useRoute } from "vue-router";
+
 import { mapActions } from "vuex";
 
 export default defineComponent({

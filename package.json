@@ -9,7 +9,8 @@
     "lint": "vue-cli-service lint",
     "prepare": "husky install",
     "lintt": "npx eslint --ignore-path .gitignore ./src/**/*.vue",
-    "test:unit": "vue-cli-service test:unit"
+    "test:unit": "vue-cli-service test:unit",
+    "test": "vue-cli-service test:unit"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",

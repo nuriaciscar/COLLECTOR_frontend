@@ -7,7 +7,11 @@
         alt="Description of image"
       />
       <p class="home__image__date">INDIA 2 YEARS AGO</p>
+      <div class="button">
+        <button class="button__add"><img src="../assets/addButton.png" /></button>
+      </div>
     </section>
+
     <section class="home__collections">
       <CollectionList />
     </section>
@@ -69,6 +73,14 @@ export default defineComponent({
     &::-webkit-scrollbar {
       display: none;
     }
+  }
+}
+
+.button {
+  border: none;
+  margin-left: 85%;
+  &__add {
+    border: none;
   }
 }
 </style>

@@ -2,13 +2,15 @@
   <section class="collection">
     <div class="collection__single">
       <ul v-for="image in images" :key="image.id">
-        <Image
-          :description="image.description"
-          :date="image.date"
-          :image="image.image"
-          :category="image.category"
-          :owner="image.owner"
-        />
+        <router-link :to="{ name: 'DetailImage', params: { id: id } }">
+          <Image
+            :description="image.description"
+            :date="image.date"
+            :image="image.image"
+            :category="image.category"
+            :owner="image.owner"
+          />
+        </router-link>
       </ul>
       <div class="collection__single__text">
         <router-link :to="{ name: 'DetailCollection', params: { id: id } }">
@@ -28,7 +30,7 @@ import Image from "./Image.vue";
 
 export default defineComponent({
   name: "Collection",
-  props: { name: String, date: String, images: Array, id: String },
+  props: { name: String, date: Date || String, images: Array, id: String },
   components: {
     Image,
   },

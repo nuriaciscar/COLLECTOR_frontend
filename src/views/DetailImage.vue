@@ -9,7 +9,10 @@
     </div>
 
     <div class="detail__image">
+      <button @click="previousImage">Previous</button>
+
       <img :src="image.image" :alt="description" width="390" height="248" />
+      <button @click="nextImage">Next</button>
       <p>{{ image.date }}</p>
       <p>{{ image.description }}</p>
     </div>
@@ -28,11 +31,23 @@ export default defineComponent({
   components: {
     // Collection,
   },
+  data() {
+    return {
+      currentImage: 0,
+    };
+  },
   computed: {
     ...mapState(["image"]),
   },
   methods: {
     ...mapActions(["fetchLoadImage"]),
+
+    nextImage() {
+      this.currentImage += 1;
+    },
+    previousImage() {
+      this.currentImage -= 1;
+    },
   },
 
   mounted() {

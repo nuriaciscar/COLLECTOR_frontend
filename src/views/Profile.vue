@@ -7,7 +7,7 @@
       <p>{{ idUser }}</p>
       <div class="button">
         <router-link to="/login">
-          <button class="button__add">Logout</button>
+          <button class="button__add" @click="logoutUserAction">LOGOUT</button>
         </router-link>
       </div>
     </section>
@@ -22,10 +22,10 @@ export default defineComponent({
   name: "Profile",
 
   computed: {
-    ...mapState(["user"]),
+    ...mapState(["user", "isAuthenticated"]),
   },
   methods: {
-    ...mapActions(["fetchUser"]),
+    ...mapActions(["fetchUser", "logoutUserAction"]),
   },
 });
 </script>
@@ -33,4 +33,23 @@ export default defineComponent({
 <style lang="scss">
 @import "../styles/variables";
 @import "../styles/mixins";
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.button__add {
+  cursor: pointer;
+  margin-top: 600px;
+  border: none;
+  background-color: $red;
+  border-radius: 60px;
+  color: #000;
+  font-family: "Public Sans", sans-serif;
+  font-size: 15px;
+  width: 110px;
+  height: 37px;
+}
 </style>

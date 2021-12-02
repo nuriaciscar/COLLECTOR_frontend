@@ -4,7 +4,7 @@ const state = {
   user: {
     isAuthenticated: false,
     user: {
-      userId: "",
+      idUser: "",
       name: "",
       username: "",
       password: "",

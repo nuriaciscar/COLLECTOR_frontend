@@ -90,6 +90,20 @@ const actions = {
     localStorage.setItem("user", JSON.stringify(userData));
     commit("registerUser", userData);
   },
+
+  async fetchUser({ commit }: ActionContext<State, State>, idUser: string): Promise<void | string> {
+    try {
+      const { token } = JSON.parse(localStorage.getItem("token") || "");
+      const { data } = await axios.get(`${process.env.VUE_APP_API_URL}/user/${idUser}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      commit("loadUser", data);
+    } catch {
+      return "Cannot access to user";
+    }
+  },
 };
 
 export default actions;

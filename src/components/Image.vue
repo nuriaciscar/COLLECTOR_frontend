@@ -10,19 +10,18 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { useRoute } from "vue-router";
+
 import { mapActions } from "vuex";
 
 export default defineComponent({
   name: "Image",
-  props: {
-    image: String,
-    description: String,
-    date: Date,
-    category: String,
-    owner: Array,
-    id: String,
-  },
+  props: ["image", "description", "date", "category", "owner", "id"],
+  // image: String,
+  // description: String,
+  // date: Date || String,
+  // category: String,
+  // owner: Array,
+  // id: String,
 
   methods: {
     getClass() {
@@ -32,11 +31,11 @@ export default defineComponent({
     },
     ...mapActions(["fetchLoadImage"]),
   },
-  mounted() {
-    const route = useRoute();
-    const { id } = route.params;
-    this.fetchLoadImage(id);
-  },
+  // mounted() {
+  //   const route = useRoute();
+  //   const { id } = route.params;
+  //   this.fetchLoadImage(id);
+  // },
 });
 </script>
 

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { ActionContext } from "vuex";
 import jwtDecode from "jwt-decode";
+import router from "@/router";
 import { State, UserLogin, User } from "@/types/interfaces";
 
 const actions = {
@@ -80,6 +81,11 @@ const actions = {
     } catch {
       return "Cannot login";
     }
+  },
+  logoutUserAction({ commit }: ActionContext<State, State>): void {
+    router.push("/collections");
+    localStorage.removeItem("token");
+    commit("logoutUser");
   },
 
   async fetchRegisterUser({ commit }: ActionContext<State, State>, user: User): Promise<void> {

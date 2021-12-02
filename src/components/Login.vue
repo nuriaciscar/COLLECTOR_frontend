@@ -118,10 +118,10 @@ export default defineComponent({
       this.showPassword = !this.showPassword;
     },
   },
-  mounted() {
-    this.getToken();
-    this.goHome();
-  },
+  // mounted() {
+  //   this.getToken();
+  //   this.goHome();
+  // },
 });
 </script>
 

@@ -4,23 +4,65 @@ import jwtDecode from "jwt-decode";
 import { State, UserLogin, User } from "@/types/interfaces";
 
 const actions = {
-  async fetchLoadCollections({ commit }: ActionContext<State, State>): Promise<void> {
-    const { data } = await axios.get(`${process.env.VUE_APP_API_URL}/collections`);
-    commit("loadCollections", data);
+  async fetchLoadCollections({ commit }: ActionContext<State, State>): Promise<void | string> {
+    try {
+      const { token } = JSON.parse(localStorage.getItem("token") || "");
+      const { data } = await axios.get(`${process.env.VUE_APP_API_URL}/collections`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      commit("loadCollections", data);
+    } catch {
+      return "Cannot get the items";
+    }
   },
-  async fetchLoadCollection({ commit }: ActionContext<State, State>, id: string): Promise<void> {
-    const { data } = await axios.get(`${process.env.VUE_APP_API_URL}/collections/${id}`);
-    commit("loadCollection", data);
+  async fetchLoadCollection(
+    { commit }: ActionContext<State, State>,
+    id: string
+  ): Promise<void | string> {
+    try {
+      const { token } = JSON.parse(localStorage.getItem("token") || "");
+      const { data } = await axios.get(`${process.env.VUE_APP_API_URL}/collections/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      commit("loadCollection", data);
+    } catch {
+      return "Cannot get this item";
+    }
   },
 
-  async fetchLoadImages({ commit }: ActionContext<State, State>): Promise<void> {
-    const { data } = await axios.get(`${process.env.VUE_APP_API_URL}/image`);
-    commit("loadImages", data);
+  async fetchLoadImages({ commit }: ActionContext<State, State>): Promise<void | string> {
+    try {
+      const { token } = JSON.parse(localStorage.getItem("token") || "");
+      const { data } = await axios.get(`${process.env.VUE_APP_API_URL}/image`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      commit("loadImages", data);
+    } catch {
+      return "Cannot get this items";
+    }
   },
 
-  async fetchLoadImage({ commit }: ActionContext<State, State>, id: string): Promise<void> {
-    const { data } = await axios.get(`${process.env.VUE_APP_API_URL}/image/${id}`);
-    commit("loadImage", data);
+  async fetchLoadImage(
+    { commit }: ActionContext<State, State>,
+    id: string
+  ): Promise<void | string> {
+    try {
+      const { token } = JSON.parse(localStorage.getItem("token") || "");
+      const { data } = await axios.get(`${process.env.VUE_APP_API_URL}/image/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      commit("loadImage", data);
+    } catch {
+      return "Cannot get this item";
+    }
   },
 
   async fetchLoginUser({ commit }: ActionContext<State, State>, user: UserLogin): Promise<void> {

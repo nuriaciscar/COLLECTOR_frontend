@@ -9,14 +9,16 @@
       <img src="../assets/Button.svg" class="detail__top__switch" width="65" height="35" />
     </div>
 
-    <ul v-for="image in images" :key="image.id">
-      <Image
-        :description="image.description"
-        :date="image.date"
-        :image="image.image"
-        :category="image.category"
-        :owner="image.owner"
-      />
+    <ul v-for="image in collection.images" :key="image.id">
+      <router-link :to="`/image/${image.id}`">
+        <Image
+          :description="image.description"
+          :date="image.date"
+          :image="image.image"
+          :category="image.category"
+          :owner="image.owner"
+        />
+      </router-link>
     </ul>
   </div>
 </template>
@@ -37,11 +39,10 @@ export default defineComponent({
     ...mapState(["collection"]),
   },
   methods: {
-    ...mapActions(["fetchLoadImages", "fetchLoadCollection"]),
+    ...mapActions(["fetchLoadCollection"]),
   },
 
   mounted() {
-    this.fetchLoadImages();
     const route = useRoute();
     const { id } = route.params;
     this.fetchLoadCollection(id);

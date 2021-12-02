@@ -91,10 +91,10 @@ const actions = {
     commit("registerUser", userData);
   },
 
-  async fetchUser({ commit }: ActionContext<State, State>, id: string): Promise<void | string> {
+  async fetchUser({ commit }: ActionContext<State, State>, idUser: string): Promise<void | string> {
     try {
       const { token } = JSON.parse(localStorage.getItem("token") || "");
-      const { data } = await axios.get(`${process.env.VUE_APP_API_URL}/user/${id}`, {
+      const { data } = await axios.get(`${process.env.VUE_APP_API_URL}/user/${idUser}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

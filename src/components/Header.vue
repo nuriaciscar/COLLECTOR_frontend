@@ -5,6 +5,7 @@
     </router-link>
     <p class="header__feed">Feed</p>
     <p class="header__logo">COLLECTOR</p>
+
     <img
       class="header__search"
       src="@/assets/lupa.png"
@@ -12,15 +13,32 @@
       width="26"
       height="24"
     />
-    <img class="header__avatar" src="@/assets/popular2.png" alt="Avatar" width="35" height="35" />
+
+    <router-link :to="`/user/${idUser}`">
+      <!-- <router-link :to="{ name: 'Profile', params: { user.idUser } }"> -->
+      <img class="header__avatar" src="@/assets/popular2.png" alt="Avatar" width="35" height="35" />
+    </router-link>
   </nav>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { mapActions, mapState } from "vuex";
+import { useRoute } from "vue-router";
 
 export default defineComponent({
   name: "Header",
+  props: { user: String, idUser: String },
+
+  methods: {
+    ...mapActions(["fetchUser"]),
+  },
+
+  mounted() {
+    const route = useRoute();
+    const { idUser } = route.params;
+    this.fetchUser(idUser);
+  },
 });
 </script>
 
@@ -36,7 +54,7 @@ export default defineComponent({
   font-size: 20px;
   margin-top: 10px;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   width: 100vw;
   z-index: 0;
 

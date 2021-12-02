@@ -4,7 +4,7 @@ interface UserLogin {
 }
 
 interface User {
-  userId: string;
+  idUser: string;
   name: string;
   username: string;
   password: string;
@@ -14,7 +14,7 @@ interface User {
 }
 interface Image {
   description: string;
-  date: Date;
+  date: string | Date;
   image: string;
   imageLocal: string;
   category: string;

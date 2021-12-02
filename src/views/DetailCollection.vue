@@ -15,7 +15,7 @@
           :description="image.description"
           :date="image.date"
           :image="image.image"
-          :category="image.category"
+          :category="image.lay"
           :owner="image.owner"
         />
       </router-link>
@@ -27,6 +27,7 @@
 import { defineComponent } from "vue";
 import { mapActions, mapState } from "vuex";
 import { useRoute } from "vue-router";
+
 import Image from "../components/Image.vue";
 
 export default defineComponent({

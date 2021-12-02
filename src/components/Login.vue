@@ -48,9 +48,9 @@
 
       <div class="bottom">
         <div class="sign">
-          <!-- <router-link to="/register"> -->
-          <p class="sign__signIn">or Sign In</p>
-          <!-- </router-link> -->
+          <router-link to="/register">
+            <p class="sign__signIn">or Sign In</p>
+          </router-link>
         </div>
         <div class="arrow">
           <button
@@ -76,6 +76,7 @@ import { UserLogin } from "@/types/interfaces";
 
 export default defineComponent({
   name: "Login",
+  components: {},
   data() {
     return {
       username: "",
@@ -99,17 +100,17 @@ export default defineComponent({
           };
 
           await this.fetchLoginUser(user);
-          this.$router.push("/");
+          this.$router.push("/collections");
           this.isDisabled = false;
           this.isIncorrect = false;
         }
-      } catch {
+      } catch (error) {
         this.isIncorrect = true;
       }
     },
     goHome() {
       if (this.user.isAuthenticated) {
-        this.$router.push("/");
+        this.$router.push("/collections");
       }
     },
 
@@ -117,6 +118,10 @@ export default defineComponent({
       this.showPassword = !this.showPassword;
     },
   },
+  // mounted() {
+  //   this.getToken();
+  //   this.goHome();
+  // },
 });
 </script>
 

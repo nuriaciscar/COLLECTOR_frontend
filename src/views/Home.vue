@@ -7,7 +7,12 @@
         alt="Description of image"
       />
       <p class="home__image__date">INDIA 2 YEARS AGO</p>
+      <div class="button">
+        <button class="button__add"><img src="../assets/addButton.png" /></button>
+        <p class="button__sort">Sort by</p>
+      </div>
     </section>
+
     <section class="home__collections">
       <CollectionList />
     </section>
@@ -69,6 +74,22 @@ export default defineComponent({
     &::-webkit-scrollbar {
       display: none;
     }
+  }
+}
+
+.button {
+  border: none;
+  margin-left: 75%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  &__add {
+    border: none;
+  }
+  &__sort {
+    font-family: "Public Sans", sans-serif;
+    color: $blue;
+    padding-left: 10px;
   }
 }
 </style>

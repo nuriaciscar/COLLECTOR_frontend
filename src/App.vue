@@ -50,6 +50,7 @@ body {
   text-decoration: none;
   font-family: "Canela", serif;
   font-weight: 200;
+  color: black;
 }
 
 ::-webkit-scrollbar-track {

@@ -24,3 +24,6 @@ pnpm-debug.log*
 
 .scannerwork
 .env
+/coverage
+coverage
+./coverage

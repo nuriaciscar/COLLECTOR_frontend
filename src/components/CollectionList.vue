@@ -40,10 +40,10 @@ export default defineComponent({
 @import "../styles/_variables.scss";
 
 .collectionList {
-  padding-top: 20px;
   display: flex;
   align-items: flex-end;
   overflow-y: scroll;
+  flex-direction: column;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
   &::-webkit-scrollbar {

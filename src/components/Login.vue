@@ -140,7 +140,7 @@ export default defineComponent({
   margin: 0;
   padding: 0;
   background-size: cover;
-  background-image: url(https://ibb.co/cL9M0p1);
+  background-image: url(https://i.ibb.co/zJgjpLr/pexels-photo-2086620.jpg);
   background-repeat: no-repeat;
   background-position-y: 260px;
   background-position-x: right;

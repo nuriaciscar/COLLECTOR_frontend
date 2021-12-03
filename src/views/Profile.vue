@@ -1,13 +1,13 @@
 <template>
   <section class="profile">
     <section class="profile__image">
-      <img :src="avatar" alt="Avatar" />
+      <img :src="user.user.avatar" alt="Avatar" />
     </section>
     <section class="profile__data">
-      <p>{{ idUser }}</p>
+      <p>{{ user.user.id }}</p>
       <div class="button">
         <router-link to="/login">
-          <button class="button__add" @click="logoutUserAction">LOGOUT</button>
+          <button class="button__logout" @click="logoutUserAction">LOGOUT</button>
         </router-link>
       </div>
     </section>
@@ -40,7 +40,7 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
 }
-.button__add {
+.button__logout {
   cursor: pointer;
   margin-top: 600px;
   border: none;
@@ -51,5 +51,6 @@ export default defineComponent({
   font-size: 15px;
   width: 110px;
   height: 37px;
+  margin-top: 100px;
 }
 </style>

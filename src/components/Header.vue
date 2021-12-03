@@ -14,7 +14,7 @@
       height="24"
     />
 
-    <router-link :to="`/user/${user.user.idUser}`">
+    <router-link :to="`/user/${user.user.id}`">
       <!-- <router-link :to="{ name: 'Profile', params: { idUser: user.user.idUser } }"> -->
       <img class="header__avatar" :src="user.user.avatar" alt=" " width="35" height="35" />
     </router-link>
@@ -37,9 +37,7 @@ export default defineComponent({
   },
 
   mounted() {
-    const route = useRoute();
-    const { idUser } = route.params;
-    this.fetchUser(idUser);
+    this.fetchUser(this.user.user.id);
   },
 });
 </script>

@@ -19,6 +19,7 @@
               :image="image.image"
               :category="image.lay"
               :owner="image.owner"
+              :name="collection.name"
             />
           </li>
         </router-link>

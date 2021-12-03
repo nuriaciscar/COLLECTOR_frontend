@@ -57,6 +57,7 @@ export default defineComponent({
   padding-top: 20px;
   display: flex;
   align-items: flex-end;
+  width: 100vw;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;

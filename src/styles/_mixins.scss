@@ -57,10 +57,11 @@
   cursor: pointer;
   outline: inherit;
   border-radius: 50%;
-  background-color: $brown;
+  background-color: $yellow;
   width: 58px;
   height: 58px;
   font-size: 22px;
+  color: #5b5a62;
 
   ::placeholder {
     font-family: "Public Sans", sans-serif;

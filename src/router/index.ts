@@ -4,6 +4,7 @@ import LoginPage from "../views/LoginPage.vue";
 import DetailCollection from "../views/DetailCollection.vue";
 import DetailImage from "../views/DetailImage.vue";
 import Profile from "../views/Profile.vue";
+import AddCollection from "../views/AddCollection.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -36,6 +37,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/user/:id",
     name: "Profile",
     component: Profile,
+  },
+  {
+    path: "/user/:id",
+    name: "AddCollection",
+    component: AddCollection,
   },
 ];
 

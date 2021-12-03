@@ -1,6 +1,6 @@
 <template>
   <section class="collectionList">
-    <ul v-for="collection in collections" :key="collection.id">
+    <ul v-for="collection in collectionRandom" :key="collection.id">
       <Collection
         :name="collection.name"
         :date="collection.date"
@@ -24,6 +24,11 @@ export default defineComponent({
   },
   computed: {
     ...mapState(["collections"]),
+
+    collectionRandom(): any {
+      // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+      return this.collections.sort(() => 0.5 - Math.random());
+    },
   },
   methods: {
     ...mapActions(["fetchLoadCollections"]),

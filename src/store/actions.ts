@@ -107,7 +107,6 @@ const actions = {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log(data);
       commit("loadUser", data);
     } catch {
       return "Cannot access to user";

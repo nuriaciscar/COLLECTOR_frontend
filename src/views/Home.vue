@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-    <section class="home__image">
+  <section class="home">
+    <div class="home__image">
       <img
         class="home__image__big"
         src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
@@ -11,12 +11,12 @@
         <button class="buttonn__add"><img src="../assets/addButton.png" /></button>
         <p class="buttonn__sort">Sort by</p>
       </div>
-    </section>
+    </div>
 
-    <section class="home__collections">
+    <div class="home__collections">
       <CollectionList />
-    </section>
-  </div>
+    </div>
+  </section>
 </template>
 
 <script lang="ts">
@@ -62,7 +62,6 @@ export default defineComponent({
     margin-bottom: 20px;
     padding: 0;
     height: 280px;
-    position: absolute;
 
     &__big {
       width: 100%;
@@ -82,8 +81,8 @@ export default defineComponent({
   &__collections {
     width: 100vw;
     margin-top: 45px;
-    height: 600px;
-    padding-top: 300px;
+    height: 100vh;
+
     &::-webkit-scrollbar {
       display: none;
     }
@@ -112,10 +111,14 @@ export default defineComponent({
 @media screen and (min-width: 800px) {
   .home {
     &__image {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
+      margin-top: 100px;
       &__big {
-        width: 100%;
-        height: 750px;
-        margin-top: 200px;
+        width: 500px;
+        height: 300px;
         object-fit: cover;
       }
       &__date {
@@ -123,6 +126,9 @@ export default defineComponent({
         padding-left: 70px;
         font-size: 16px;
       }
+    }
+    &__collections {
+      margin-top: 45px;
     }
   }
 }

@@ -27,11 +27,33 @@ export default defineComponent({
 @import "../styles/_variables.scss";
 
 .create {
+  padding-top: 100px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  &__arrow {
+    width: 340px;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 20px;
+  }
   &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
     &__image {
-      width: 366px;
-      height: 523px;
+      width: 300px;
+      height: 200px;
       border: 0.5px solid #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 60px;
     }
   }
 }

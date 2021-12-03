@@ -39,7 +39,7 @@ const routes: Array<RouteRecordRaw> = [
     component: Profile,
   },
   {
-    path: "/user/:id",
+    path: "/addCollection",
     name: "AddCollection",
     component: AddCollection,
   },

@@ -7,6 +7,10 @@ const mutations = {
   loadCollection(state: State, payload: Collection): void {
     state.collection = payload;
   },
+
+  adcCollection(state: State, payload: Collection): void {
+    state.collections = [...state.collections, payload];
+  },
   loadImages(state: State, payload: Array<Image>): void {
     state.images = payload;
   },

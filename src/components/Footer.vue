@@ -27,7 +27,7 @@ export default defineComponent({
   display: flex;
   font-size: 14px;
   align-items: flex-end;
-  margin-left: 7px;
+  padding-left: 7px;
   margin-right: 7px;
   bottom: 0;
   position: fixed;

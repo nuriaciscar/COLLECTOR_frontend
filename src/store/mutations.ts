@@ -24,6 +24,7 @@ const mutations = {
 
   loadUser(state: State, payload: User): void {
     state.user.user = payload;
+    state.user.isAuthenticated = true;
   },
 };
 

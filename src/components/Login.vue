@@ -131,7 +131,7 @@ export default defineComponent({
 .login {
   display: flex;
   flex-direction: column;
-  background-color: $red;
+  background-color: #e5ecf6;
   width: 100vw;
   height: 100vh;
   align-items: center;
@@ -139,6 +139,11 @@ export default defineComponent({
   top: 0;
   margin: 0;
   padding: 0;
+  background-size: cover;
+  background-image: url(https://i.ibb.co/zJgjpLr/pexels-photo-2086620.jpg);
+  background-repeat: no-repeat;
+  background-position-y: 260px;
+  background-position-x: right;
 
   &__image {
     object-fit: contain;

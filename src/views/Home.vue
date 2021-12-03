@@ -104,7 +104,8 @@ export default defineComponent({
   &__sort {
     font-family: "Public Sans", sans-serif;
     color: $blue;
-    padding-left: 5px;
+    padding-left: 8px;
+    font-size: 16px;
   }
 }
 

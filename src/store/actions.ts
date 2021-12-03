@@ -68,7 +68,9 @@ const actions = {
 
   async fetchLoginUser({ commit }: ActionContext<State, State>, user: UserLogin): Promise<void> {
     const { data } = await axios.post(`${process.env.VUE_APP_API_URL}/user/login`, user);
+
     const { token } = data;
+
     const userData = jwtDecode(token);
     localStorage.setItem("token", JSON.stringify({ token }));
     commit("loginUser", userData);
@@ -97,10 +99,10 @@ const actions = {
     commit("registerUser", userData);
   },
 
-  async fetchUser({ commit }: ActionContext<State, State>, idUser: string): Promise<void | string> {
+  async fetchUser({ commit }: ActionContext<State, State>, id: string): Promise<void | string> {
     try {
       const { token } = JSON.parse(localStorage.getItem("token") || "");
-      const { data } = await axios.get(`${process.env.VUE_APP_API_URL}/user/${idUser}`, {
+      const { data } = await axios.get(`${process.env.VUE_APP_API_URL}/user/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

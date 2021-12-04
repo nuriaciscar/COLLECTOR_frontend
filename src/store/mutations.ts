@@ -30,16 +30,17 @@ const mutations = {
     state.user.user = payload;
     state.user.isAuthenticated = true;
   },
-  updateUser(state: State, payload: User): void {
-    state.user.user = state.user.user.map((user) =>
-      user.id === payload.id
-        ? {
-            ...user,
-            ...payload,
-          }
-        : user
-    );
-  },
+
+  // updateUser(state: State, payload: User): void {
+  //   state.user.user = state.user.user.map((user: any) =>
+  //     user.id === payload.id
+  //       ? {
+  //           ...user,
+  //           ...payload,
+  //         }
+  //       : user
+  //   );
+  // },
 };
 
 export default mutations;

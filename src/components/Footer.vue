@@ -1,5 +1,5 @@
 <template>
-  <nav :class="!['/login', '/register'].includes($route.path) ? 'footer' : 'footer--red'">
+  <section class="footer">
     <div class="footer__left">
       <p class="footer__left__name">Núria Ciscar</p>
       <p class="footer__left__date">December 2021</p>
@@ -7,7 +7,7 @@
     <div class="footer__right">
       <p class="footer__right__name">Isdi Coders</p>
     </div>
-  </nav>
+  </section>
 </template>
 
 <script lang="ts">
@@ -37,6 +37,7 @@ export default defineComponent({
   background-color: $beige;
   padding-top: 40px;
   z-index: 0;
+  width: 100vw;
 
   &__left {
     display: flex;
@@ -53,37 +54,28 @@ export default defineComponent({
     justify-content: flex-start;
     margin-right: 20px;
   }
-  &--red {
-    background-color: $red;
+}
+@media (min-width: $tablet) {
+  .footer {
+    font-size: 16px;
     display: flex;
-    font-family: "Canela", sans-serif;
-    font-size: 14px;
-    align-items: flex-end;
-    margin-left: 7px;
-    margin-right: 7px;
-    bottom: 0;
-    position: fixed;
-    margin-top: 50px;
-    padding-bottom: 40px;
-    width: 100%;
-
-    padding-top: 40px;
-    z-index: 0;
-
-    &__left {
-      display: flex;
-      flex-direction: row;
-      margin-left: 20px;
-      width: 65%;
-
-      &__name {
-        padding-right: 20px;
-      }
-    }
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (min-width: $desktop) {
+  .footer {
+    display: flex;
+    justify-content: center;
     &__right {
       display: flex;
       justify-content: flex-start;
-      margin-right: 20px;
+      margin-left: -280px;
+    }
+    &__left {
+      &__name {
+        padding-right: 90px;
+      }
     }
   }
 }

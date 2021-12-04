@@ -89,11 +89,22 @@ export default defineComponent({
     padding-left: 15px;
   }
 }
-@media screen and (min-width: 800px) {
+
+@media (min-width: $desktop) {
   .collection__single {
-    overflow: hidden;
     display: flex;
-    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-end;
+    width: 900px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+
+    &__text {
+      &__name {
+        padding-top: 5px;
+        font-size: 62px;
+      }
+    }
   }
 }
 </style>

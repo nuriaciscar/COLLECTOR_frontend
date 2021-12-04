@@ -75,6 +75,7 @@ export default defineComponent({
       font-size: 12px;
       padding-top: 6px;
       padding-left: 23px;
+      z-index: 12;
     }
   }
 
@@ -109,7 +110,7 @@ export default defineComponent({
   }
 }
 
-@media screen and (min-width: 800px) {
+@media (min-width: $desktop) {
   .home {
     &__image {
       display: flex;
@@ -118,19 +119,42 @@ export default defineComponent({
       flex-direction: column;
       margin-top: 100px;
       &__big {
-        width: 500px;
-        height: 300px;
+        height: 500px;
         object-fit: cover;
+        width: 950px;
       }
       &__date {
-        margin-top: -800px;
-        padding-left: 70px;
-        font-size: 16px;
+        position: absolute;
+        font-size: 15px;
+        width: 950px;
+        margin-top: 20px;
+
+        justify-content: flex-start;
       }
     }
     &__collections {
-      margin-top: 45px;
+      width: 950px;
+      margin-top: 320px;
+      display: flex;
+      justify-content: center;
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
+  }
+}
+.buttonn {
+  border: none;
+  margin-left: 800px;
+  padding-top: 30px;
+
+  &__add {
+    width: 30px;
+    height: 30px;
+  }
+  &__sort {
+    padding-left: 8px;
+    font-size: 16px;
   }
 }
 </style>

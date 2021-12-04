@@ -175,13 +175,14 @@ export default defineComponent({
     &__search {
       margin-right: 0;
       margin-top: 0;
+      padding-right: 20px;
     }
     &__feed {
       margin-left: 0;
     }
   }
   .logo {
-    margin-top: 50px;
+    margin-top: 45px;
     font-size: 21px;
   }
   .left {

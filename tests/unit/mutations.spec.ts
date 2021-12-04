@@ -147,7 +147,7 @@ describe("Given a store mutations object", () => {
     });
   });
   describe("When loadUser receives a state and payload with a user", () => {
-    test("Then user should contain this user in the store and isAuthenticated should be true in store", () => {
+    test("Then user should contain this user and isAuthenticated should be true ", () => {
       const payload: User = {
         id: "1234",
         username: "ole",

@@ -1,30 +1,41 @@
 <template>
-  <nav class="header">
-    <router-link to="/collections"
-      ><img class="header__home" src="@/assets/home.png" alt="Home icon" width="24" height="23" />
-    </router-link>
-    <p class="header__feed">Feed</p>
-    <p class="header__logo">COLLECTOR</p>
-
-    <img
-      class="header__search"
-      src="@/assets/lupa.png"
-      alt="Search lens icon"
-      width="26"
-      height="24"
-    />
-
-    <router-link :to="`/user/${user.user.id}`">
-      <!-- <router-link :to="{ name: 'Profile', params: { idUser: user.user.idUser } }"> -->
-      <img class="header__avatar" :src="user.user.avatar" alt=" " width="35" height="35" />
-    </router-link>
+  <nav class="nav">
+    <section class="header">
+      <div class="left">
+        <router-link to="/collections"
+          ><img
+            class="header__home"
+            src="@/assets/home.png"
+            alt="Home icon"
+            width="24"
+            height="23"
+          />
+        </router-link>
+        <p class="header__first">Home</p>
+        <p class="header__feed">Feed</p>
+      </div>
+      <div class="right">
+        <img
+          class="header__search"
+          src="@/assets/lupa.png"
+          alt="Search lens icon"
+          width="26"
+          height="24"
+        />
+        <p class="header__logout">Logout</p>
+        <router-link :to="`/user/${user.user.id}`">
+          <!-- <router-link :to="{ name: 'Profile', params: { idUser: user.user.idUser } }"> -->
+          <img class="header__avatar" :src="user.user.avatar" alt=" " width="35" height="35" />
+        </router-link>
+      </div>
+    </section>
+    <div class="logo"><p class="header__logo">COLLECTOR</p></div>
   </nav>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapActions, mapState } from "vuex";
-import { useRoute } from "vue-router";
 
 export default defineComponent({
   name: "Header",
@@ -46,46 +57,154 @@ export default defineComponent({
 @import "../styles/_mixins.scss";
 @import "../styles/_variables.scss";
 
+.nav {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
 .header {
   display: flex;
   flex-direction: row;
   font-family: "Canela", sans-serif;
   position: absolute;
-  font-size: 20px;
+  font-size: 17px;
   margin-top: 15px;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  width: 100vw;
+  width: 85%;
   z-index: 3;
 
   &__avatar {
     border-radius: 50%;
   }
-
-  &__logo {
-    padding-left: 26px;
-    padding-right: 26px;
+  &__logout {
+    visibility: hidden;
+  }
+  &__first {
+    visibility: hidden;
   }
   &__feed {
-    padding-left: 12px;
+    margin-left: -30px;
   }
   &__search {
-    padding-right: 12px;
-    padding-bottom: 3px;
+    margin-right: -43px;
+    margin-top: -2px;
   }
-  &__home {
-    padding-bottom: 3px;
+  &__logo {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    margin-top: -6px;
+    font-size: 17px;
   }
 }
 
-@media screen and (min-width: 800px) {
+.logo {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  margin-top: 27px;
+  font-size: 17px;
+}
+
+.left {
+  display: flex;
+  flex-direction: row;
+  width: 150px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.right {
+  display: flex;
+  flex-direction: row;
+  width: 60px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+@media (min-width: $tablet) {
   .header {
-    font-size: 25px;
+    font-size: 20px;
+    width: 700px;
+    justify-content: space-between;
+    align-items: center;
+    &__avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+    &__search {
+      margin-right: 0;
+      margin-top: 0;
+    }
+    &__feed {
+      margin-left: 0;
+    }
+  }
+  .logo {
     margin-top: 30px;
+    font-size: 21px;
+  }
+  .left {
+    align-items: center;
+    width: 120px;
+  }
+
+  .right {
+    align-items: center;
+    width: 80px;
+  }
+}
+@media (min-width: $desktop) {
+  .header {
+    align-items: center;
+    font-size: 20px;
+    margin-top: 30px;
+    width: 1200px;
     justify-content: space-between;
     &__home {
       display: none;
     }
+    &__logout {
+      visibility: visible;
+      padding-left: 10px;
+    }
+    &__first {
+      visibility: visible;
+    }
+    &__avatar {
+      width: 50px;
+      height: 50px;
+      margin-left: 40px;
+      border-radius: 50%;
+    }
+    &__search {
+      margin-right: 0;
+      margin-top: 0;
+      padding-right: 20px;
+    }
+    &__feed {
+      margin-left: 0;
+    }
+  }
+  .logo {
+    margin-top: 45px;
+    font-size: 21px;
+  }
+  .left {
+    display: flex;
+    flex-direction: row;
+    width: 170px;
+    justify-content: space-between;
+  }
+
+  .right {
+    display: flex;
+    flex-direction: row;
+    width: 275px;
+    align-items: center;
+    justify-content: flex-end;
   }
 }
 </style>

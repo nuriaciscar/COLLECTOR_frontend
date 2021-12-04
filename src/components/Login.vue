@@ -234,44 +234,52 @@ export default defineComponent({
   display: flex;
 }
 
-// @media screen and (min-width: 800px) {
-//   .login {
-//     &__image {
-//       object-fit: contain;
-//       padding-top: 45px;
-//       padding-bottom: 55px;
-//     }
+@media (min-width: $tablet) {
+  .login {
+    background-position-y: 100px;
+  }
+}
 
-//     &__title {
-//       @include title_form;
-//       font-size: 80px;
-//       padding-top: 50px;
-//     }
+@media (min-width: $desktop) {
+  .login {
+    background-position-y: -82px;
+    background-position-x: right;
+    &__image {
+      object-fit: contain;
+      padding-top: 45px;
+      padding-bottom: 55px;
+    }
 
-//     &__form {
-//       width: 380px;
-//       & input {
-//         width: 380px;
-//         height: 40px;
-//       }
-//     }
-//   }
-// }
-// .control {
-//   width: 360px;
-// }
+    &__title {
+      @include title_form;
+      font-size: 78px;
+      padding-top: 20px;
+    }
 
-// .bottom {
-//   width: 380px;
-//   padding-top: 30px;
-// }
+    &__form {
+      width: 340px;
+      & input {
+        width: 340px;
+        height: 40px;
+      }
+    }
+  }
+}
+.control {
+  width: 330px;
+}
 
-// .arrow__button {
-//   width: 70px;
-//   height: 70px;
-// }
+.bottom {
+  width: 340px;
+  padding-top: 30px;
+}
 
-// .sign__signIn {
-//   font-size: 27px;
-// }
+.arrow__button {
+  width: 70px;
+  height: 70px;
+}
+
+.sign__signIn {
+  font-size: 27px;
+}
 </style>

@@ -1,10 +1,6 @@
 <template>
   <div class="image">
-    <img
-      :src="image"
-      :alt="description"
-      v-bind:class="image.width > image.height ? 'horizontal' : 'vertical'"
-    />
+    <img :src="image" :alt="description" class="size" />
   </div>
 </template>
 
@@ -16,26 +12,13 @@ import { mapActions } from "vuex";
 export default defineComponent({
   name: "Image",
   props: ["image", "description", "date", "category", "owner", "id"],
-  // image: String,
-  // description: String,
-  // date: Date || String,
-  // category: String,
-  // owner: Array,
-  // id: String,
 
   methods: {
     getClass() {
-      return {
-        // 'horizontal': this.image(width > height)
-      };
+      return {};
     },
     ...mapActions(["fetchLoadImage"]),
   },
-  // mounted() {
-  //   const route = useRoute();
-  //   const { id } = route.params;
-  //   this.fetchLoadImage(id);
-  // },
 });
 </script>
 
@@ -47,24 +30,23 @@ export default defineComponent({
   object-fit: cover;
   padding-left: 15px;
 }
-.horizontal {
-  width: 100px;
-  height: 65px;
-}
 
-.vertical {
+.size {
   width: 69px;
   height: 94px;
 }
 
-// @media screen and (min-width: 800px) {
-//   .image {
-//     padding: 0;
-//     object-fit: cover;
-//   }
-//   .vertical {
-//     width: 360px;
-//     height: 360px;
-//   }
-// }
+@media (min-width: $tablet) {
+  .size {
+    width: 100px;
+    height: 140px;
+  }
+}
+
+@media (min-width: $desktop) {
+  .size {
+    width: 130px;
+    height: 170px;
+  }
+}
 </style>

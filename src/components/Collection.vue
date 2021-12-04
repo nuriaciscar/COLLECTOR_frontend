@@ -89,11 +89,48 @@ export default defineComponent({
     padding-left: 15px;
   }
 }
-@media screen and (min-width: 800px) {
+
+@media (min-width: $tablet) {
   .collection__single {
-    overflow: hidden;
+    width: 650px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    justify-content: center;
+    align-items: flex-end;
+    &__text {
+      &__name {
+        padding-top: 5px;
+        font-size: 50px;
+      }
+      &__date {
+        font-size: 15px;
+        white-space: nowrap;
+        padding-bottom: 10px;
+      }
+    }
+  }
+}
+
+@media (min-width: $desktop) {
+  .collection__single {
     display: flex;
-    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-end;
+    width: 900px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+
+    &__text {
+      &__name {
+        padding-top: 5px;
+        font-size: 62px;
+      }
+      &__date {
+        font-size: 16px;
+        white-space: nowrap;
+        padding-bottom: 10px;
+      }
+    }
   }
 }
 </style>

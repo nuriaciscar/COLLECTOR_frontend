@@ -13,8 +13,7 @@
         <button @click="previousImage" class="buttons__icon">
           <i class="fas fa-chevron-left"></i>
         </button>
-
-        <img :src="image.image" :alt="description" width="390" height="260" />
+        <img :src="image.image" :alt="description" class="bigImage" />
         <button @click="nextImage" class="buttons__icon">
           <i class="fas fa-chevron-right"></i>
         </button>
@@ -92,7 +91,7 @@ export default defineComponent({
       justify-content: flex-start;
       align-items: center;
       width: 320px;
-      margin-top: 130px;
+      margin-top: 70px;
 
       &__title {
         font-weight: inherit;
@@ -113,12 +112,12 @@ export default defineComponent({
       flex-direction: column;
 
       &__date {
-        font-size: 18px;
+        font-size: 16px;
         padding-bottom: 20px;
       }
       &__description {
         font-family: "Public Sans", sans-serif;
-        font-size: 16px;
+        font-size: 14px;
       }
     }
   }
@@ -126,6 +125,7 @@ export default defineComponent({
   img {
     object-fit: cover;
     font-size: 18px;
+    padding-bottom: 20px;
   }
 }
 .buttons {
@@ -140,18 +140,64 @@ export default defineComponent({
     cursor: pointer;
     color: #bcb9b9;
     font-size: 17px;
-    padding: 30px;
+    padding: 50px;
   }
 }
 
-.svg:not(:root).svg-inline--fa {
-  color: #bcb9b9;
+.bigImage {
+  width: 100%;
+  height: 230px;
 }
+
+@media (min-width: $tablet) {
+  .detail {
+    &__items__top {
+      width: 700px;
+    }
+  }
+  .bigImage {
+    width: 300px;
+    height: 260px;
+  }
+}
+
 @media (min-width: $desktop) {
   .detail {
     &__items__top {
       width: 1100px;
+      margin-top: 135px;
     }
+    &__image {
+      margin-top: 60px;
+      max-width: 450px;
+      padding-bottom: 200px;
+
+      &__text {
+        display: flex;
+        margin-top: 80px;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 60px;
+        max-width: 450px;
+        padding-bottom: 200px;
+
+        &__date {
+          font-size: 18px;
+          padding-bottom: 20px;
+        }
+        &__description {
+          font-family: "Public Sans", sans-serif;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  .bigImage {
+    width: 490px;
+    height: 350px;
+  }
+  .buttons {
+    padding-top: 20px;
   }
 }
 </style>

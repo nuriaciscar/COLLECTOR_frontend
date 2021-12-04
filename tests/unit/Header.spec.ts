@@ -1,27 +1,21 @@
-import { mount } from "@vue/test-utils";
-import router from "../../src/router";
-import state from "../mockedState";
+import { render, screen } from "@testing-library/vue";
+import VueRouter from "vue-router";
+
 import Header from "../../src/components/Header.vue";
+import store from "@/store";
+import Profile from "@/views/Profile.vue";
+
+// const router = new VueRouter({
+//   mode: "history",
+//   routes: [{ path: "/user/:id ", component: Profile }],
+// });
 
 describe("Given a Header component", () => {
   describe("When it's rendered'", () => {
-    test("Then it should render his html tags", () => {
-      //   const wrapper = mount(Header, {
-      //     global: {
-      //       plugins: [router],
-      //       mocks: {
-      //         $store: {
-      //           state,
-      //           mutations: {
-      //             fetchUser: jest.fn(),
-      //           },
-      //           commit: jest.fn(),
-      //         },
-      //       },
-      //     },
-      //   });
-      //   expect(wrapper.html()).toContain('<nav class="header">');
-      // });
+    test("Then it should render his html tags", async () => {
+      // render(Header, { routes: router, store });
+
+      // expect(screen.getByText(/feed/i)).toBeInTheDocument();
 
       const hola = "true";
 

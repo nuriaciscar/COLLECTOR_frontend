@@ -36,6 +36,13 @@ export default defineComponent({
   height: 94px;
 }
 
+@media (min-width: $tablet) {
+  .size {
+    width: 100px;
+    height: 140px;
+  }
+}
+
 @media (min-width: $desktop) {
   .size {
     width: 130px;

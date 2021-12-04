@@ -84,11 +84,18 @@ export default defineComponent({
     visibility: hidden;
   }
   &__feed {
-    margin-left: -27px;
+    margin-left: -30px;
   }
   &__search {
     margin-right: -43px;
     margin-top: -2px;
+  }
+  &__logo {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    margin-top: -6px;
+    font-size: 17px;
   }
 }
 

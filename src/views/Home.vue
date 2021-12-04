@@ -110,6 +110,45 @@ export default defineComponent({
   }
 }
 
+@media (min-width: $tablet) {
+  .home {
+    &__image {
+      &__big {
+        height: 500px;
+        padding-top: 20px;
+      }
+      &__date {
+        padding-left: 40px;
+      }
+    }
+    &__collections {
+      width: 650px;
+      margin-top: 340px;
+      display: flex;
+      justify-content: center;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+
+  .buttonn {
+    border: none;
+
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
+
+    &__add {
+      width: 30px;
+      height: 30px;
+    }
+    &__sort {
+      padding-left: 8px;
+      font-size: 16px;
+    }
+  }
+}
 @media (min-width: $desktop) {
   .home {
     &__image {
@@ -128,13 +167,12 @@ export default defineComponent({
         font-size: 15px;
         width: 950px;
         margin-top: 20px;
-
         justify-content: flex-start;
       }
     }
     &__collections {
       width: 950px;
-      margin-top: 320px;
+      margin-top: 340px;
       display: flex;
       justify-content: center;
       &::-webkit-scrollbar {
@@ -142,19 +180,20 @@ export default defineComponent({
       }
     }
   }
-}
-.buttonn {
-  border: none;
-  margin-left: 800px;
-  padding-top: 30px;
 
-  &__add {
-    width: 30px;
-    height: 30px;
-  }
-  &__sort {
-    padding-left: 8px;
-    font-size: 16px;
+  .buttonn {
+    border: none;
+    margin-left: 800px;
+    padding-top: 40px;
+
+    &__add {
+      width: 30px;
+      height: 30px;
+    }
+    &__sort {
+      padding-left: 8px;
+      font-size: 16px;
+    }
   }
 }
 </style>

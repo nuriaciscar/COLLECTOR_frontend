@@ -62,7 +62,7 @@ export default defineComponent({
     flex-direction: column;
     align-items: flex-end;
     height: 170px;
-    padding-bottom: 20px;
+    padding-bottom: 22px;
     &__photo {
       width: 120px;
       height: 120px;
@@ -70,6 +70,7 @@ export default defineComponent({
     }
     &__username {
       font-size: 30px;
+      padding-top: 20px;
     }
   }
   &__data {
@@ -119,6 +120,72 @@ export default defineComponent({
     width: 110px;
     height: 37px;
     margin-top: 45px;
+  }
+}
+
+@media (min-width: $tablet) {
+  .profile {
+    padding-top: 105px;
+    &__image {
+      flex-direction: row;
+      padding-bottom: 35px;
+      &__photo {
+        width: 170px;
+        height: 170px;
+        border-radius: 50%;
+      }
+      &__username {
+        font-size: 52px;
+        padding-left: 90px;
+      }
+    }
+    &__data {
+      width: 490px;
+
+      &__text {
+        padding-left: 275px;
+
+        &__api {
+          width: 260px;
+        }
+      }
+    }
+  }
+  .button__logout {
+    margin-left: 173px;
+  }
+}
+
+@media (min-width: $desktop) {
+  .profile {
+    padding-top: 125px;
+    &__image {
+      flex-direction: row;
+      padding-bottom: 35px;
+      &__photo {
+        width: 170px;
+        height: 170px;
+        border-radius: 50%;
+      }
+      &__username {
+        font-size: 52px;
+        padding-left: 90px;
+      }
+    }
+    &__data {
+      width: 490px;
+
+      &__text {
+        padding-left: 275px;
+
+        &__api {
+          width: 260px;
+        }
+      }
+    }
+  }
+  .button__logout {
+    margin-left: 173px;
   }
 }
 </style>

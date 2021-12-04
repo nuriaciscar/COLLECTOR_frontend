@@ -1,10 +1,11 @@
 <template>
   <section class="profile">
-    <section class="profile__image">
-      <img :src="user.user.avatar" alt="Avatar" />
-    </section>
+    <div class="profile__image">
+      <img class="profile__image__photo" :src="user.user.avatar" alt="Avatar" />
+    </div>
+
     <section class="profile__data">
-      <p>{{ user.user.id }}</p>
+      <p>{{ user.user.username }}</p>
       <div class="button">
         <router-link to="/login">
           <button class="button__logout" @click="logoutUserAction">LOGOUT</button>
@@ -39,6 +40,12 @@ export default defineComponent({
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  &__image__photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+  }
 }
 .button__logout {
   cursor: pointer;

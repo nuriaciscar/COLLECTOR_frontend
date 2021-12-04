@@ -24,7 +24,9 @@
           width="26"
           height="24"
         />
-        <p class="header__logout">Logout</p>
+        <router-link to="/login">
+          <p class="header__logout">Logout</p>
+        </router-link>
         <router-link :to="`/user/${user.user.id}`">
           <!-- <router-link :to="{ name: 'Profile', params: { idUser: user.user.idUser } }"> -->
           <img class="header__avatar" :src="user.user.avatar" alt=" " width="35" height="35" />

@@ -9,12 +9,18 @@
     </div>
 
     <div class="detail__image">
-      <button @click="previousImage">Previous</button>
+      <div class="buttons">
+        <button @click="previousImage" class="buttons__icon">
+          <i class="fas fa-chevron-left"></i>
+        </button>
 
-      <img :src="image.image" :alt="description" width="390" height="260" />
-      <button @click="nextImage">Next</button>
+        <img :src="image.image" :alt="description" width="390" height="260" />
+        <button @click="nextImage" class="buttons__icon">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
       <div class="detail__image__text">
-        <p class="detail__image__text__date">{{ image.date }}</p>
+        <p class="detail__image__text__date">{{ getDate() }}</p>
         <p class="detail__image__text__description">{{ image.description }}</p>
       </div>
     </div>
@@ -49,6 +55,11 @@ export default defineComponent({
     },
     previousImage() {
       this.currentImage -= 1;
+    },
+    getDate() {
+      return new Date(this.image.date)
+        .toLocaleString("en-US", { month: "long", day: "numeric", year: "numeric" })
+        .toUpperCase();
     },
   },
 
@@ -115,6 +126,32 @@ export default defineComponent({
   img {
     object-fit: cover;
     font-size: 18px;
+  }
+}
+.buttons {
+  display: flex;
+  flex-direction: row;
+  width: 1000px;
+  justify-content: center;
+
+  &__icon {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #bcb9b9;
+    font-size: 17px;
+    padding: 30px;
+  }
+}
+
+.svg:not(:root).svg-inline--fa {
+  color: #bcb9b9;
+}
+@media (min-width: $desktop) {
+  .detail {
+    &__items__top {
+      width: 1100px;
+    }
   }
 }
 </style>

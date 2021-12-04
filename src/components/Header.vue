@@ -193,7 +193,7 @@ export default defineComponent({
     }
   }
   .logo {
-    margin-top: 45px;
+    margin-top: 43px;
     font-size: 23px;
   }
   .left {

@@ -264,22 +264,23 @@ export default defineComponent({
       }
     }
   }
-}
-.control {
-  width: 330px;
-}
 
-.bottom {
-  width: 340px;
-  padding-top: 30px;
-}
+  .control {
+    width: 330px;
+  }
 
-.arrow__button {
-  width: 70px;
-  height: 70px;
-}
+  .bottom {
+    width: 340px;
+    padding-top: 30px;
+  }
 
-.sign__signIn {
-  font-size: 27px;
+  .arrow__button {
+    width: 70px;
+    height: 70px;
+  }
+
+  .sign__signIn {
+    font-size: 27px;
+  }
 }
 </style>

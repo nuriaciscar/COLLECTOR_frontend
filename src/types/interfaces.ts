@@ -12,6 +12,11 @@ interface User {
   avatar: string;
   collections: Array<string>;
 }
+
+interface UserUpdate {
+  formData: User;
+  id: string;
+}
 interface Image {
   description: string;
   date: string | Date;
@@ -39,4 +44,4 @@ interface State {
   image: Image;
 }
 
-export { State, User, Collection, Image, UserLogin };
+export { State, User, Collection, Image, UserLogin, UserUpdate };

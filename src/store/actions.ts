@@ -2,7 +2,7 @@ import axios from "axios";
 import { ActionContext } from "vuex";
 import jwtDecode from "jwt-decode";
 import router from "@/router";
-import { State, UserLogin, User, Collection } from "@/types/interfaces";
+import { State, UserLogin, User, Collection, UserUpdate } from "@/types/interfaces";
 
 const actions = {
   async fetchLoadCollections({ commit }: ActionContext<State, State>): Promise<void | string> {
@@ -132,6 +132,27 @@ const actions = {
       commit("loadUser", data);
     } catch {
       return "Cannot access to user";
+    }
+  },
+  async fetchUserUpdate(
+    { commit }: ActionContext<State, State>,
+    id: string,
+    user: UserUpdate
+  ): Promise<void | string> {
+    try {
+      const { token } = JSON.parse(localStorage.getItem("token") || "");
+      const { data: updatedUser } = await axios.patch(
+        `${process.env.VUE_APP_API_URL}/user/${id}`,
+        user.formData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      commit("updateUser", updatedUser);
+    } catch {
+      return "Cannot update the information";
     }
   },
 };

@@ -25,7 +25,7 @@
           height="24"
         />
         <router-link to="/login">
-          <p class="header__logout">Logout</p>
+          <p @click="logoutUserAction" class="header__logout">Logout</p>
         </router-link>
         <router-link :to="`/user/${user.user.id}`">
           <!-- <router-link :to="{ name: 'Profile', params: { idUser: user.user.idUser } }"> -->
@@ -45,10 +45,10 @@ export default defineComponent({
   name: "Header",
 
   computed: {
-    ...mapState(["user"]),
+    ...mapState(["user", "isAuthenticated"]),
   },
   methods: {
-    ...mapActions(["fetchUser"]),
+    ...mapActions(["fetchUser", "logoutUserAction"]),
   },
 
   mounted() {
@@ -193,7 +193,7 @@ export default defineComponent({
     }
   }
   .logo {
-    margin-top: 45px;
+    margin-top: 43px;
     font-size: 23px;
   }
   .left {

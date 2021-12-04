@@ -9,12 +9,17 @@
     </div>
 
     <div class="detail__image">
-      <button @click="previousImage">Previous</button>
-
-      <img :src="image.image" :alt="description" width="390" height="260" />
-      <button @click="nextImage">Next</button>
+      <div class="buttons">
+        <button @click="previousImage" class="buttons__icon">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <img :src="image.image" :alt="description" class="bigImage" />
+        <button @click="nextImage" class="buttons__icon">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
       <div class="detail__image__text">
-        <p class="detail__image__text__date">{{ image.date }}</p>
+        <p class="detail__image__text__date">{{ getDate() }}</p>
         <p class="detail__image__text__description">{{ image.description }}</p>
       </div>
     </div>
@@ -50,6 +55,11 @@ export default defineComponent({
     previousImage() {
       this.currentImage -= 1;
     },
+    getDate() {
+      return new Date(this.image.date)
+        .toLocaleString("en-US", { month: "long", day: "numeric", year: "numeric" })
+        .toUpperCase();
+    },
   },
 
   mounted() {
@@ -81,7 +91,7 @@ export default defineComponent({
       justify-content: flex-start;
       align-items: center;
       width: 320px;
-      margin-top: 130px;
+      margin-top: 70px;
 
       &__title {
         font-weight: inherit;
@@ -102,12 +112,12 @@ export default defineComponent({
       flex-direction: column;
 
       &__date {
-        font-size: 18px;
+        font-size: 16px;
         padding-bottom: 20px;
       }
       &__description {
         font-family: "Public Sans", sans-serif;
-        font-size: 16px;
+        font-size: 14px;
       }
     }
   }
@@ -115,6 +125,79 @@ export default defineComponent({
   img {
     object-fit: cover;
     font-size: 18px;
+    padding-bottom: 20px;
+  }
+}
+.buttons {
+  display: flex;
+  flex-direction: row;
+  width: 1000px;
+  justify-content: center;
+
+  &__icon {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #bcb9b9;
+    font-size: 17px;
+    padding: 50px;
+  }
+}
+
+.bigImage {
+  width: 100%;
+  height: 230px;
+}
+
+@media (min-width: $tablet) {
+  .detail {
+    &__items__top {
+      width: 700px;
+    }
+  }
+  .bigImage {
+    width: 300px;
+    height: 260px;
+  }
+}
+
+@media (min-width: $desktop) {
+  .detail {
+    &__items__top {
+      width: 1100px;
+      margin-top: 135px;
+    }
+    &__image {
+      margin-top: 60px;
+      max-width: 450px;
+      padding-bottom: 200px;
+
+      &__text {
+        display: flex;
+        margin-top: 80px;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 60px;
+        max-width: 450px;
+        padding-bottom: 200px;
+
+        &__date {
+          font-size: 18px;
+          padding-bottom: 20px;
+        }
+        &__description {
+          font-family: "Public Sans", sans-serif;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  .bigImage {
+    width: 490px;
+    height: 350px;
+  }
+  .buttons {
+    padding-top: 20px;
   }
 }
 </style>

@@ -1,15 +1,13 @@
-import "@testing-library/jest-dom";
 import { mount } from "@vue/test-utils";
+import router from "../../src/router";
 import Home from "../../src/views/Home.vue";
-import state from "@/store/state";
-import router from "@/router";
-
-jest.useFakeTimers();
+import state from "../mockedState";
 
 describe("Given a Home component", () => {
   describe("When is rendered", () => {
-    test("Then it should render a collection list ", () => {
+    test("Then it should render a home page with an image and a collection list ", async () => {
       expect(Home).toBe(Home);
+      // window.open = () => null;
 
       // const wrapper = mount(Home, {
       //   global: {
@@ -17,12 +15,7 @@ describe("Given a Home component", () => {
       //     mocks: {
       //       $store: {
       //         state,
-      //         actions: {
-      //           fetchLoadCollections: jest.fn(),
-      //         },
-      //         methods: {
-      //           redirectToLogin: jest.fn(),
-      //         },
+
       //         dispatch: jest.fn(),
       //         commit: jest.fn(),
       //       },
@@ -30,7 +23,8 @@ describe("Given a Home component", () => {
       //   },
       // });
 
-      // expect(wrapper.html()).toContain('    <section class="home__collections></section>');
+      // await wrapper.find("img").trigger("click");
+      // expect(wrapper.html()).toContain('<section class="home">');
     });
   });
 });

@@ -4,6 +4,7 @@ interface UserLogin {
 }
 
 interface User {
+  map(arg0: (user: any) => any): User;
   id: string;
   name: string;
   username: string;
@@ -25,6 +26,7 @@ interface Image {
   category: string;
   owner: Array<string>;
   id: string;
+  grid: boolean;
 }
 interface Collection {
   name: string;

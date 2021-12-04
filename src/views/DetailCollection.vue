@@ -12,7 +12,7 @@
     <div class="detail__grid">
       <ul v-for="image in collection.images" :key="image.id">
         <router-link :to="`/image/${image.id}`">
-          <li class="image">
+          <li class="detail__grid__li">
             <Image
               :description="image.description"
               :date="image.date"
@@ -20,6 +20,7 @@
               :category="image.lay"
               :owner="image.owner"
               :name="collection.name"
+              :grid="true"
             />
           </li>
         </router-link>
@@ -37,6 +38,11 @@ import Image from "../components/Image.vue";
 
 export default defineComponent({
   name: "DetailCollection",
+  data() {
+    return {
+      grid: true,
+    };
+  },
   props: { name: String, date: String, images: Array, id: String },
   components: {
     Image,
@@ -74,7 +80,7 @@ export default defineComponent({
     justify-content: space-around;
     align-items: center;
     width: 340px;
-    margin-top: 110px;
+    margin-top: 75px;
     &__title {
       font-weight: inherit;
       font-size: 50px;
@@ -85,13 +91,74 @@ export default defineComponent({
     }
   }
   &__grid {
-    display: flex;
+    display: grid;
     flex-direction: row;
-  }
+    list-style: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-row-gap: 0;
+    width: 100%;
 
-  .image {
-    margin: 0;
-    width: 25%;
+    &__li {
+      list-style: none;
+    }
+  }
+}
+@media (min-width: $tablet) {
+  .detail {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+    &__top {
+      padding-top: 60px;
+      width: 700px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-bottom: 50px;
+      &__title {
+        font-weight: inherit;
+        font-size: 70px;
+        padding-left: 40px;
+      }
+    }
+    &__grid {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+  }
+}
+
+@media (min-width: $desktop) {
+  .detail {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+    &__top {
+      padding-top: 60px;
+      width: 1100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-bottom: 50px;
+      &__title {
+        font-weight: inherit;
+        font-size: 70px;
+        padding-left: 40px;
+      }
+    }
+    &__grid {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
   }
 }
 </style>

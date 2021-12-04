@@ -41,5 +41,50 @@ describe("Given a Login component", () => {
 
       expect(wrapper.html()).toContain('<section class="login">');
     });
+
+    test("Click login with a user and a password", async () => {
+      const wrapper = mount(Login, {
+        global: {
+          mocks: {
+            methods: {
+              onSubmit: jest.fn().mockResolvedValue({
+                unsername: "hi",
+                password: "1234",
+              }),
+              seePassword: jest.fn(),
+
+              goHome: jest.fn(),
+            },
+            $store: {
+              state: {
+                ...state,
+                isUserLogged: false,
+              },
+
+              actions: {
+                fetchLoginUser: jest.fn(),
+              },
+
+              dispatch: jest.fn(),
+              commit: jest.fn(),
+            },
+          },
+        },
+
+        data() {
+          return {
+            username: "nunu",
+            password: "nunu",
+            isDisabled: true,
+            isIncorrect: false,
+            showPassword: false,
+          };
+        },
+      });
+
+      await wrapper.find("form").trigger("→");
+
+      expect(wrapper.text()).toContain("Welcome backUsernamePasswordor Sign In →");
+    });
   });
 });

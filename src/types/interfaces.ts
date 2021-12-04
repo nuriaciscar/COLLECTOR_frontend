@@ -4,7 +4,7 @@ interface UserLogin {
 }
 
 interface User {
-  idUser: string;
+  id: string;
   name: string;
   username: string;
   password: string;

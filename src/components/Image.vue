@@ -1,6 +1,6 @@
 <template>
-  <div class="image">
-    <img :src="image" :alt="description" class="size" />
+  <div :class="grid === true ? 'imageGrid' : 'image'">
+    <img :src="image" :alt="description" :class="grid === true ? 'sizeGrid' : 'size'" />
   </div>
 </template>
 
@@ -11,7 +11,7 @@ import { mapActions } from "vuex";
 
 export default defineComponent({
   name: "Image",
-  props: ["image", "description", "date", "category", "owner", "id"],
+  props: ["image", "description", "date", "category", "owner", "id", "grid"],
 
   methods: {
     getClass() {
@@ -31,15 +31,35 @@ export default defineComponent({
   padding-left: 15px;
 }
 
+.imageGrid {
+  object-fit: cover;
+  overflow: hidden;
+  height: 130px;
+}
+
 .size {
   width: 69px;
   height: 94px;
 }
-
+.sizeGrid {
+  width: 100%;
+  height: 130px;
+  padding: 0;
+  object-fit: cover;
+}
 @media (min-width: $tablet) {
   .size {
     width: 100px;
     height: 140px;
+  }
+  .sizeGrid {
+    width: 100%;
+    height: 220px;
+    padding: 0;
+    object-fit: cover;
+  }
+  .imageGrid {
+    height: 200px;
   }
 }
 
@@ -47,6 +67,15 @@ export default defineComponent({
   .size {
     width: 130px;
     height: 170px;
+  }
+  .imageGrid {
+    height: 350px;
+  }
+  .sizeGrid {
+    width: 100%;
+    height: 350px;
+    padding: 0;
+    object-fit: cover;
   }
 }
 </style>

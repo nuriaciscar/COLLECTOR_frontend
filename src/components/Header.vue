@@ -11,7 +11,9 @@
             height="23"
           />
         </router-link>
-        <p class="header__first">Home</p>
+        <router-link to="/collections">
+          <p class="header__first">Home</p>
+        </router-link>
         <p class="header__feed">Feed</p>
       </div>
       <div class="right">
@@ -190,7 +192,7 @@ export default defineComponent({
   }
   .logo {
     margin-top: 45px;
-    font-size: 21px;
+    font-size: 23px;
   }
   .left {
     display: flex;

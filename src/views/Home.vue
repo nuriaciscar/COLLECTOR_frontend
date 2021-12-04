@@ -166,12 +166,12 @@ export default defineComponent({
         position: absolute;
         font-size: 15px;
         width: 950px;
-        margin-top: 20px;
+        margin-top: 22px;
         justify-content: flex-start;
       }
     }
     &__collections {
-      width: 950px;
+      width: 960px;
       margin-top: 340px;
       display: flex;
       justify-content: center;
@@ -184,7 +184,7 @@ export default defineComponent({
   .buttonn {
     border: none;
     margin-left: 800px;
-    padding-top: 40px;
+    padding-top: 32px;
 
     &__add {
       width: 30px;

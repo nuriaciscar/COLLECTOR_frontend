@@ -2,14 +2,16 @@
   <section class="collection">
     <div class="collection__single">
       <ul v-for="image in images" :key="image.id">
-        <Image
-          :description="image.description"
-          :date="image.date"
-          :image="image.image"
-          :category="image.category"
-          :owner="image.owner"
-          :id="image.id"
-        />
+        <router-link :to="`/image/${image.id}`">
+          <Image
+            :description="image.description"
+            :date="image.date"
+            :image="image.image"
+            :category="image.category"
+            :owner="image.owner"
+            :id="image.id"
+          />
+        </router-link>
       </ul>
       <div class="collection__single__text">
         <router-link :to="{ name: 'DetailCollection', params: { id: id } }">
@@ -33,6 +35,7 @@ export default defineComponent({
   components: {
     Image,
   },
+
   computed: {
     ...mapState(["collection"]),
   },

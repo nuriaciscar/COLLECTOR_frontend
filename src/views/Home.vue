@@ -97,6 +97,7 @@ export default defineComponent({
   align-items: center;
   height: 20px;
   background-color: transparent;
+  z-index: 10;
   &__add {
     border: none;
   }

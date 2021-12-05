@@ -2,7 +2,7 @@ import axios from "axios";
 import { ActionContext } from "vuex";
 import jwtDecode from "jwt-decode";
 import router from "@/router";
-import { State, UserLogin, User, Collection, UserUpdate, Image } from "@/types/interfaces";
+import { State, UserLogin, User, Collection, Image } from "@/types/interfaces";
 
 const actions = {
   async fetchLoadCollections({ commit }: ActionContext<State, State>): Promise<void | string> {
@@ -58,13 +58,12 @@ const actions = {
   },
   async fetchAddImageToCollection(
     { commit }: ActionContext<State, State>,
-    id: string,
-    image: Image
-  ): Promise<void | string> {
+    id: string
+  ): Promise<void> {
     const { token } = JSON.parse(localStorage.getItem("token") || "");
     const { data: newImage } = await axios.post(
-      `${process.env.VUE_APP_API_URL}/images/${id}`,
-      image,
+      `${process.env.VUE_APP_API_URL}/image/${id}`,
+
       {
         headers: {
           Authorization: `Bearer ${token}`,

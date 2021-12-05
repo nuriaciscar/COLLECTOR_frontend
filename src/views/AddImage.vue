@@ -6,7 +6,7 @@
           <img src="../assets/next.png" class="back" width="25" height="13" alt="Arrow icon" />
         </router-link>
       </div>
-      <h1 class="create__top__title">Create your collection</h1>
+      <h1 class="create__top__title">Add a new image</h1>
     </div>
 
     <form class="createImage" @submit.prevent="onSubmit" autocomplete="off">
@@ -21,25 +21,45 @@
         </div>
         <div class="column">
           <div class="create__form__text">
-            <label class="create__form__text__label" for="name" type="text">Name:</label>
+            <label class="create__form__text__label" for="description" type="text-area"
+              >Description:</label
+            >
             <input
               class="create__form__text__input"
-              id="name"
-              v-model="name"
-              placeholder="Summer"
+              id="description"
+              v-model="description"
+              placeholder="Good moments"
             />
-            <label class="create__form__text__label" for="date" type="date">Date/Time:</label>
-            <input
-              class="create__form__text__input"
-              id="date"
-              v-model="date"
-              placeholder="July 2021"
-            />
-          </div>
 
+            <label for="date" type="date" class="create__form__text__label">Date:</label>
+
+            <span class="datepicker-toggle">
+              <span class="datepicker-toggle-button">{{
+                new Date(date).toLocaleString("en-US", {
+                  weekday: "short",
+                  month: "long",
+                  day: "numeric",
+                  year: "numeric",
+                })
+              }}</span></span
+            >
+            <input type="date" class="datepicker-input" v-model="date" />
+
+            <select id="category" name="category" v-model="category" required>
+              <option value="architecture">architecture</option>
+              <option value="art">art</option>
+              <option value="nature">nature</option>
+              <option value="sports">sports</option>
+              <option value="food">food</option>
+              <option value="sea">sea</option>
+              <option value="decoration">decoration</option>
+              <option value="music">music</option>
+              <option value="aesthetic">aesthetic</option>
+            </select>
+          </div>
           <div class="button">
             <router-link to="/collections">
-              <button class="button__publish">PUBLISH</button>
+              <button class="button__publish">SAVE</button>
             </router-link>
           </div>
         </div>
@@ -53,28 +73,27 @@ import { defineComponent } from "vue";
 import { mapActions } from "vuex";
 
 export default defineComponent({
-  name: "AddCollection",
+  name: "AddImageToCollection",
   components: {},
   data() {
     return {
-      name: "",
-      date: "",
-      images: [],
+      image: "",
+      date: new Date().toISOString().split("T")[0],
+      description: "",
       id: "",
       isIncorrect: false,
       previewImage: null,
-      file: "",
-      image: "",
+      category: "",
     };
   },
   methods: {
-    ...mapActions(["fetchAddCollection"]),
+    ...mapActions(["fetchAddImageToCollection"]),
 
     pickFile() {
       const input = this.$refs.fileInput;
       const file = input.files;
       if (file && file[0]) {
-        this.images = [...this.images, file];
+        [this.image] = file;
         const reader = new FileReader();
         reader.onload = (event) => {
           this.previewImage = event.target.result;
@@ -84,14 +103,18 @@ export default defineComponent({
     },
 
     async onSubmit() {
-      const newCollection = new FormData();
-      this.images.forEach((image) => newCollection.append("images", image));
-      newCollection.append("name", this.name);
-      newCollection.append("date", this.date);
-      newCollection.append("id", this.id);
+      const date = new Date(this.date).toISOString();
+
+      const newImage = new FormData();
+
+      newImage.append("date", this.date);
+      newImage.append("description", date);
+      newImage.append("image", this.image);
+      newImage.append("category", this.category);
+      newImage.append("id", this.id);
 
       try {
-        await this.fetchAddCollection(newCollection);
+        await this.fetchAddImageToCollection(newImage);
         this.$router.push("/collections");
         this.isIncorrect = false;
       } catch (error) {

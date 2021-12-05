@@ -1,5 +1,8 @@
 <template>
   <div :class="grid === true ? 'imageGrid' : 'image'">
+    <button @click="deleteImage" class="delete">
+      <i class="fas fa-trash-alt"></i>
+    </button>
     <img :src="image" :alt="description" :class="grid === true ? 'sizeGrid' : 'size'" />
   </div>
 </template>
@@ -46,6 +49,15 @@ export default defineComponent({
   height: 130px;
   padding: 0;
   object-fit: cover;
+}
+
+.delete {
+  color: yellow;
+  border: none;
+  background-color: transparent;
+}
+.fa-trash-alt {
+  color: green;
 }
 @media (min-width: $tablet) {
   .size {

@@ -16,23 +16,23 @@
 
           <input ref="fileInput" type="file" name="file" id="file" @input="pickFile" multiple />
         </div>
-        <div class="create__form__text"></div>
-        <input ref="name" type="name" name="name" id="name" />
-        <input ref="date" type="text" name="date" id="date" />
-        <!-- <label for="category">Choose your category:</label>
-        <input list="category" name="category" id="category" /> -->
-
-        <!-- <datalist id="category">
-          <option value="art"></option>
-          <option value="architecture"></option>
-          <option value="nature"></option>
-          <option value="sports"></option>
-          <option value="food"></option>
-          <option value="sea"></option>
-          <option value="decoration"></option>
-          <option value="music"></option>
-          <option value="aesthetic"></option>
-        </datalist> -->
+        <div class="create__form__text">
+          <label for="name" type="text">Name:</label>
+          <input id="name" v-model="name" placeholder="Summer" />
+          <label for="date" type="date">Date/Time:</label>
+          <input id="date" v-model="date" placeholder="July 2021" />
+        </div>
+        <!-- <select id="category" name="category" v-model="category" required>
+            <option value="architecture">architecture</option>
+            <option value="art">art</option>
+            <option value="nature">nature</option>
+            <option value="sports">sports</option>
+            <option value="food">food</option>
+            <option value="sea">sea</option>
+            <option value="decoration">decoration</option>
+            <option value="music">music</option>
+            <option value="aesthetic">aesthetic</option>
+          </select> -->
 
         <button>Submit</button>
       </div>
@@ -40,11 +40,9 @@
   </section>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
 import { mapActions } from "vuex";
-
-import { Image } from "@/types/interfaces";
 
 export default defineComponent({
   name: "AddCollection",
@@ -53,41 +51,40 @@ export default defineComponent({
     return {
       name: "",
       date: "",
-      images: [] as Array<Image>,
+      images: [],
       id: "",
       isIncorrect: false,
       previewImage: null,
       file: "",
+      image: "",
     };
   },
   methods: {
     ...mapActions(["fetchAddCollection"]),
 
     pickFile() {
-      const input: HTMLInputElement = this.$refs.fileInput as HTMLInputElement;
+      const input = this.$refs.fileInput;
       const file = input.files;
       if (file && file[0]) {
-        // this.images = file;
-        // [this.images] = file;
+        this.images = [...this.images, file];
         const reader = new FileReader();
-        reader.onload = (event: any) => {
+        reader.onload = (event) => {
           this.previewImage = event.target.result;
         };
         reader.readAsDataURL(file[0]);
-        this.$emit("input", file[0]);
       }
     },
 
     async onSubmit() {
       const newCollection = new FormData();
-
+      this.images.forEach((image) => newCollection.append("images", image));
       newCollection.append("name", this.name);
       newCollection.append("date", this.date);
-      // newCollection.append("images", this.images);
       newCollection.append("id", this.id);
 
       try {
         await this.fetchAddCollection(newCollection);
+        this.$router.push("/collections");
         this.isIncorrect = false;
       } catch (error) {
         this.isIncorrect = true;
@@ -130,6 +127,10 @@ export default defineComponent({
     justify-content: center;
     align-items: center;
     padding-top: 30px;
+    &__text {
+      display: flex;
+      flex-direction: column;
+    }
     &__image {
       width: 300px;
       height: 200px;

@@ -25,6 +25,7 @@ interface Image {
   imageLocal: string;
   category: string;
   owner: Array<string>;
+  collectionImage: Array<string>;
   id: string;
   grid: boolean;
 }

@@ -1,25 +1,20 @@
 <template>
   <div :class="grid === true ? 'imageGrid' : 'image'">
-    <button @click="deleteImage" class="delete">
-      <i class="fas fa-trash-alt"></i>
-    </button>
     <img :src="image" :alt="description" :class="grid === true ? 'sizeGrid' : 'size'" />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-
-import { mapActions } from "vuex";
+import { mapActions, mapState } from "vuex";
 
 export default defineComponent({
   name: "Image",
   props: ["image", "description", "date", "category", "owner", "id", "grid"],
-
+  computed: {
+    ...mapState(["images"]),
+  },
   methods: {
-    getClass() {
-      return {};
-    },
     ...mapActions(["fetchLoadImage"]),
   },
 });
@@ -38,6 +33,9 @@ export default defineComponent({
   object-fit: cover;
   overflow: hidden;
   height: 130px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
 }
 
 .size {
@@ -51,14 +49,12 @@ export default defineComponent({
   object-fit: cover;
 }
 
-.delete {
-  color: yellow;
-  border: none;
-  background-color: transparent;
+.imageGrid:hover img {
+  background-color: rgba(251, 250, 249, 0.7);
+  filter: blur(6px);
+  backdrop-filter: blur(3px);
 }
-.fa-trash-alt {
-  color: green;
-}
+
 @media (min-width: $tablet) {
   .size {
     width: 100px;

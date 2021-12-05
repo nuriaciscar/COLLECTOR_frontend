@@ -146,27 +146,27 @@ const actions = {
       return "Cannot access to user";
     }
   },
-  async fetchUserUpdate(
-    { commit }: ActionContext<State, State>,
-    id: string,
-    user: UserUpdate
-  ): Promise<void | string> {
-    try {
-      const { token } = JSON.parse(localStorage.getItem("token") || "");
-      const { data: updatedUser } = await axios.patch(
-        `${process.env.VUE_APP_API_URL}/user/${id}`,
-        user.formData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      commit("updateUser", updatedUser);
-    } catch {
-      return "Cannot update the information";
-    }
-  },
+  // async fetchUserUpdate(
+  //   { commit }: ActionContext<State, State>,
+  //   id: string,
+  //   user: UserUpdate
+  // ): Promise<void | string> {
+  //   try {
+  //     const { token } = JSON.parse(localStorage.getItem("token") || "");
+  //     const { data: updatedUser } = await axios.patch(
+  //       `${process.env.VUE_APP_API_URL}/user/${id}`,
+  //       user.formData,
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //         },
+  //       }
+  //     );
+  //     commit("updateUser", updatedUser);
+  //   } catch {
+  //     return "Cannot update the information";
+  //   }
+  // },
 };
 
 export default actions;

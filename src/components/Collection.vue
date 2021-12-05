@@ -61,6 +61,7 @@ export default defineComponent({
   display: flex;
   align-items: flex-end;
   width: 100vw;
+  color: black;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
@@ -79,6 +80,7 @@ export default defineComponent({
     &__date {
       font-size: 14px;
       white-space: nowrap;
+      color: #000;
     }
     &__name {
       font-size: 30px;
@@ -86,6 +88,7 @@ export default defineComponent({
       font-weight: 200;
       padding-top: 14px;
       bottom: -10px;
+      color: #000;
     }
   }
   &__image {

@@ -2,7 +2,7 @@
   <section class="profile">
     <div class="profile__image">
       <img class="profile__image__photo" :src="user.user.avatar" alt="Avatar" />
-      <div class="edit"><i class="fas fa-pen"></i></div>
+      <div class="edit"><em class="fas fa-pen"></em></div>
       <p class="profile__image__username">Username</p>
     </div>
 
@@ -49,7 +49,6 @@ export default defineComponent({
 @import "../styles/mixins";
 
 .profile {
-  display: flex;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -217,7 +216,6 @@ export default defineComponent({
     justify-content: center;
     align-items: center;
     font-size: 12px;
-    margin-top: 37px;
   }
 }
 </style>

@@ -2,7 +2,7 @@
   <section class="create">
     <div class="create__arrow">
       <router-link to="/collections">
-        <img src="../assets/next.png" class="back" width="25" height="13" />
+        <img src="../assets/next.png" class="back" width="25" height="13" alt="arrow icon" />
       </router-link>
     </div>
     <form class="register-form" @submit.prevent="onSubmit" autocomplete="off">

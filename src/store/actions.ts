@@ -88,9 +88,21 @@ const actions = {
     }
   },
 
+  async fetchDeleteImage(
+    { commit }: ActionContext<State, State>,
+    id: string
+  ): Promise<void | string> {
+    const { token } = JSON.parse(localStorage.getItem("token") || "");
+    await axios.delete(`${process.env.VUE_APP_API_URL}/image/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    commit("deleteImage", id);
+  },
+
   async fetchLoginUser({ commit }: ActionContext<State, State>, user: UserLogin): Promise<void> {
     const { data } = await axios.post(`${process.env.VUE_APP_API_URL}/user/login`, user);
-
     const { token } = data;
 
     const userData = jwtDecode(token);

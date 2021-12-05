@@ -13,7 +13,12 @@
         <button @click="previousImage" class="buttons__icon">
           <i class="fas fa-chevron-left"></i>
         </button>
-        <img :src="image.image" :alt="description" class="bigImage" />
+        <div class="divImage">
+          <button @click="deleteImage" class="delete">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+          <img :src="image.image" :alt="description" class="bigImage" />
+        </div>
         <button @click="nextImage" class="buttons__icon">
           <i class="fas fa-chevron-right"></i>
         </button>
@@ -47,13 +52,17 @@ export default defineComponent({
     ...mapState(["image"]),
   },
   methods: {
-    ...mapActions(["fetchLoadImage"]),
+    ...mapActions(["fetchLoadImage", "fetchDeleteImage"]),
 
     nextImage() {
       this.currentImage += 1;
     },
     previousImage() {
       this.currentImage -= 1;
+    },
+    deleteImage() {
+      this.fetchDeleteImage(this.image.id);
+      this.$router.push("/collections");
     },
     getDate() {
       return new Date(this.image.date)
@@ -147,6 +156,33 @@ export default defineComponent({
 .bigImage {
   width: 100%;
   height: 230px;
+}
+
+.delete {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  position: absolute;
+  margin-top: 10px;
+  padding-right: 20px;
+  font-size: 28px;
+  display: none;
+  z-index: 10;
+  width: 100px;
+  height: 100px;
+}
+.fa-trash-alt {
+  color: black;
+}
+
+.divImage:hover .delete {
+  display: block;
+}
+
+.bigImage:hover {
+  background-color: rgba(251, 250, 249, 0.7);
+  filter: blur(6px);
+  backdrop-filter: blur(3px);
 }
 
 @media (min-width: $tablet) {

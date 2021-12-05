@@ -110,6 +110,7 @@ export default defineComponent({
     }
   }
 }
+
 @media (min-width: $tablet) {
   .detail {
     width: 100%;

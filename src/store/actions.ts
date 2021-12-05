@@ -2,7 +2,7 @@ import axios from "axios";
 import { ActionContext } from "vuex";
 import jwtDecode from "jwt-decode";
 import router from "@/router";
-import { State, UserLogin, User, Collection, UserUpdate } from "@/types/interfaces";
+import { State, UserLogin, User, Collection, Image } from "@/types/interfaces";
 
 const actions = {
   async fetchLoadCollections({ commit }: ActionContext<State, State>): Promise<void | string> {
@@ -55,6 +55,23 @@ const actions = {
     } catch {
       return "Cannot create this collection";
     }
+  },
+  async fetchAddImageToCollection(
+    { commit }: ActionContext<State, State>,
+    id: string
+  ): Promise<void> {
+    const { token } = JSON.parse(localStorage.getItem("token") || "");
+    const { data: newImage } = await axios.post(
+      `${process.env.VUE_APP_API_URL}/image/${id}`,
+
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    commit("addImageToCollection", newImage);
   },
 
   async fetchLoadImages({ commit }: ActionContext<State, State>): Promise<void | string> {

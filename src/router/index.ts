@@ -5,6 +5,7 @@ import DetailCollection from "../views/DetailCollection.vue";
 import DetailImage from "../views/DetailImage.vue";
 import Profile from "../views/Profile.vue";
 import AddCollection from "../views/AddCollection.vue";
+import AddImageToCollection from "../views/AddImage.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -42,6 +43,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/addCollection",
     name: "AddCollection",
     component: AddCollection,
+  },
+  {
+    path: "/addImage/:id",
+    name: "AddImageToCollection",
+    component: AddImageToCollection,
   },
 ];
 

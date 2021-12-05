@@ -3,7 +3,7 @@
     <div class="profile__image">
       <img class="profile__image__photo" :src="user.user.avatar" alt="Avatar" />
       <div class="edit"><em class="fas fa-pen"></em></div>
-      <p class="profile__image__username">Username</p>
+      <p class="profile__image__username">{{ user.user.username }}</p>
     </div>
 
     <section class="profile__data">

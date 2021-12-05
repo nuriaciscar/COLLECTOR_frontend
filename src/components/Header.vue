@@ -28,12 +28,13 @@
           <p @click="logoutUserAction" class="header__logout">Logout</p>
         </router-link>
         <router-link :to="`/user/${user.user.id}`">
-          <!-- <router-link :to="{ name: 'Profile', params: { idUser: user.user.idUser } }"> -->
           <img class="header__avatar" :src="user.user.avatar" alt=" " width="35" height="35" />
         </router-link>
       </div>
     </section>
-    <div class="logo"><p class="header__logo">COLLECTOR</p></div>
+    <router-link to="/login">
+      <div class="logo"><p class="header__logo">COLLECTOR</p></div>
+    </router-link>
   </nav>
 </template>
 
@@ -77,15 +78,18 @@ export default defineComponent({
   align-items: center;
   width: 85%;
   z-index: 3;
+  color: black;
 
   &__avatar {
     border-radius: 50%;
   }
   &__logout {
     visibility: hidden;
+    color: black;
   }
   &__first {
     visibility: hidden;
+    color: black;
   }
   &__feed {
     margin-left: -30px;
@@ -100,6 +104,7 @@ export default defineComponent({
     justify-content: center;
     margin-top: -6px;
     font-size: 17px;
+    color: black;
   }
 }
 

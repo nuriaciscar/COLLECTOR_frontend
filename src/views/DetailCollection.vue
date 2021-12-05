@@ -7,13 +7,18 @@
         </router-link>
       </div>
       <h1 class="detail__top__title">{{ collection.name }}</h1>
-      <img
+      <router-link :to="`/addImage/${collection.id}`">
+        <button class="addImage">
+          <img src="../assets/addButton.png" alt="Add buton" />
+        </button>
+      </router-link>
+      <!-- <img
         src="../assets/Button.svg"
         class="detail__top__switch"
         width="55"
         height="35"
         alt="Change order button"
-      />
+      /> -->
     </div>
     <div class="detail__grid">
       <ul v-for="image in collection.images" :key="image.id">

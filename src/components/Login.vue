@@ -25,7 +25,7 @@
 
         <button class="eye" @click="seePassword">
           <span class="icon">
-            <i class="fas" :class="{ 'fa-eye-slash': showPassword, 'fa-eye': !showPassword }"></i>
+            <em class="fas" :class="{ 'fa-eye-slash': showPassword, 'fa-eye': !showPassword }"></em>
           </span>
         </button>
       </div>

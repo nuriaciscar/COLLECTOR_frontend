@@ -8,7 +8,7 @@
       />
       <p class="home__image__date">INDIA 2 YEARS AGO</p>
       <div class="buttonn">
-        <button class="buttonn__add"><img src="../assets/addButton.png" /></button>
+        <button class="buttonn__add"><img src="../assets/addButton.png" alt="Add buton" /></button>
         <p class="buttonn__sort">Sort by</p>
       </div>
     </div>

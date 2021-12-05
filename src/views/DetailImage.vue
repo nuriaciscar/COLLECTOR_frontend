@@ -2,7 +2,7 @@
   <div class="detail">
     <div class="detail__items__top">
       <router-link to="/collections">
-        <img src="../assets/next.png" class="back" width="25" height="13" />
+        <img src="../assets/next.png" class="back" width="25" height="13" alt="Arrow icon" />
       </router-link>
 
       <h1 class="detail__items__top__title">{{ name }}</h1>

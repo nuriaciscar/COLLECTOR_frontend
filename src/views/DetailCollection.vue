@@ -3,11 +3,17 @@
     <div class="detail__top">
       <div class="detail__top__arrow">
         <router-link to="/collections">
-          <img src="../assets/next.png" class="back" width="25" height="13" />
+          <img src="../assets/next.png" class="back" width="25" height="13" alt="Arrow icon" />
         </router-link>
       </div>
       <h1 class="detail__top__title">{{ collection.name }}</h1>
-      <img src="../assets/Button.svg" class="detail__top__switch" width="55" height="35" />
+      <img
+        src="../assets/Button.svg"
+        class="detail__top__switch"
+        width="55"
+        height="35"
+        alt="Change order button"
+      />
     </div>
     <div class="detail__grid">
       <ul v-for="image in collection.images" :key="image.id">

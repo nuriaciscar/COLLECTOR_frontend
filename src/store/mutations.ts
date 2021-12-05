@@ -8,7 +8,6 @@ const mutations = {
     state.collection = payload;
     state.image.grid = true;
   },
-
   addCollection(state: State, payload: Collection): void {
     state.collections = [...state.collections, payload];
   },
@@ -17,6 +16,9 @@ const mutations = {
   },
   loadImage(state: State, payload: Image): void {
     state.image = payload;
+  },
+  deleteImage(state: State, payload: string): void {
+    state.images = state.images.filter((image: Image) => image.id !== payload);
   },
   loginUser(state: State, payload: User): void {
     state.user.user = payload;

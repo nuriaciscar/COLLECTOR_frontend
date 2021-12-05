@@ -8,7 +8,11 @@
       />
       <p class="home__image__date">INDIA 2 YEARS AGO</p>
       <div class="buttonn">
-        <button class="buttonn__add"><img src="../assets/addButton.png" alt="Add buton" /></button>
+        <router-link to="/addCollection">
+          <button class="buttonn__add">
+            <img src="../assets/addButton.png" alt="Add buton" />
+          </button>
+        </router-link>
         <p class="buttonn__sort">Sort by</p>
       </div>
     </div>

@@ -30,6 +30,7 @@ const state = {
     imageLocal: "",
     category: "",
     owner: [],
+    collectionImage: [],
     grid: false,
   },
 };

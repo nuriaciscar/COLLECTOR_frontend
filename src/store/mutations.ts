@@ -20,6 +20,10 @@ const mutations = {
   deleteImage(state: State, payload: string): void {
     state.images = state.images.filter((image: Image) => image.id !== payload);
   },
+  addImageToCollection(state: State, payload: Image): void {
+    state.images = [...state.images, payload];
+  },
+
   loginUser(state: State, payload: User): void {
     state.user.user = payload;
     state.user.isAuthenticated = true;

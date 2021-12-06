@@ -117,6 +117,11 @@ export default defineComponent({
       }
     },
   },
+   mounted() {
+    if (localStorage.getItem("token")) {
+      this.getToken();
+    }
+  },
 });
 </script>
 

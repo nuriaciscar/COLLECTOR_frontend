@@ -13,7 +13,7 @@
             <img src="../assets/addButton.png" alt="Add buton" />
           </button>
         </router-link>
-        <p class="buttonn__sort">Sort by</p>
+        <p class="buttonn__sort">New album</p>
       </div>
     </div>
 
@@ -42,13 +42,13 @@ export default defineComponent({
         this.$router.push("/login");
       }
     },
-    ...mapActions(["getToken"])
+    ...mapActions(["getToken"]),
   },
   mounted() {
     this.redirectToLogin();
-
-   
-  
+    if (localStorage.getItem("token")) {
+      this.getToken();
+    }
   },
 });
 </script>
@@ -100,7 +100,7 @@ export default defineComponent({
 
 .buttonn {
   border: none;
-  margin-left: 72%;
+  margin-left: 76%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -180,9 +180,11 @@ export default defineComponent({
     }
     &__collections {
       width: 960px;
-      margin-top: 340px;
+      height: 100vh;
+      margin-top: 350px;
       display: flex;
       justify-content: center;
+      padding-bottom: 250px;
       &::-webkit-scrollbar {
         display: none;
       }
@@ -191,7 +193,7 @@ export default defineComponent({
 
   .buttonn {
     border: none;
-    margin-left: 800px;
+    margin-left: 770px;
     padding-top: 32px;
 
     &__add {

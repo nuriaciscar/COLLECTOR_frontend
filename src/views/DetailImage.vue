@@ -1,7 +1,7 @@
 <template>
   <div class="detail">
     <div class="detail__items__top">
-      <router-link to="/collections">
+      <router-link :to="`/collections/${id}`">
         <img src="../assets/next.png" class="back" width="25" height="13" alt="Arrow icon" />
       </router-link>
 
@@ -10,18 +10,12 @@
 
     <div class="detail__image">
       <div class="buttons">
-        <button @click="previousImage" class="buttons__icon">
-          <i class="fas fa-chevron-left"></i>
-        </button>
         <div class="divImage">
           <button @click="deleteImage" class="delete">
             <i class="fas fa-trash-alt"></i>
           </button>
           <img :src="image.image" :alt="description" class="bigImage" />
         </div>
-        <button @click="nextImage" class="buttons__icon">
-          <i class="fas fa-chevron-right"></i>
-        </button>
       </div>
       <div class="detail__image__text">
         <p class="detail__image__text__date">{{ getDate() }}</p>
@@ -52,7 +46,7 @@ export default defineComponent({
     ...mapState(["image"]),
   },
   methods: {
-    ...mapActions(["fetchLoadImage", "fetchDeleteImage"]),
+    ...mapActions(["fetchLoadImage", "fetchDeleteImage", "getToken"]),
 
     nextImage() {
       this.currentImage += 1;
@@ -75,6 +69,10 @@ export default defineComponent({
     const route = useRoute();
     const { id } = route.params;
     this.fetchLoadImage(id);
+
+    if (localStorage.getItem("token")) {
+      this.getToken();
+    }
   },
 });
 </script>
@@ -149,7 +147,6 @@ export default defineComponent({
     cursor: pointer;
     color: #bcb9b9;
     font-size: 17px;
-    padding: 50px;
   }
 }
 
@@ -158,31 +155,23 @@ export default defineComponent({
   height: 230px;
 }
 
+.divImage {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .delete {
   border: none;
   background-color: transparent;
   cursor: pointer;
   position: absolute;
-  margin-top: 10px;
-  padding-right: 20px;
-  font-size: 28px;
-  display: none;
+  font-size: 20px;
   z-index: 10;
-  width: 100px;
-  height: 100px;
+  width: 40px;
+  height: 40px;
 }
 .fa-trash-alt {
   color: black;
-}
-
-.divImage:hover .delete {
-  display: block;
-}
-
-.bigImage:hover {
-  background-color: rgba(251, 250, 249, 0.7);
-  filter: blur(6px);
-  backdrop-filter: blur(3px);
 }
 
 @media (min-width: $tablet) {
@@ -204,26 +193,27 @@ export default defineComponent({
       margin-top: 135px;
     }
     &__image {
-      margin-top: 60px;
       max-width: 450px;
-      padding-bottom: 200px;
+      padding-bottom: 170px;
+      margin-top: -15px;
 
       &__text {
         display: flex;
-        margin-top: 80px;
+        margin-top: 30px;
         align-items: center;
         flex-direction: column;
         margin-top: 60px;
         max-width: 450px;
-        padding-bottom: 200px;
+        padding-bottom: 170px;
 
         &__date {
           font-size: 18px;
-          padding-bottom: 20px;
+          padding-bottom: 17px;
         }
         &__description {
           font-family: "Public Sans", sans-serif;
           font-size: 16px;
+          text-align: center;
         }
       }
     }
@@ -234,6 +224,20 @@ export default defineComponent({
   }
   .buttons {
     padding-top: 20px;
+  }
+
+  .delete {
+    display: none;
+    font-size: 25px;
+    width: 55px;
+    height: 55px;
+  }
+  .divImage:hover .delete {
+    display: block;
+  }
+
+  .delete :hover {
+    color: $red;
   }
 }
 </style>

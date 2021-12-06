@@ -9,16 +9,9 @@
       <h1 class="detail__top__title">{{ collection.name }}</h1>
       <router-link :to="`/collections/addImage/${collection.id}`">
         <button class="addImage">
-          <img src="../assets/addButton.png" alt="Add button" />
+          <img class="addImage--button" src="../assets/addButton.png" alt="Add button" />
         </button>
       </router-link>
-      <!-- <img
-        src="../assets/Button.svg"
-        class="detail__top__switch"
-        width="55"
-        height="35"
-        alt="Change order button"
-      /> -->
     </div>
     <div class="detail__grid">
       <ul v-for="image in collection.images" :key="image.id">
@@ -62,13 +55,16 @@ export default defineComponent({
     ...mapState(["collection"]),
   },
   methods: {
-    ...mapActions(["fetchLoadCollection"]),
+    ...mapActions(["fetchLoadCollection", "getToken"]),
   },
 
   mounted() {
     const route = useRoute();
     const { id } = route.params;
     this.fetchLoadCollection(id);
+    if (localStorage.getItem("token")) {
+      this.getToken();
+    }
   },
 });
 </script>

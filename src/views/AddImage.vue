@@ -140,6 +140,10 @@ export default defineComponent({
   mounted() {
     const route = useRoute();
     const idCollection = route.params.id;
+
+    if (localStorage.getItem("token")) {
+      this.getToken();
+    }
   },
 });
 </script>

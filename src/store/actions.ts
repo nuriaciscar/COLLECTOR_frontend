@@ -2,7 +2,7 @@ import axios from "axios";
 import { ActionContext } from "vuex";
 import jwtDecode from "jwt-decode";
 import router from "@/router";
-import { State, IBodyDeleted, UserLogin, User, Collection } from "@/types/interfaces";
+import { State, IBodyDeleted, IAddImage, UserLogin, User, Collection } from "@/types/interfaces";
 
 const actions = {
   async fetchLoadCollections({ commit }: ActionContext<State, State>): Promise<void | string> {
@@ -41,37 +41,29 @@ const actions = {
   ): Promise<void | string> {
     try {
       const { token } = JSON.parse(localStorage.getItem("token") || "");
-      const { data: newCollection } = await axios.post(
-        `${process.env.VUE_APP_API_URL}/collections`,
-        collection,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-      commit("addCollection", newCollection);
+      const { data } = await axios.post(`${process.env.VUE_APP_API_URL}/collections`, collection, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      commit("addCollection", data);
     } catch {
       return "Cannot create this collection";
     }
   },
   async fetchAddImageToCollection(
     { commit }: ActionContext<State, State>,
-    id: string
+    add: IAddImage
   ): Promise<void> {
     const { token } = JSON.parse(localStorage.getItem("token") || "");
-    const { data: newImage } = await axios.post(
-      `${process.env.VUE_APP_API_URL}/image/${id}`,
-
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-
-    commit("addImageToCollection", newImage);
+    const { data } = await axios.post(`${process.env.VUE_APP_API_URL}/image/${add.id}`, add.image, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    console.log(add.image);
+    console.log(add.id);
+    commit("addImageToCollection", data);
   },
 
   async fetchLoadImages({ commit }: ActionContext<State, State>): Promise<void | string> {
@@ -118,7 +110,6 @@ const actions = {
     });
     commit("deleteImage", id.id);
     dispatch("fetchUser", id.idImage);
-    dispatch("fetchUser");
   },
 
   async fetchLoginUser({ commit }: ActionContext<State, State>, user: UserLogin): Promise<void> {
@@ -169,6 +160,7 @@ const actions = {
       return "Cannot access to user";
     }
   },
+
   // async fetchUserUpdate(
   //   { commit }: ActionContext<State, State>,
   //   id: string,

@@ -9,7 +9,7 @@
       <h1 class="create__top__title">Create your collection</h1>
     </div>
 
-    <form class="createImage" @submit.prevent="onSubmit" autocomplete="off">
+    <form class="createImage" action @submit.prevent="onSubmit" autocomplete="off">
       <div class="create__form">
         <div class="create__form__file">
           <div
@@ -17,7 +17,14 @@
             class="imagePreviewWrapper"
             :style="{ 'background-image': `url(${previewImage})` }"
           ></div>
-          <input ref="fileInput" type="file" name="file" id="file" @input="pickFile" multiple />
+          <input
+            ref="fileInput"
+            type="file"
+            name="file"
+            id="file"
+            @change="onFileChange($event)"
+            multiple
+          />
         </div>
         <div class="column">
           <div class="create__form__text">
@@ -38,9 +45,7 @@
           </div>
 
           <div class="button">
-            <router-link to="/collections">
-              <button class="button__publish">PUBLISH</button>
-            </router-link>
+            <button class="button__publish">PUBLISH</button>
           </div>
         </div>
       </div>
@@ -59,7 +64,7 @@ export default defineComponent({
     return {
       name: "",
       date: "",
-      images: [],
+      images: "",
       id: "",
       isIncorrect: false,
       previewImage: null,
@@ -70,25 +75,38 @@ export default defineComponent({
   methods: {
     ...mapActions(["fetchAddCollection"]),
 
-    pickFile() {
-      const input = this.$refs.fileInput;
-      const file = input.files;
-      if (file && file[0]) {
-        this.images = [...this.images, file];
-        const reader = new FileReader();
-        reader.onload = (event) => {
-          this.previewImage = event.target.result;
-        };
-        reader.readAsDataURL(file[0]);
-      }
+    // pickFile() {
+    //   const input = this.$refs.fileInput;
+    //   const file = input.files;
+    //   console.log(file);
+    //   if (file && file[0]) {
+    //     this.images = [...this.images, file];
+    //     console.log(this.images);
+    //     const reader = new FileReader();
+    //     reader.onload = (event) => {
+    //       this.previewImage = event.target.result;
+    //     };
+    //     reader.readAsDataURL(file[0]);
+    //   }
+    // },
+
+    onFileChange(event) {
+      // const newImage = file[0];
+      // // if (file.length > 0) {
+      //   const imageUrl = URL.createObjectURL(newImage);
+      // this.images = [...this.images, newImage];
+      // console.log(newImage);
+
+      [this.images] = event.target.files;
     },
 
     async onSubmit() {
       const newCollection = new FormData();
-      this.images.forEach((image) => newCollection.append("images", image));
+
       newCollection.append("name", this.name);
       newCollection.append("date", this.date);
       newCollection.append("id", this.id);
+      newCollection.append("images", this.images);
 
       try {
         await this.fetchAddCollection(newCollection);

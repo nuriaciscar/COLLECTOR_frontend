@@ -53,17 +53,34 @@ const actions = {
   },
   async fetchAddImageToCollection(
     { commit }: ActionContext<State, State>,
-    add: IAddImage
-  ): Promise<void> {
-    const { token } = JSON.parse(localStorage.getItem("token") || "");
-    const { data } = await axios.post(`${process.env.VUE_APP_API_URL}/image/${add.id}`, add.image, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    console.log(add.image);
-    console.log(add.id);
-    commit("addImageToCollection", data);
+    collection: Collection | any
+  ): Promise<void | string> {
+    // setTimeout(() => {
+    //   console.log("aquest");
+    //   console.log(collection.id);
+    // }, 3000);
+
+    try {
+      console.log("coll");
+      console.log(collection[0]);
+      console.log(collection.id);
+
+      const { id } = collection;
+      const { token } = JSON.parse(localStorage.getItem("token") || "");
+      const { data } = await axios.patch(
+        `${process.env.VUE_APP_API_URL}/collections/${id}`,
+        collection,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      commit("addImageToCollection", data);
+    } catch {
+      return "Cannot create this collection";
+    }
   },
 
   async fetchLoadImages({ commit }: ActionContext<State, State>): Promise<void | string> {

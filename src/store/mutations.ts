@@ -20,8 +20,16 @@ const mutations = {
   deleteImage(state: State, payload: string): void {
     state.images = state.images.filter((image: Image) => image.id !== payload);
   },
-  addImageToCollection(state: State, payload: Image): void {
-    state.images = [...state.images, payload];
+  addImageToCollection(state: State, payload: Collection): void {
+    state.collection = payload;
+    // state.collections = state.collections.map((collection) =>
+    //   collection.id === payload.id
+    //     ? {
+    //         ...collection,
+    //         ...payload,
+    //       }
+    //     : collection
+    // );
   },
 
   loginUser(state: State, payload: User): void {

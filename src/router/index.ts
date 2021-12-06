@@ -45,7 +45,7 @@ const routes: Array<RouteRecordRaw> = [
     component: AddCollection,
   },
   {
-    path: "/addImage/:id",
+    path: "/collections/addImage/:id",
     name: "AddImageToCollection",
     component: AddImageToCollection,
   },

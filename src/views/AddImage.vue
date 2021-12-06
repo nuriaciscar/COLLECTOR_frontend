@@ -37,7 +37,7 @@
               v-model="description"
               placeholder="Good moments"
             /> -->
-
+            <!--
             <label for="date" type="date" class="create__form__text__label">Date:</label>
 
             <span class="datepicker-toggle">
@@ -50,7 +50,7 @@
                 })
               }}</span></span
             >
-            <input type="date" class="datepicker-input" v-model="date" />
+            <input type="date" class="datepicker-input" v-model="date" /> -->
 
             <!-- <select id="category" name="category" v-model="category" required>
               <option value="architecture">architecture</option>
@@ -75,7 +75,7 @@
 
 <script>
 import { defineComponent } from "vue";
-import { mapActions } from "vuex";
+import { mapActions, mapState } from "vuex";
 import { useRoute } from "vue-router";
 import state from "../store/state";
 
@@ -84,15 +84,19 @@ export default defineComponent({
   data() {
     return {
       image: "",
-      date: new Date().toISOString().split("T")[0],
+      date: "",
       description: "",
       isIncorrect: false,
       previewImage: null,
       category: "",
+      name: "",
+      images: "",
+      file: "",
     };
   },
   methods: {
     ...mapActions(["fetchAddImageToCollection"]),
+    ...mapState(["collection"]),
 
     // pickFile() {
     //   const input = this.$refs.fileInput;
@@ -110,28 +114,23 @@ export default defineComponent({
     // @input="pickFile"
 
     onFileChange(event) {
-      [this.image] = event.target.files;
+      [this.images] = event.target.files;
     },
 
     async onSubmit() {
-      const date = new Date(this.date).toISOString();
+      // const date = new Date(this.date).toISOString();
 
-      const newImage = new FormData();
-
-      newImage.append("date", date);
-      newImage.append("image", this.image);
-
-      newImage.forEach((val) => console.log(val));
-      // newImage.append("date", this.date);
-      // newImage.append("description", date);
-      // newImage.append("image", this.image);
-      // newImage.append("category", this.category);
-      // newImage.append("id", this.id);
+      const updatedCollection = new FormData();
+      updatedCollection.id = state.collection.id;
+      // newImage.append("date", date);
+      updatedCollection.append("images", this.images);
+      updatedCollection.append("name", this.name);
+      updatedCollection.append("date", this.date);
 
       try {
-        await this.fetchAddImageToCollection(state.collection.id, newImage);
-        console.log("image saved");
-        this.$router.push(`/collections}`);
+        await this.fetchAddImageToCollection(updatedCollection, "pepe");
+
+        this.$router.push("/collections");
         this.isIncorrect = false;
       } catch (error) {
         this.isIncorrect = true;
@@ -141,9 +140,6 @@ export default defineComponent({
   mounted() {
     const route = useRoute();
     const idCollection = route.params.id;
-    this.fetchAddImageToCollection(idCollection);
-    console.log("este es el correcto id");
-    console.log(idCollection);
   },
 });
 </script>

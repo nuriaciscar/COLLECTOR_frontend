@@ -7,7 +7,7 @@
         </router-link>
       </div>
       <h1 class="detail__top__title">{{ collection.name }}</h1>
-      <router-link :to="`/addImage/${collection.id}`">
+      <router-link :to="`/collections/addImage/${collection.id}`">
         <button class="addImage">
           <img src="../assets/addButton.png" alt="Add button" />
         </button>

@@ -152,6 +152,7 @@ const actions = {
 
   async fetchUser({ commit }: ActionContext<State, State>, id: string): Promise<void | string> {
     try {
+      console.log(`jose:${id}`);
       const { token } = JSON.parse(localStorage.getItem("token") || "");
       const { data } = await axios.get(`${process.env.VUE_APP_API_URL}/user/${id}`, {
         headers: {

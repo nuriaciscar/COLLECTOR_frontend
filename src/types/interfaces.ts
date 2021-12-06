@@ -4,7 +4,7 @@ interface UserLogin {
 }
 
 interface User {
-  map(arg0: (user: any) => any): User;
+  // map(arg0: (user: any) => any): User;
   id: string;
   name: string;
   username: string;

@@ -17,11 +17,18 @@
             class="imagePreviewWrapper"
             :style="{ 'background-image': `url(${previewImage})` }"
           ></div>
-          <input ref="fileInput" type="file" name="file" id="file" @input="pickFile" multiple />
+          <input
+            ref="fileInput"
+            type="file"
+            name="file"
+            id="file"
+            @change="onFileChange($event)"
+            multiple
+          />
         </div>
         <div class="column">
           <div class="create__form__text">
-            <label class="create__form__text__label" for="description" type="text-area"
+            <!-- <label class="create__form__text__label" for="description" type="text-area"
               >Description:</label
             >
             <input
@@ -29,7 +36,7 @@
               id="description"
               v-model="description"
               placeholder="Good moments"
-            />
+            /> -->
 
             <label for="date" type="date" class="create__form__text__label">Date:</label>
 
@@ -45,7 +52,7 @@
             >
             <input type="date" class="datepicker-input" v-model="date" />
 
-            <select id="category" name="category" v-model="category" required>
+            <!-- <select id="category" name="category" v-model="category" required>
               <option value="architecture">architecture</option>
               <option value="art">art</option>
               <option value="nature">nature</option>
@@ -55,12 +62,10 @@
               <option value="decoration">decoration</option>
               <option value="music">music</option>
               <option value="aesthetic">aesthetic</option>
-            </select>
+            </select> -->
           </div>
           <div class="button">
-            <router-link to="/collections">
-              <button class="button__publish">SAVE</button>
-            </router-link>
+            <button class="button__publish">SAVE</button>
           </div>
         </div>
       </div>
@@ -71,16 +76,16 @@
 <script>
 import { defineComponent } from "vue";
 import { mapActions } from "vuex";
+import { useRoute } from "vue-router";
+import state from "../store/state";
 
 export default defineComponent({
   name: "AddImageToCollection",
-  components: {},
   data() {
     return {
       image: "",
       date: new Date().toISOString().split("T")[0],
       description: "",
-      id: "",
       isIncorrect: false,
       previewImage: null,
       category: "",
@@ -89,17 +94,23 @@ export default defineComponent({
   methods: {
     ...mapActions(["fetchAddImageToCollection"]),
 
-    pickFile() {
-      const input = this.$refs.fileInput;
-      const file = input.files;
-      if (file && file[0]) {
-        [this.image] = file;
-        const reader = new FileReader();
-        reader.onload = (event) => {
-          this.previewImage = event.target.result;
-        };
-        reader.readAsDataURL(file[0]);
-      }
+    // pickFile() {
+    //   const input = this.$refs.fileInput;
+    //   const file = input.files;
+    //   if (file && file[0]) {
+    //     [this.image] = file;
+    //     const reader = new FileReader();
+    //     reader.onload = (event) => {
+    //       this.previewImage = event.target.result;
+    //     };
+    //     reader.readAsDataURL(file[0]);
+    //   }
+    // },
+
+    // @input="pickFile"
+
+    onFileChange(event) {
+      [this.image] = event.target.files;
     },
 
     async onSubmit() {
@@ -107,20 +118,32 @@ export default defineComponent({
 
       const newImage = new FormData();
 
-      newImage.append("date", this.date);
-      newImage.append("description", date);
+      newImage.append("date", date);
       newImage.append("image", this.image);
-      newImage.append("category", this.category);
-      newImage.append("id", this.id);
+
+      newImage.forEach((val) => console.log(val));
+      // newImage.append("date", this.date);
+      // newImage.append("description", date);
+      // newImage.append("image", this.image);
+      // newImage.append("category", this.category);
+      // newImage.append("id", this.id);
 
       try {
-        await this.fetchAddImageToCollection(newImage);
-        this.$router.push("/collections");
+        await this.fetchAddImageToCollection(state.collection.id, newImage);
+        console.log("image saved");
+        this.$router.push(`/collections}`);
         this.isIncorrect = false;
       } catch (error) {
         this.isIncorrect = true;
       }
     },
+  },
+  mounted() {
+    const route = useRoute();
+    const idCollection = route.params.id;
+    this.fetchAddImageToCollection(idCollection);
+    console.log("este es el correcto id");
+    console.log(idCollection);
   },
 });
 </script>

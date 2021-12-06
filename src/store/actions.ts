@@ -2,7 +2,7 @@ import axios from "axios";
 import { ActionContext } from "vuex";
 import jwtDecode from "jwt-decode";
 import router from "@/router";
-import { State, UserLogin, User, Collection, Image } from "@/types/interfaces";
+import { State, IBodyDeleted, UserLogin, User, Collection } from "@/types/interfaces";
 
 const actions = {
   async fetchLoadCollections({ commit }: ActionContext<State, State>): Promise<void | string> {
@@ -106,16 +106,18 @@ const actions = {
   },
 
   async fetchDeleteImage(
-    { commit }: ActionContext<State, State>,
-    id: string
+    { commit, dispatch }: ActionContext<State, State>,
+    id: IBodyDeleted
   ): Promise<void | string> {
     const { token } = JSON.parse(localStorage.getItem("token") || "");
+
     await axios.delete(`${process.env.VUE_APP_API_URL}/image/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
-    commit("deleteImage", id);
+    commit("deleteImage", id.id);
+    dispatch("fetchUser", id.idImage);
   },
 
   async fetchLoginUser({ commit }: ActionContext<State, State>, user: UserLogin): Promise<void> {
@@ -127,14 +129,17 @@ const actions = {
     commit("loginUser", userData);
   },
 
-  getToken({ commit }: ActionContext<State, State>): string | void {
+  getToken({ commit, dispatch }: ActionContext<State, State>): string | void {
     try {
       const token = JSON.parse(localStorage.getItem("token") || "");
-      commit("loginUser", jwtDecode(token.token));
+      const user: User = jwtDecode(token.token);
+      commit("loginUser", user);
+      dispatch("fetchUser", user.id);
     } catch {
-      return "Cannot login";
+      return "Cannot get user";
     }
   },
+
   logoutUserAction({ commit }: ActionContext<State, State>): void {
     router.push("/collections");
     localStorage.removeItem("token");
@@ -152,7 +157,6 @@ const actions = {
 
   async fetchUser({ commit }: ActionContext<State, State>, id: string): Promise<void | string> {
     try {
-      console.log(`jose:${id}`);
       const { token } = JSON.parse(localStorage.getItem("token") || "");
       const { data } = await axios.get(`${process.env.VUE_APP_API_URL}/user/${id}`, {
         headers: {

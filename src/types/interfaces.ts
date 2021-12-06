@@ -36,6 +36,10 @@ interface Collection {
   id: string;
 }
 
+interface IBodyDeleted {
+  id: string;
+  idImage: string;
+}
 interface State {
   user: {
     isAuthenticated: boolean;
@@ -47,4 +51,4 @@ interface State {
   image: Image;
 }
 
-export { State, User, Collection, Image, UserLogin, UserUpdate };
+export { State, User, Collection, Image, UserLogin, UserUpdate, IBodyDeleted };

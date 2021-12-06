@@ -41,6 +41,7 @@ export default defineComponent({
 .size {
   width: 69px;
   height: 94px;
+  object-fit: cover;
 }
 .sizeGrid {
   width: 100%;

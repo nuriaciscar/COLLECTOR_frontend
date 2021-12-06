@@ -4,7 +4,7 @@ interface UserLogin {
 }
 
 interface User {
-  map(arg0: (user: any) => any): User;
+  // map(arg0: (user: any) => any): User;
   id: string;
   name: string;
   username: string;
@@ -36,6 +36,10 @@ interface Collection {
   id: string;
 }
 
+interface IBodyDeleted {
+  id: string;
+  idImage: string;
+}
 interface State {
   user: {
     isAuthenticated: boolean;
@@ -47,4 +51,4 @@ interface State {
   image: Image;
 }
 
-export { State, User, Collection, Image, UserLogin, UserUpdate };
+export { State, User, Collection, Image, UserLogin, UserUpdate, IBodyDeleted };

@@ -1,6 +1,6 @@
 <template>
   <section class="collectionList">
-    <ul v-for="collection in collectionRandom" :key="collection.id">
+    <ul v-for="collection in user.user.collections" :key="collection.id">
       <Collection
         :name="collection.name"
         :date="collection.date"
@@ -18,25 +18,25 @@ import Collection from "@/components/Collection.vue";
 
 export default defineComponent({
   name: "CollectionList",
-
+  // props: { collections: Array, id: String },
   components: {
     Collection,
   },
   computed: {
-    ...mapState(["collections"]),
+    ...mapState(["user"]),
+  },
+  // collectionRandom(): any {
+  //   // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+  //   return this.collections.sort(() => 0.5 - Math.random());
+  // },
 
-    collectionRandom(): any {
-      // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-      return this.collections.sort(() => 0.5 - Math.random());
-    },
-  },
-  methods: {
-    ...mapActions(["fetchLoadCollections"]),
-  },
+  // methods: {
+  //   // ...mapActions(["fetchUser"]),
+  // },
 
-  mounted() {
-    this.fetchLoadCollections();
-  },
+  // mounted() {
+  //   this.fetchUser();
+  // },
 });
 </script>
 

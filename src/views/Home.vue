@@ -25,7 +25,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 import CollectionList from "@/components/CollectionList.vue";
 
 export default defineComponent({
@@ -42,9 +42,13 @@ export default defineComponent({
         this.$router.push("/login");
       }
     },
+    ...mapActions(["getToken"])
   },
   mounted() {
     this.redirectToLogin();
+
+   
+  
   },
 });
 </script>

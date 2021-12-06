@@ -118,6 +118,7 @@ const actions = {
     });
     commit("deleteImage", id.id);
     dispatch("fetchUser", id.idImage);
+    dispatch("fetchUser");
   },
 
   async fetchLoginUser({ commit }: ActionContext<State, State>, user: UserLogin): Promise<void> {

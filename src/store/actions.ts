@@ -48,7 +48,6 @@ const actions = {
         },
       });
       commit("addCollection", data);
-      console.log(data);
     } catch {
       return "Cannot create this collection";
     }
@@ -58,8 +57,6 @@ const actions = {
     collection: Collection | FormData | any
   ): Promise<void | string> {
     try {
-      console.log("coll");
-      console.log(collection);
       collection.forEach((val: any) => console.log(val));
       const { token } = JSON.parse(localStorage.getItem("token") || "");
       const { data } = await axios.patch(

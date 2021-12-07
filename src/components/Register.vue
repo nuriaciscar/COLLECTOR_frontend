@@ -86,7 +86,6 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapActions } from "vuex";
-import { UserRegister } from "@/types/interfaces";
 
 export default defineComponent({
   name: "Register",
@@ -158,10 +157,8 @@ export default defineComponent({
         registerUser.append("password", this.password);
         registerUser.append("email", this.email);
         registerUser.append("avatar", this.images);
-
-        console.log(this.avatar);
       }
-      registerUser.forEach((val) => console.log(val));
+
       try {
         await this.fetchRegisterUser(registerUser);
         this.isIncorrect = false;

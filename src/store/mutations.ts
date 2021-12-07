@@ -11,6 +11,11 @@ const mutations = {
   addCollection(state: State, payload: Collection): void {
     state.collections = [...state.collections, payload];
   },
+  deleteCollection(state: State, payload: string): void {
+    state.collections = state.collections.filter(
+      (collection: Collection) => collection.id !== payload
+    );
+  },
   loadImages(state: State, payload: Array<Image>): void {
     state.images = payload;
   },
@@ -22,14 +27,6 @@ const mutations = {
   },
   addImageToCollection(state: State, payload: Collection): void {
     state.collection = payload;
-    // state.collections = state.collections.map((collection) =>
-    //   collection.id === payload.id
-    //     ? {
-    //         ...collection,
-    //         ...payload,
-    //       }
-    //     : collection
-    // );
   },
 
   loginUser(state: State, payload: User): void {

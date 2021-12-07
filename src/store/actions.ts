@@ -2,7 +2,15 @@ import axios from "axios";
 import { ActionContext } from "vuex";
 import jwtDecode from "jwt-decode";
 import router from "@/router";
-import { State, IBodyDeleted, IAddImage, UserLogin, User, Collection } from "@/types/interfaces";
+import {
+  State,
+  IBodyDeleted,
+  IAddImage,
+  IBodyDeletedCollection,
+  UserLogin,
+  User,
+  Collection,
+} from "@/types/interfaces";
 import state from "./state";
 
 const actions = {
@@ -34,6 +42,22 @@ const actions = {
     } catch {
       return "Cannot get this item";
     }
+  },
+
+  async fetchDeleteCollection(
+    { commit, dispatch }: ActionContext<State, State>,
+    id: IBodyDeletedCollection
+  ): Promise<void | string> {
+    const { token } = JSON.parse(localStorage.getItem("token") || "");
+
+    await axios.delete(`${process.env.VUE_APP_API_URL}/collections/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    commit("deleteCollection", id.id);
+    dispatch("fetchUser", id.idCollection);
+    dispatch("fetchUser");
   },
 
   async fetchAddCollection(

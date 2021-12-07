@@ -5,6 +5,9 @@
         <router-link to="/collections">
           <img src="../assets/next.png" class="back" width="25" height="13" alt="Arrow icon" />
         </router-link>
+        <button @click="deleteCollection" class="delete">
+          <i class="fas fa-trash-alt"></i>
+        </button>
       </div>
       <h1 class="detail__top__title">{{ collection.name }}</h1>
       <router-link :to="`/collections/addImage/${collection.id}`">

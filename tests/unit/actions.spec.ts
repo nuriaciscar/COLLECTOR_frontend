@@ -21,6 +21,7 @@ describe("Given an object of actions", () => {
 
       expect(commit).toHaveBeenCalled();
       expect(commit).toHaveBeenCalledWith("loadCollections", data);
+       
     });
   });
   describe("When it invokes fetchLoadCollection action", () => {
@@ -101,6 +102,8 @@ describe("Given an object of actions", () => {
       expect(commit).toHaveBeenCalledWith("loadCollections", []);
       expect(commit).toHaveBeenCalledWith("loadCollection", []);
       expect(commit).toHaveBeenCalledWith("addCollection", undefined);
+
+
     });
   });
   describe("When it invokes fetchLoginUser action", () => {

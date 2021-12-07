@@ -89,7 +89,6 @@ export default defineComponent({
       description: "",
       isIncorrect: false,
       previewImage: null,
-      category: "",
       name: "",
       images: "",
       file: "",

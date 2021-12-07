@@ -20,6 +20,7 @@ describe("Given a Home component", () => {
           mocks: {
             methods: {
               redirectToLogin: jest.fn(),
+              
             },
             plugins: [router, store],
           },

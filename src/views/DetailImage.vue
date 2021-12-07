@@ -49,12 +49,6 @@ export default defineComponent({
   methods: {
     ...mapActions(["fetchLoadImage", "fetchDeleteImage", "getToken"]),
 
-    nextImage() {
-      this.currentImage += 1;
-    },
-    previousImage() {
-      this.currentImage -= 1;
-    },
     deleteImage() {
       this.fetchDeleteImage(this.image.id);
       this.$router.push("/collections");

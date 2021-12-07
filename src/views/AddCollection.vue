@@ -110,6 +110,7 @@ export default defineComponent({
 
       try {
         await this.fetchAddCollection(newCollection);
+        this.$router.push("/collections");
         this.isIncorrect = false;
       } catch (error) {
         this.isIncorrect = true;

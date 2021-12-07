@@ -3,6 +3,7 @@ import { ActionContext } from "vuex";
 import jwtDecode from "jwt-decode";
 import router from "@/router";
 import { State, IBodyDeleted, IAddImage, UserLogin, User, Collection } from "@/types/interfaces";
+import state from "./state";
 
 const actions = {
   async fetchLoadCollections({ commit }: ActionContext<State, State>): Promise<void | string> {
@@ -47,28 +48,22 @@ const actions = {
         },
       });
       commit("addCollection", data);
+      console.log(data);
     } catch {
       return "Cannot create this collection";
     }
   },
   async fetchAddImageToCollection(
     { commit }: ActionContext<State, State>,
-    collection: Collection | any
+    collection: Collection | FormData | any
   ): Promise<void | string> {
-    // setTimeout(() => {
-    //   console.log("aquest");
-    //   console.log(collection.id);
-    // }, 3000);
-
     try {
       console.log("coll");
-      console.log(collection[0]);
-      console.log(collection.id);
-
-      const { id } = collection;
+      console.log(collection);
+      collection.forEach((val: any) => console.log(val));
       const { token } = JSON.parse(localStorage.getItem("token") || "");
       const { data } = await axios.patch(
-        `${process.env.VUE_APP_API_URL}/collections/${id}`,
+        `${process.env.VUE_APP_API_URL}/collections/${state.collection.id}`,
         collection,
         {
           headers: {
@@ -128,9 +123,6 @@ const actions = {
     commit("deleteImage", id.id);
     dispatch("fetchUser", id.idImage);
     dispatch("fetchUser");
-    dispatch("fetchLoadCollections");
-    dispatch("fetchLoadCollection");
-    dispatch("fetchLoadImage");
   },
 
   async fetchLoginUser({ commit }: ActionContext<State, State>, user: UserLogin): Promise<void> {

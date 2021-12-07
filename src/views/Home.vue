@@ -195,6 +195,7 @@ export default defineComponent({
     border: none;
     margin-left: 770px;
     padding-top: 32px;
+    cursor: pointer;
 
     &__add {
       width: 30px;

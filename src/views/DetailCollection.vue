@@ -55,7 +55,12 @@ export default defineComponent({
     ...mapState(["collection"]),
   },
   methods: {
-    ...mapActions(["fetchLoadCollection", "getToken"]),
+    ...mapActions(["fetchLoadCollection", "getToken", "fetchDeleteCollection"]),
+
+    deleteCollection() {
+      this.fetchDeleteCollection(this.collection.id);
+      this.$router.push("/collections");
+    },
   },
 
   mounted() {

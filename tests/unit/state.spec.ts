@@ -33,6 +33,8 @@ describe("Given a state", () => {
           imageLocal: "",
           category: "",
           owner: [],
+          collectionImage: [],
+          grid: false,
         },
       });
     });

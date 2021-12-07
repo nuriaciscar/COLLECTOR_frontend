@@ -125,6 +125,8 @@ describe("Given a store mutations object", () => {
         imageLocal: "https://hola2.png",
         category: "art",
         owner: [],
+        collectionImage: [],
+        grid: false,
       };
 
       mutations.loadImage(mockedState, payload);

@@ -59,6 +59,7 @@
         @change="onFileChange($event)"
         @input="pickFile"
         multiple
+        class="input--avatar"
       />
       <div class="bottom">
         <div class="sign">
@@ -86,7 +87,6 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapActions } from "vuex";
-import { UserRegister } from "@/types/interfaces";
 
 export default defineComponent({
   name: "Register",
@@ -158,10 +158,8 @@ export default defineComponent({
         registerUser.append("password", this.password);
         registerUser.append("email", this.email);
         registerUser.append("avatar", this.images);
-
-        console.log(this.avatar);
       }
-      registerUser.forEach((val) => console.log(val));
+
       try {
         await this.fetchRegisterUser(registerUser);
         this.isIncorrect = false;
@@ -181,6 +179,7 @@ export default defineComponent({
 .register {
   display: flex;
   flex-direction: column;
+  background-color: #e5ecf6;
   width: 100vw;
   height: 100vh;
   align-items: center;
@@ -209,7 +208,7 @@ export default defineComponent({
     @include form;
   }
 }
-.label-avatar {
+.input--avatar {
   border: none;
 }
 

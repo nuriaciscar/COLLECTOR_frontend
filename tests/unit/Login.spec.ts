@@ -4,9 +4,14 @@ import router from "../../src/router";
 import state from "../mockedState";
 import Login from "../../src/components/Login.vue";
 
+const push = jest.fn();
+const $router = {
+  push: jest.fn(),
+};
+
 describe("Given a Login component", () => {
   describe("When it's rendered'", () => {
-    test("Then it should render a form with a button submit", () => {
+    test("Then it should render a form with a title ", () => {
       const wrapper = mount(Login, {
         global: {
           plugins: [router],
@@ -85,6 +90,52 @@ describe("Given a Login component", () => {
       await wrapper.find("form").trigger("→");
 
       expect(wrapper.text()).toContain("Welcome backUsernamePasswordor Sign In →");
+    });
+    describe("When the form is submitted", () => {
+      test("Then it should invoke onSubmit function", () => {
+        const store = createStore({
+          state() {
+            return state;
+          },
+          actions: { fetchLoginUser: jest.fn(), getToken: jest.fn() },
+        });
+
+        const wrapper = mount(Login, {
+          global: {
+            plugins: [router, store],
+          },
+          stubs: ["router-link", "router-view"],
+        });
+
+        const onSubmit = jest.fn();
+        onSubmit();
+        const form = wrapper.get("form");
+        form.trigger("submit");
+        expect(onSubmit).toHaveBeenCalled();
+      });
+    });
+    describe("When the user clicks on eye icon", () => {
+      test("Then it should invoke seePassword function", () => {
+        const store = createStore({
+          state() {
+            return state;
+          },
+          actions: { fetchLoginUser: jest.fn(), getToken: jest.fn() },
+        });
+
+        const wrapper = mount(Login, {
+          global: {
+            plugins: [router, store],
+          },
+          stubs: ["router-link", "router-view"],
+        });
+
+        const seePassword = jest.fn();
+        seePassword();
+        const form = wrapper.get("form");
+        form.trigger("submit");
+        expect(seePassword).toHaveBeenCalled();
+      });
     });
   });
 });

@@ -59,6 +59,7 @@
         @change="onFileChange($event)"
         @input="pickFile"
         multiple
+        class="input--avatar"
       />
       <div class="bottom">
         <div class="sign">
@@ -178,6 +179,7 @@ export default defineComponent({
 .register {
   display: flex;
   flex-direction: column;
+  background-color: #e5ecf6;
   width: 100vw;
   height: 100vh;
   align-items: center;
@@ -206,7 +208,7 @@ export default defineComponent({
     @include form;
   }
 }
-.label-avatar {
+.input--avatar {
   border: none;
 }
 

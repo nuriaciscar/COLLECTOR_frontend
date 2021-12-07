@@ -6,11 +6,17 @@ import Register from "../../src/components/Register.vue";
 
 describe("Given a Register component", () => {
   describe("When it's rendered'", () => {
-    test("Then it should render a form with a button submit", () => {
+    test("Then it should render a section html tag", () => {
       const wrapper = mount(Register, {
         global: {
           plugins: [router],
           mocks: {
+            methods: {
+              onFileChange: jest.fn(),
+              onChangeForm: jest.fn(),
+              onSubmit: jest.fn(),
+              correctEmail: jest.fn(),
+            },
             $store: {
               state,
               mutations: {

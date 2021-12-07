@@ -46,8 +46,20 @@
         v-model="email"
         :class="isIncorrect ? 'incorrect' : ''"
       />
-      <!-- <label class="label-avatar" for="avatar" type="file">Avatar</label>
-      <input id="avatar" type="file" name="avatar" /> -->
+      <div
+        v-if="previewImage !== null && previewImage !== undefined"
+        class="imagePreviewWrapper"
+        :style="{ 'background-image': `url(${previewImage})` }"
+      ></div>
+      <input
+        ref="fileInput"
+        type="file"
+        name="file"
+        id="file"
+        @change="onFileChange($event)"
+        @input="pickFile"
+        multiple
+      />
       <div class="bottom">
         <div class="sign">
           <router-link to="/login">
@@ -71,7 +83,7 @@
   </section>
 </template>
 
-<script lang="ts" scoped>
+<script lang="ts">
 import { defineComponent } from "vue";
 import { mapActions } from "vuex";
 import { UserRegister } from "@/types/interfaces";
@@ -86,14 +98,34 @@ export default defineComponent({
       password: "",
       email: "",
       avatar: "",
+      images: "",
       repeatPassword: "",
       isIncorrect: false,
       isDisabled: true,
       isWrongEmail: false,
+      previewImage: null,
+      file: "",
     };
   },
   methods: {
     ...mapActions(["fetchRegisterUser"]),
+    onFileChange(event: any) {
+      [this.images] = event.target.files;
+    },
+
+    // pickFile() {
+    //   const input: HTMLInputElement = this.$refs.fileInput as HTMLInputElement;
+    //   const file = input.files;
+    //   if (file && file[0]) {
+    //     [this.images] = file;
+    //     const reader = new FileReader();
+    //     reader.onload = (event: any) => {
+    //       this.previewImage = event.target.result;
+    //     };
+    //     reader.readAsDataURL(file[0]);
+    //   }
+    // },
+
     onChangeForm() {
       if (this.username.length > 2 && this.password.length > 2) {
         this.isDisabled = false;
@@ -119,20 +151,23 @@ export default defineComponent({
     },
 
     async onSubmit() {
+      const registerUser = new FormData();
       if (this.username !== "" && this.password !== "") {
-        const user: UserRegister = {
-          name: this.name,
-          username: this.username,
-          password: this.password,
-          email: this.email,
-        };
-        try {
-          await this.fetchRegisterUser(user);
-          this.isIncorrect = false;
-          this.$router.push("/collections");
-        } catch (error) {
-          this.isIncorrect = true;
-        }
+        registerUser.append("name", this.name);
+        registerUser.append("username", this.username);
+        registerUser.append("password", this.password);
+        registerUser.append("email", this.email);
+        registerUser.append("avatar", this.images);
+
+        console.log(this.avatar);
+      }
+      registerUser.forEach((val) => console.log(val));
+      try {
+        await this.fetchRegisterUser(registerUser);
+        this.isIncorrect = false;
+        this.$router.push("/collections");
+      } catch (error) {
+        this.isIncorrect = true;
       }
     },
   },

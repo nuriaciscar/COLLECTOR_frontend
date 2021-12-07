@@ -2,7 +2,6 @@
   <section class="profile">
     <div class="profile__image">
       <img class="profile__image__photo" :src="user.user.avatar" alt="Avatar" />
-      <div class="edit"><em class="fas fa-pen"></em></div>
       <p class="profile__image__username">{{ user.user.username }}</p>
     </div>
 
@@ -123,22 +122,6 @@ export default defineComponent({
   }
 }
 
-.edit {
-  position: absolute;
-  color: black;
-  background-color: $red;
-  margin-top: 10px;
-  margin-left: -20px;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 12px;
-  margin-top: 37px;
-}
-
 @media (min-width: $tablet) {
   .profile {
     padding-top: 105px;
@@ -202,20 +185,6 @@ export default defineComponent({
   }
   .button__logout {
     margin-left: 173px;
-  }
-  .edit {
-    position: absolute;
-    color: black;
-    background-color: $red;
-    margin-top: 10px;
-    margin-left: -192px;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 12px;
   }
 }
 </style>

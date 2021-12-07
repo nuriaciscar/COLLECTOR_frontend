@@ -17,6 +17,7 @@ interface User {
   password: string;
   email: string;
   collections: Array<string>;
+  avatar: string;
 }
 
 interface UserUpdate {

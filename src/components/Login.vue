@@ -48,9 +48,9 @@
 
       <div class="bottom">
         <div class="sign">
-          <!-- <router-link to="/register"> -->
-          <p class="sign__signIn">or Sign In</p>
-          <!-- </router-link> -->
+          <router-link to="/register">
+            <p class="sign__signIn">or Sign In</p>
+          </router-link>
         </div>
         <div class="arrow">
           <button

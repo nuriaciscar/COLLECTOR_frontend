@@ -3,14 +3,19 @@ interface UserLogin {
   password: string;
 }
 
+interface UserRegister {
+  name: string;
+  username: string;
+  password: string;
+  email: string;
+}
+
 interface User {
-  // map(arg0: (user: any) => any): User;
   id: string;
   name: string;
   username: string;
   password: string;
   email: string;
-  avatar: string;
   collections: Array<string>;
 }
 
@@ -55,4 +60,14 @@ interface State {
   image: Image;
 }
 
-export { State, User, Collection, Image, UserLogin, UserUpdate, IBodyDeleted, IAddImage };
+export {
+  State,
+  User,
+  Collection,
+  Image,
+  UserLogin,
+  UserRegister,
+  UserUpdate,
+  IBodyDeleted,
+  IAddImage,
+};

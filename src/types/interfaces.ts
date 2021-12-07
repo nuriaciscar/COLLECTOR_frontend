@@ -46,6 +46,11 @@ interface IBodyDeleted {
   id: string;
   idImage: string;
 }
+
+interface IBodyDeletedCollection {
+  id: string;
+  idCollection: string;
+}
 interface IAddImage {
   id: string;
   image: Image;
@@ -71,4 +76,5 @@ export {
   UserUpdate,
   IBodyDeleted,
   IAddImage,
+  IBodyDeletedCollection,
 };

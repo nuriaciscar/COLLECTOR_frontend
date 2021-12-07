@@ -46,8 +46,8 @@
         v-model="email"
         :class="isIncorrect ? 'incorrect' : ''"
       />
-      <label class="label-avatar" for="avatar" type="file">Avatar</label>
-      <input id="avatar" type="file" name="avatar" />
+      <!-- <label class="label-avatar" for="avatar" type="file">Avatar</label>
+      <input id="avatar" type="file" name="avatar" /> -->
       <div class="bottom">
         <div class="sign">
           <router-link to="/login">
@@ -74,7 +74,7 @@
 <script lang="ts" scoped>
 import { defineComponent } from "vue";
 import { mapActions } from "vuex";
-import { UserLogin } from "@/types/interfaces";
+import { UserRegister } from "@/types/interfaces";
 
 export default defineComponent({
   name: "Register",
@@ -120,13 +120,16 @@ export default defineComponent({
 
     async onSubmit() {
       if (this.username !== "" && this.password !== "") {
-        const user: UserLogin = {
+        const user: UserRegister = {
+          name: this.name,
           username: this.username,
           password: this.password,
+          email: this.email,
         };
         try {
           await this.fetchRegisterUser(user);
           this.isIncorrect = false;
+          this.$router.push("/collections");
         } catch (error) {
           this.isIncorrect = true;
         }

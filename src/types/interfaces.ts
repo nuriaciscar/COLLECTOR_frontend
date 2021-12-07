@@ -8,7 +8,6 @@ interface UserRegister {
   username: string;
   password: string;
   email: string;
-  avatar: string;
 }
 
 interface User {
@@ -17,7 +16,6 @@ interface User {
   username: string;
   password: string;
   email: string;
-  avatar: string;
   collections: Array<string>;
 }
 

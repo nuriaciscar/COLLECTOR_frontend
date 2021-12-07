@@ -110,17 +110,11 @@ export default defineComponent({
 
       try {
         await this.fetchAddCollection(newCollection);
-        this.$router.push("/collections");
         this.isIncorrect = false;
       } catch (error) {
         this.isIncorrect = true;
       }
     },
-  },
-   mounted() {
-    if (localStorage.getItem("token")) {
-      this.getToken();
-    }
   },
 });
 </script>

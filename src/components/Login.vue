@@ -14,7 +14,7 @@
       >
       <input
         id="username"
-        placeholder="Loling"
+        placeholder="Lola"
         v-model="username"
         :class="isIncorrect ? 'incorrect' : ''"
       />

@@ -23,6 +23,7 @@
             name="file"
             id="file"
             @change="onFileChange($event)"
+            @input="pickFile"
             multiple
           />
         </div>
@@ -37,7 +38,7 @@
               v-model="description"
               placeholder="Good moments"
             /> -->
-            <!--
+            <!---->
             <label for="date" type="date" class="create__form__text__label">Date:</label>
 
             <span class="datepicker-toggle">
@@ -50,7 +51,7 @@
                 })
               }}</span></span
             >
-            <input type="date" class="datepicker-input" v-model="date" /> -->
+            <input type="date" class="datepicker-input" v-model="date" />
 
             <!-- <select id="category" name="category" v-model="category" required>
               <option value="architecture">architecture</option>
@@ -98,37 +99,39 @@ export default defineComponent({
     ...mapActions(["fetchAddImageToCollection"]),
     ...mapState(["collection"]),
 
-    // pickFile() {
-    //   const input = this.$refs.fileInput;
-    //   const file = input.files;
-    //   if (file && file[0]) {
-    //     [this.image] = file;
-    //     const reader = new FileReader();
-    //     reader.onload = (event) => {
-    //       this.previewImage = event.target.result;
-    //     };
-    //     reader.readAsDataURL(file[0]);
-    //   }
-    // },
-
-    // @input="pickFile"
-
     onFileChange(event) {
       [this.images] = event.target.files;
     },
+    pickFile() {
+      const input = this.$refs.fileInput;
+      const file = input.files;
+      if (file && file[0]) {
+        [this.images] = file;
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          this.previewImage = event.target.result;
+        };
+        reader.readAsDataURL(file[0]);
+      }
+    },
 
     async onSubmit() {
-      // const date = new Date(this.date).toISOString();
+      const date = new Date(this.date).toISOString();
 
       const updatedCollection = new FormData();
-      updatedCollection.id = state.collection.id;
-      // newImage.append("date", date);
       updatedCollection.append("images", this.images);
-      updatedCollection.append("name", this.name);
-      updatedCollection.append("date", this.date);
 
+      if (this.date !== "") {
+        updatedCollection.append("date", date);
+      }
+
+      if (this.name !== "") {
+        updatedCollection.append("name", this.name);
+      }
+
+      updatedCollection.forEach((val) => console.log(val));
       try {
-        await this.fetchAddImageToCollection(updatedCollection, "pepe");
+        await this.fetchAddImageToCollection(updatedCollection);
 
         this.$router.push("/collections");
         this.isIncorrect = false;
@@ -136,14 +139,6 @@ export default defineComponent({
         this.isIncorrect = true;
       }
     },
-  },
-  mounted() {
-    const route = useRoute();
-    const idCollection = route.params.id;
-
-    if (localStorage.getItem("token")) {
-      this.getToken();
-    }
   },
 });
 </script>

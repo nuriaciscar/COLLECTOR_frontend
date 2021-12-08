@@ -109,7 +109,6 @@ export default defineComponent({
   justify-content: center;
   &__logout {
     cursor: pointer;
-    margin-top: 600px;
     border: none;
     background-color: $red;
     border-radius: 60px;

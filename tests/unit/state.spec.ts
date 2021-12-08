@@ -16,7 +16,7 @@ describe("Given a state", () => {
             collections: [],
           },
         },
-
+        isLoading: false,
         collections: [],
         collection: {
           id: "",

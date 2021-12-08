@@ -85,32 +85,41 @@ describe("Given an AddCollection component", () => {
       expect(wrapper.html()).toContain('<section class="create">');
     });
   });
-  describe("When it's submitted", () => {
-    // test("Then it should make a call to onFileChange function ", async () => {
-    //   const wrapper = mount(AddCollection, {
-    //     global: {
-    //       plugins: [router],
-    //       mocks: {
-    //         methods: {
-    //           onFileChange: jest.fn().mockResolvedValue({
-    //             images: "image.png",
-    //           }),
-    //         },
-    //         $store: {
-    //           state: {
-    //             ...state,
-    //           },
-    //           actions: {
-    //             fetchAddCollection: jest.fn(),
-    //           },
-    //           dispatch: jest.fn(),
-    //           commit: jest.fn(),
-    //         },
-    //       },
-    //     },
-    //   });
-    //   await wrapper.vm.onChange.trigger(event);
-    //   expect(onFileChange).toHaveBeenCalledWith(event.target.files);
-    // });
+  describe("When the inputs are filled correctly and button publish is clicked", () => {
+    test("Then it should call the method onSubmit", async () => {
+      const $store = {
+        methods: {
+          onSubmit: jest.fn(),
+          pickFile: jest.fn(),
+          onFileChange: jest.fn(),
+        },
+      };
+      const wrapper = await mount(AddCollection, {
+        global: {
+          plugins: [router],
+        },
+
+        stubs: ["router-link", "router-view"],
+        $store: {
+          $store,
+        },
+      });
+
+      await router.isReady();
+
+      $store.methods.onSubmit = jest.fn();
+      $store.methods.onSubmit();
+
+      const images = wrapper.findAll("input")[0];
+      const name = wrapper.findAll("input")[1];
+      const date = wrapper.findAll("input")[2];
+
+      images.setValue([]);
+      name.setValue("summer");
+      date.setValue("2021-10-10");
+
+      wrapper.find("form").trigger("submit");
+      expect($store.methods.onSubmit).toHaveBeenCalled();
+    });
   });
 });

@@ -65,7 +65,6 @@ const actions = {
     collection: Collection | FormData | any
   ): Promise<void | string> {
     try {
-      collection.forEach((val: any) => console.log(val));
       const { token } = JSON.parse(localStorage.getItem("token") || "");
       const { data } = await axios.patch(
         `${process.env.VUE_APP_API_URL}/collections/${state.collection.id}`,

@@ -36,37 +36,148 @@ describe("Given a Register component", () => {
       expect(wrapper.html()).toContain('<section class="register">');
     });
   });
-  describe("When the register form is submitted", () => {
-    test("Then it should invoke onSubmit function", () => {
-      const store = createStore({
-        state() {
-          return state;
-        },
-        actions: { fetchRegisterUser: jest.fn() },
-      });
 
-      const $router = {
-        push: jest.fn(),
-      };
-      const $route = {
-        push: jest.fn(),
-      };
-      const wrapper = mount(Register, {
-        global: {
-          plugins: [router, store],
-          mocks: {
-            $route,
-            $router,
-          },
-        },
-        stubs: ["router-link", "router-view"],
-      });
-      mockedAxios.post.mockResolvedValue(null);
-      const onSubmit = jest.fn();
-      onSubmit();
-      const form = wrapper.get("form");
-      form.trigger("submit");
-      expect(onSubmit).toHaveBeenCalled();
+  test("Then it should invoke onChangeForm function", () => {
+    const store = createStore({
+      state() {
+        return state;
+      },
+      actions: { fetchRegisterUser: jest.fn() },
     });
+
+    const $router = {
+      push: jest.fn(),
+    };
+    const $route = {
+      push: jest.fn(),
+    };
+    const wrapper = mount(Register, {
+      global: {
+        plugins: [router, store],
+        mocks: {
+          $route,
+          $router,
+        },
+      },
+      stubs: ["router-link", "router-view"],
+    });
+    mockedAxios.post.mockResolvedValue(null);
+    const onChangeForm = jest.fn();
+    onChangeForm();
+    const form = wrapper.get("form");
+    form.trigger("submit");
+    expect(onChangeForm).toHaveBeenCalled();
+  });
+});
+test("Then it should invoke onCorrectEmail function", () => {
+  const store = createStore({
+    state() {
+      return state;
+    },
+    actions: { fetchRegisterUser: jest.fn() },
+  });
+
+  const $router = {
+    push: jest.fn(),
+  };
+  const $route = {
+    push: jest.fn(),
+  };
+  const wrapper = mount(Register, {
+    global: {
+      plugins: [router, store],
+      mocks: {
+        $route,
+        $router,
+      },
+    },
+    stubs: ["router-link", "router-view"],
+  });
+  mockedAxios.post.mockResolvedValue(null);
+  const correctEmail = jest.fn();
+  correctEmail();
+  const form = wrapper.get("form");
+  form.trigger("submit");
+  expect(correctEmail).toHaveBeenCalled();
+});
+
+describe("When the register form is submitted but axios fails", () => {
+  test("Then isIncorrect should be set to false", () => {
+    const store = createStore({
+      state() {
+        return state;
+      },
+      actions: { fetchRegisterUser: jest.fn() },
+    });
+
+    const $router = {
+      push: jest.fn(),
+    };
+    const $route = {
+      push: jest.fn(),
+    };
+    const wrapper = mount(Register, {
+      global: {
+        plugins: [router, store],
+        mocks: {
+          $route,
+          $router,
+        },
+      },
+      data() {
+        return {
+          isIncorrect: true,
+        };
+      },
+      stubs: ["router-link", "router-view"],
+    });
+
+    mockedAxios.post.mockRejectedValue("incorrect");
+    const onSubmit = jest.fn();
+    onSubmit();
+    const form = wrapper.get("form");
+    form.trigger("submit");
+    expect(wrapper.vm.isIncorrect).toBe(true);
+  });
+});
+describe("When the inputs are filled correctly and button submit is clicked", () => {
+  test("Then it should call the method onSubmit", async () => {
+    const $store = {
+      methods: {
+        onSubmit: jest.fn(),
+      },
+    };
+    const wrapper = await mount(Register, {
+      global: {
+        plugins: [router],
+      },
+
+      stubs: ["router-link", "router-view"],
+      $store: {
+        $store,
+      },
+    });
+
+    await router.isReady();
+
+    $store.methods.onSubmit = jest.fn();
+    $store.methods.onSubmit();
+
+    const name = wrapper.findAll("input")[0];
+    const username = wrapper.findAll("input")[1];
+    const password = wrapper.findAll("input")[2];
+    const repeatPassword = wrapper.findAll("input")[3];
+    const email = wrapper.findAll("input")[4];
+    const avatar = wrapper.findAll("input")[5];
+
+    name.setValue("oleguer");
+    username.setValue("oleguer123");
+    password.setValue("oleguer");
+    repeatPassword.setValue("oleguer");
+    email.setValue("oleguer@gmail.com");
+    avatar.setValue("");
+
+    wrapper.find("form").trigger("submit");
+    expect($store.methods.onSubmit).toHaveBeenCalled();
   });
 });

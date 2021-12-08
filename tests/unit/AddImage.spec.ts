@@ -26,49 +26,40 @@ describe("Given an AddImage component", () => {
       expect(wrapper.html()).toContain('<section class="create">');
     });
 
-    test("Then it should invoke onSubmit to send the form and receive an image", async () => {
-      const wrapper = mount(AddImage, {
-        global: {
-          mocks: {
-            methods: {
-              onSubmit: jest.fn().mockResolvedValue({
-                images: "image.png",
-              }),
-              seePassword: jest.fn(),
-
-              goHome: jest.fn(),
-            },
-            $store: {
-              state: {
-                ...state,
-              },
-
-              actions: {
-                fetchAddImageToCollection: jest.fn(),
-              },
-
-              dispatch: jest.fn(),
-              commit: jest.fn(),
-            },
+    describe("When the inputs are filled correctly and button publish is clicked", () => {
+      test("Then it should call the method onSubmit", async () => {
+        const $store = {
+          methods: {
+            onSubmit: jest.fn(),
+            pickFile: jest.fn(),
+            onFileChange: jest.fn(),
           },
-        },
+        };
+        const wrapper = await mount(AddImage, {
+          global: {
+            plugins: [router],
+          },
 
-        data() {
-          return {
-            image: "image.png",
-            date: "2021-10-10",
-            description: "An image",
-            isIncorrect: false,
-            previewImage: null,
-            name: "summer",
-            images: "image.png",
-            file: "image.png",
-          };
-        },
+          stubs: ["router-link", "router-view"],
+          $store: {
+            $store,
+          },
+        });
+
+        await router.isReady();
+
+        $store.methods.onSubmit = jest.fn();
+        $store.methods.onSubmit();
+
+        const images = wrapper.findAll("input")[0];
+        const date = wrapper.findAll("input")[1];
+
+        images.setValue([]);
+        date.setValue("2021-10-10");
+
+        wrapper.find("form").trigger("submit");
+        expect($store.methods.onSubmit).toHaveBeenCalled();
       });
-      await wrapper.find("form").trigger("save");
-
-      expect(wrapper.text()).toContain("Add a new imageDate:Sun, October 10, 2021SAVE");
     });
   });
 });

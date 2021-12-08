@@ -1,11 +1,19 @@
 <template>
   <section class="home">
     <div class="home__image">
-      <img
-        class="home__image__big"
-        src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-        alt="Description of image"
-      />
+      <div id="cf">
+        <img
+          class="home__image__big top"
+          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
+          alt="Description of image"
+        />
+        <img
+          class="home__image__big"
+          src="http://css3.bradshawenterprises.com/images/Clown%20Fish.jpg"
+          alt="Description of image"
+        />
+      </div>
+
       <p class="home__image__date">INDIA 2 YEARS AGO</p>
       <div class="buttonn">
         <router-link to="/addCollection">
@@ -96,6 +104,34 @@ export default defineComponent({
       display: none;
     }
   }
+}
+
+#cf {
+  position: relative;
+}
+
+@keyframes cf3FadeInOut {
+  0% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 1;
+  }
+  55% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+#cf img.top {
+  position: absolute;
+  animation-name: cf3FadeInOut;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 6s;
+  animation-direction: alternate;
 }
 
 .buttonn {

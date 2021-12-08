@@ -40,7 +40,6 @@
 import { defineComponent } from "vue";
 import { mapActions, mapState } from "vuex";
 import { useRoute } from "vue-router";
-
 import Image from "../components/Image.vue";
 
 export default defineComponent({

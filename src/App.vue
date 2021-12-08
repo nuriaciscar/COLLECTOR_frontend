@@ -4,6 +4,7 @@
     <Footer v-if="!['/login', '/register'].includes($route.path)" />
   </div>
   <router-view />
+  <Loading v-if="isLoading" />
 </template>
 
 <script lang="ts">
@@ -11,14 +12,16 @@ import { defineComponent } from "vue";
 import { mapActions, mapState } from "vuex";
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
+import Loading from "./components/Loading.vue";
 
 export default defineComponent({
   components: {
     Header,
     Footer,
+    Loading,
   },
   computed: {
-    ...mapState(["loginUser"]),
+    ...mapState(["loginUser", "isLoading"]),
   },
   methods: {
     ...mapActions(["getToken"]),

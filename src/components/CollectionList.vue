@@ -2,7 +2,7 @@
   <section class="collectionList">
     <!-- <p :class="user.user.collections[0] ? 'messageNone' : 'message'">No collections yet...</p> -->
     <ul>
-      <li v-for="collection in user.user.collections" :key="collection.id">
+      <li v-for="collection in user?.user?.collections" :key="collection.id">
         <Collection
           :name="collection.name"
           :date="collection.date"

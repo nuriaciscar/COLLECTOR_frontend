@@ -47,7 +47,7 @@ export default defineComponent({
     this.fetchLoadImages();
     const route = useRoute();
     const { id } = route.params;
-    this.fetchLoadCollection(id);
+    // this.fetchLoadCollection(id);
   },
 });
 </script>

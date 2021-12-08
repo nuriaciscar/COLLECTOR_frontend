@@ -1,6 +1,15 @@
 <template>
   <div class="spinner">
-    <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    <div class="lds-roller">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   </div>
 </template>
 
@@ -16,7 +25,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@import "../../assets/styles/_mixins.scss";
+@import "../styles/_variables.scss";
 
 .spinner {
   position: fixed;
@@ -28,6 +37,7 @@ export default defineComponent({
   display: flex;
   justify-content: center;
   align-items: center;
+  color: $red;
 }
 
 .lds-roller {
@@ -47,7 +57,7 @@ export default defineComponent({
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #fff;
+  background: $red;
   margin: -4px 0 0 -4px;
 }
 .lds-roller div:nth-child(1) {
@@ -114,5 +124,4 @@ export default defineComponent({
     transform: rotate(360deg);
   }
 }
-
 </style>

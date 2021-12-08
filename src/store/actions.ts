@@ -179,7 +179,6 @@ const actions = {
   },
 
   logoutUserAction({ commit }: ActionContext<State, State>): void {
-    commit("loadingStart");
     router.push("/collections");
     localStorage.removeItem("token");
     commit("logoutUser");

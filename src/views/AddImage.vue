@@ -77,8 +77,6 @@
 <script>
 import { defineComponent } from "vue";
 import { mapActions, mapState } from "vuex";
-import { useRoute } from "vue-router";
-import state from "../store/state";
 
 export default defineComponent({
   name: "AddImageToCollection",

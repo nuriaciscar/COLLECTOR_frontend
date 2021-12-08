@@ -29,16 +29,6 @@
         </div>
         <div class="column">
           <div class="create__form__text">
-            <!-- <label class="create__form__text__label" for="description" type="text-area"
-              >Description:</label
-            >
-            <input
-              class="create__form__text__input"
-              id="description"
-              v-model="description"
-              placeholder="Good moments"
-            /> -->
-            <!---->
             <label for="date" type="date" class="create__form__text__label">Date:</label>
 
             <span class="datepicker-toggle">
@@ -52,18 +42,6 @@
               }}</span></span
             >
             <input type="date" class="datepicker-input" v-model="date" />
-
-            <!-- <select id="category" name="category" v-model="category" required>
-              <option value="architecture">architecture</option>
-              <option value="art">art</option>
-              <option value="nature">nature</option>
-              <option value="sports">sports</option>
-              <option value="food">food</option>
-              <option value="sea">sea</option>
-              <option value="decoration">decoration</option>
-              <option value="music">music</option>
-              <option value="aesthetic">aesthetic</option>
-            </select> -->
           </div>
           <div class="button">
             <button class="button__publish">SAVE</button>
@@ -168,12 +146,12 @@ export default defineComponent({
     border: none;
     justify-content: space-around;
     align-items: center;
-    width: 340px;
+    width: 300px;
 
     &__title {
       font-weight: inherit;
       font-size: 45px;
-      padding-left: 40px;
+      padding-left: 30px;
     }
     &__arrow {
       display: flex;
@@ -246,6 +224,10 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
 }
+.create__form {
+  display: flex;
+  flex-direction: column;
+}
 @media (min-width: $tablet) {
   .create {
     &__top {
@@ -288,16 +270,41 @@ export default defineComponent({
       &__title {
         font-weight: inherit;
         font-size: 70px;
-        padding-left: 220px;
+        padding-left: 293px;
       }
     }
+    &__form__file {
+      padding-top: 0;
+    }
   }
-  .create__form {
-    display: flex;
-    flex-direction: row;
+}
+.create__form {
+  display: flex;
+  flex-direction: row;
+
+  &__text__label {
+    padding-bottom: 10px;
   }
-  .button {
-    padding-top: 20px;
-  }
+}
+.button {
+  padding-top: 20px;
+}
+
+.datepicker-input {
+  border: 0.1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 60px;
+  background-color: transparent;
+  width: 240px;
+  height: 30px;
+  color: #000;
+  font-family: "Public Sans", sans-serif;
+  padding: 15px;
+  padding-left: 18px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  margin-top: 7px;
 }
 </style>

@@ -153,11 +153,12 @@ export default defineComponent({
     &__feed {
       margin-left: 0;
     }
+    &__logo {
+      font-size: 21px;
+      color: black;
+    }
   }
-  .logo {
-    margin-top: 30px;
-    font-size: 21px;
-  }
+
   .left {
     align-items: center;
     width: 120px;
@@ -198,6 +199,11 @@ export default defineComponent({
     }
     &__feed {
       margin-left: 0;
+    }
+    &__logo {
+      font-size: 21px;
+      color: black;
+      margin-top: 2px;
     }
   }
   .logo {

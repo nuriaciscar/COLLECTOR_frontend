@@ -4,24 +4,26 @@
       <div id="cf">
         <img
           class="home__image__big top"
-          src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
+          src="https://cdn.shopify.com/s/files/1/0072/5902/files/mgrote_ca_15_hi-res.jpg?4198740129910576952"
           alt="Description of an image"
         />
         <img
           class="home__image__big"
-          src="https://i.ibb.co/zJgjpLr/pexels-photo-2086620.jpg"
+          src="https://64.media.tumblr.com/afe61afbcaacab90114de7f1fef31b87/tumblr_p4vza1iyKU1qhfogwo1_1280.jpg"
           alt="Description of an image"
         />
       </div>
 
-      <p class="home__image__date">INDIA 2 YEARS AGO</p>
+      <p class="home__image__date">PLAYA CARMEN, 2 YEARS AGO</p>
       <div class="buttonn">
         <router-link to="/addCollection">
           <button class="buttonn__add">
             <img src="../assets/addButton.png" alt="Add buton" height="20" width="20" />
           </button>
         </router-link>
-        <p class="buttonn__sort">New album</p>
+        <router-link to="/addCollection">
+          <p class="buttonn__sort">New album</p>
+        </router-link>
       </div>
     </div>
 
@@ -85,6 +87,7 @@ export default defineComponent({
       margin: 0;
       margin-top: 65px;
       object-fit: cover;
+      object-position: top;
     }
     &__date {
       font-family: "Public Sans", sans-serif;
@@ -182,14 +185,18 @@ export default defineComponent({
 
   .buttonn {
     border: none;
-
     padding-top: 15px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
+    margin-right: 30px;
 
     &__add {
       width: 30px;
       height: 30px;
+
+      & :hover {
+        transform: scale(1.3);
+      }
     }
     &__sort {
       padding-left: 8px;
@@ -224,7 +231,7 @@ export default defineComponent({
       margin-top: 350px;
       display: flex;
       justify-content: center;
-      padding-bottom: 250px;
+      padding-bottom: 150px;
       &::-webkit-scrollbar {
         display: none;
       }

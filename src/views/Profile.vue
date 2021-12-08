@@ -66,6 +66,7 @@ export default defineComponent({
       width: 120px;
       height: 120px;
       border-radius: 50%;
+      object-fit: cover;
     }
     &__username {
       font-size: 30px;
@@ -184,6 +185,10 @@ export default defineComponent({
   }
   .button__logout {
     margin-left: 173px;
+
+    &:hover {
+      background-color: $pink;
+    }
   }
 }
 </style>

@@ -47,7 +47,6 @@ export default defineComponent({
     this.fetchLoadImages();
     const route = useRoute();
     const { id } = route.params;
-    // this.fetchLoadCollection(id);
   },
 });
 </script>
@@ -120,7 +119,7 @@ export default defineComponent({
 @media (min-width: $desktop) {
   .collection__single {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: flex-end;
     width: 900px;
     overflow-y: scroll;

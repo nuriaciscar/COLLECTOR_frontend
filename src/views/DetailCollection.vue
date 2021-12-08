@@ -98,9 +98,10 @@ export default defineComponent({
     align-items: center;
     width: 340px;
     margin-top: 75px;
+
     &__title {
       font-weight: inherit;
-      font-size: 50px;
+      font-size: 36px;
     }
     &__arrow {
       display: flex;
@@ -137,7 +138,7 @@ export default defineComponent({
     border: none;
     background-color: transparent;
     cursor: pointer;
-    font-size: 22px;
+    font-size: 18px;
     z-index: 10;
     width: 40px;
     height: 40px;

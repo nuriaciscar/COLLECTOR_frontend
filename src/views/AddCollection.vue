@@ -210,7 +210,6 @@ export default defineComponent({
   justify-content: center;
   &__publish {
     cursor: pointer;
-    margin-top: 600px;
     border: none;
     background-color: $yellow;
     border-radius: 60px;

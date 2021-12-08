@@ -5,7 +5,6 @@ import router from "@/router";
 import {
   State,
   IBodyDeleted,
-  IAddImage,
   IBodyDeletedCollection,
   UserLogin,
   User,

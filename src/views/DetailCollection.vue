@@ -6,7 +6,7 @@
           <img src="../assets/next.png" class="back" width="25" height="13" alt="Arrow icon" />
         </router-link>
         <button @click="deleteCollection" class="delete">
-          <i class="fas fa-trash-alt"></i>
+          <em class="fas fa-trash-alt"></em>
         </button>
       </div>
       <h1 class="detail__top__title">{{ collection.name }}</h1>
@@ -70,6 +70,7 @@ export default defineComponent({
     const route = useRoute();
     const { id } = route.params;
     this.fetchLoadCollection(id);
+
     if (localStorage.getItem("token")) {
       this.getToken();
     }

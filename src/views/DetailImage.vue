@@ -12,7 +12,7 @@
       <div class="buttons">
         <div class="divImage">
           <button @click="deleteImage" class="delete">
-            <i class="fas fa-trash-alt"></i>
+            <em class="fas fa-trash-alt"></em>
           </button>
           <img :src="image.image" :alt="description" class="bigImage" />
         </div>

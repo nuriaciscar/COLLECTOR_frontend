@@ -58,9 +58,9 @@ export default defineComponent({
     ...mapActions(["fetchUser", "logoutUserAction"]),
   },
 
-  mounted() {
-    this.fetchUser(this.user.user.id);
-  },
+  // mounted() {
+  //   this.fetchUser(this.user.user.id);
+  // },
 });
 </script>
 

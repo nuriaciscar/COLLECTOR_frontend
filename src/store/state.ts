@@ -13,6 +13,7 @@ const state = {
       collections: [],
     },
   },
+  isLoading: false,
 
   collections: [],
   collection: {

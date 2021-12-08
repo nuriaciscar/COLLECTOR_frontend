@@ -14,6 +14,7 @@ import state from "./state";
 
 const actions = {
   async fetchLoadCollections({ commit }: ActionContext<State, State>): Promise<void | string> {
+    commit("loadingStart");
     try {
       const { token } = JSON.parse(localStorage.getItem("token") || "");
       const { data } = await axios.get(`${process.env.VUE_APP_API_URL}/collections`, {
@@ -22,6 +23,7 @@ const actions = {
         },
       });
       commit("loadCollections", data);
+      commit("loadingStop");
     } catch {
       return "Cannot get the items";
     }
@@ -30,6 +32,7 @@ const actions = {
     { commit }: ActionContext<State, State>,
     id: string
   ): Promise<void | string> {
+    commit("loadingStart");
     try {
       const { token } = JSON.parse(localStorage.getItem("token") || "");
       const { data } = await axios.get(`${process.env.VUE_APP_API_URL}/collections/${id}`, {
@@ -38,6 +41,7 @@ const actions = {
         },
       });
       commit("loadCollection", data);
+      commit("loadingStop");
     } catch {
       return "Cannot get this item";
     }
@@ -47,6 +51,7 @@ const actions = {
     { commit }: ActionContext<State, State>,
     collection: Collection
   ): Promise<void | string> {
+    commit("loadingStart");
     try {
       const { token } = JSON.parse(localStorage.getItem("token") || "");
       const { data } = await axios.post(`${process.env.VUE_APP_API_URL}/collections`, collection, {
@@ -55,6 +60,7 @@ const actions = {
         },
       });
       commit("addCollection", data);
+      commit("loadingStop");
     } catch {
       return "Cannot create this collection";
     }
@@ -63,6 +69,7 @@ const actions = {
     { commit }: ActionContext<State, State>,
     collection: Collection | FormData | any
   ): Promise<void | string> {
+    commit("loadingStart");
     try {
       const { token } = JSON.parse(localStorage.getItem("token") || "");
       const { data } = await axios.patch(
@@ -76,12 +83,14 @@ const actions = {
       );
 
       commit("addImageToCollection", data);
+      commit("loadingStop");
     } catch {
       return "Cannot create this collection";
     }
   },
 
   async fetchLoadImages({ commit }: ActionContext<State, State>): Promise<void | string> {
+    commit("loadingStart");
     try {
       const { token } = JSON.parse(localStorage.getItem("token") || "");
       const { data } = await axios.get(`${process.env.VUE_APP_API_URL}/image`, {
@@ -90,6 +99,7 @@ const actions = {
         },
       });
       commit("loadImages", data);
+      commit("loadingStop");
     } catch {
       return "Cannot get this items";
     }
@@ -99,6 +109,7 @@ const actions = {
     { commit }: ActionContext<State, State>,
     id: string
   ): Promise<void | string> {
+    commit("loadingStart");
     try {
       const { token } = JSON.parse(localStorage.getItem("token") || "");
       const { data } = await axios.get(`${process.env.VUE_APP_API_URL}/image/${id}`, {
@@ -107,6 +118,7 @@ const actions = {
         },
       });
       commit("loadImage", data);
+      commit("loadingStop");
     } catch {
       return "Cannot get this item";
     }
@@ -115,8 +127,8 @@ const actions = {
     { commit, dispatch }: ActionContext<State, State>,
     id: IBodyDeletedCollection
   ): Promise<void | string> {
+    commit("loadingStart");
     const { token } = JSON.parse(localStorage.getItem("token") || "");
-
     await axios.delete(`${process.env.VUE_APP_API_URL}/collections/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -131,8 +143,8 @@ const actions = {
     { commit, dispatch }: ActionContext<State, State>,
     id: IBodyDeleted
   ): Promise<void | string> {
+    commit("loadingStart");
     const { token } = JSON.parse(localStorage.getItem("token") || "");
-
     await axios.delete(`${process.env.VUE_APP_API_URL}/image/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -141,15 +153,18 @@ const actions = {
     commit("deleteImage", id.id);
     dispatch("fetchUser", id.idImage);
     dispatch("fetchUser");
+    commit("loadingStop");
   },
 
   async fetchLoginUser({ commit }: ActionContext<State, State>, user: UserLogin): Promise<void> {
+    commit("loadingStart");
     const { data } = await axios.post(`${process.env.VUE_APP_API_URL}/user/login`, user);
     const { token } = data;
 
     const userData = jwtDecode(token);
     localStorage.setItem("token", JSON.stringify({ token }));
     commit("loginUser", userData);
+    commit("loadingStop");
   },
 
   getToken({ commit, dispatch }: ActionContext<State, State>): string | void {
@@ -170,12 +185,14 @@ const actions = {
   },
 
   async fetchRegisterUser({ commit }: ActionContext<State, State>, user: User): Promise<void> {
+    commit("loadingStart");
     const { data: userData } = await axios.post(
       `${process.env.VUE_APP_API_URL}/user/register`,
       user
     );
     localStorage.setItem("user", JSON.stringify(userData));
     commit("registerUser", userData);
+    commit("loadingStop");
   },
 
   async fetchUser({ commit }: ActionContext<State, State>, id: string): Promise<void | string> {
@@ -187,32 +204,11 @@ const actions = {
         },
       });
       commit("loadUser", data);
+      commit("loadingStop");
     } catch {
       return "Cannot access to user";
     }
   },
-
-  // async fetchUserUpdate(
-  //   { commit }: ActionContext<State, State>,
-  //   id: string,
-  //   user: UserUpdate
-  // ): Promise<void | string> {
-  //   try {
-  //     const { token } = JSON.parse(localStorage.getItem("token") || "");
-  //     const { data: updatedUser } = await axios.patch(
-  //       `${process.env.VUE_APP_API_URL}/user/${id}`,
-  //       user.formData,
-  //       {
-  //         headers: {
-  //           Authorization: `Bearer ${token}`,
-  //         },
-  //       }
-  //     );
-  //     commit("updateUser", updatedUser);
-  //   } catch {
-  //     return "Cannot update the information";
-  //   }
-  // },
 };
 
 export default actions;

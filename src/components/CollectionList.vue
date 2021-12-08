@@ -1,7 +1,8 @@
 <template>
   <section class="collectionList">
+    <!-- <p :class="user.user.collections[0] ? 'messageNone' : 'message'">No collections yet...</p> -->
     <ul>
-      <li v-for="collection in user.user.collections" :key="collection.id">
+      <li v-for="collection in user?.user?.collections" :key="collection.id">
         <Collection
           :name="collection.name"
           :date="collection.date"
@@ -20,7 +21,6 @@ import Collection from "@/components/Collection.vue";
 
 export default defineComponent({
   name: "CollectionList",
-  // props: { collections: Array, id: String },
   components: {
     Collection,
   },
@@ -44,5 +44,12 @@ export default defineComponent({
   &::-webkit-scrollbar {
     display: none;
   }
+}
+
+.message {
+  display: block;
+}
+.messageNone {
+  display: none;
 }
 </style>

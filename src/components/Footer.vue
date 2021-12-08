@@ -33,7 +33,6 @@ export default defineComponent({
   position: fixed;
   margin-top: 50px;
   padding-bottom: 40px;
-  width: 100%;
   background-color: $beige;
   padding-top: 40px;
   z-index: 0;

@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { mapActions, mapState } from "vuex";
+import { mapState } from "vuex";
 import Collection from "@/components/Collection.vue";
 
 export default defineComponent({
@@ -25,18 +25,6 @@ export default defineComponent({
   computed: {
     ...mapState(["user"]),
   },
-  // collectionRandom(): any {
-  //   // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-  //   return this.collections.sort(() => 0.5 - Math.random());
-  // },
-
-  // methods: {
-  //   // ...mapActions(["fetchUser"]),
-  // },
-
-  // mounted() {
-  //   this.fetchUser();
-  // },
 });
 </script>
 

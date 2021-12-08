@@ -42,6 +42,13 @@ const mutations = {
     state.user.user = payload;
     state.user.isAuthenticated = true;
   },
+
+  loadingStart(state: State): void {
+    state.isLoading = true;
+  },
+  loadingStop(state: State): void {
+    state.isLoading = false;
+  },
 };
 
 export default mutations;

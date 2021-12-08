@@ -1,7 +1,7 @@
 <template>
   <div class="detail">
     <div class="detail__items__top">
-      <router-link :to="`/collections/${id}`">
+      <router-link :to="`/collections`">
         <img src="../assets/next.png" class="back" width="25" height="13" alt="Arrow icon" />
       </router-link>
 
@@ -214,11 +214,8 @@ export default defineComponent({
     }
   }
   .bigImage {
-    width: 490px;
-    height: 350px;
-  }
-  .buttons {
-    padding-top: 20px;
+    width: 530px;
+    height: 390px;
   }
 
   .delete {

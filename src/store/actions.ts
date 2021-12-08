@@ -44,22 +44,6 @@ const actions = {
     }
   },
 
-  async fetchDeleteCollection(
-    { commit, dispatch }: ActionContext<State, State>,
-    id: IBodyDeletedCollection
-  ): Promise<void | string> {
-    const { token } = JSON.parse(localStorage.getItem("token") || "");
-
-    await axios.delete(`${process.env.VUE_APP_API_URL}/collections/${id}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    commit("deleteCollection", id.id);
-    dispatch("fetchUser", id.idCollection);
-    dispatch("fetchUser");
-  },
-
   async fetchAddCollection(
     { commit }: ActionContext<State, State>,
     collection: Collection
@@ -128,6 +112,21 @@ const actions = {
     } catch {
       return "Cannot get this item";
     }
+  },
+  async fetchDeleteCollection(
+    { commit, dispatch }: ActionContext<State, State>,
+    id: IBodyDeletedCollection
+  ): Promise<void | string> {
+    const { token } = JSON.parse(localStorage.getItem("token") || "");
+
+    await axios.delete(`${process.env.VUE_APP_API_URL}/collections/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    commit("deleteCollection", id.id);
+    dispatch("fetchUser", id.idCollection);
+    dispatch("fetchUser");
   },
 
   async fetchDeleteImage(

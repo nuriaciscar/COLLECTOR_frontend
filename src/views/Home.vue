@@ -5,12 +5,12 @@
         <img
           class="home__image__big top"
           src="https://farm4.staticflickr.com/3935/15363200788_026cc5119e_b.jpg"
-          alt="Description of image"
+          alt="Description of an image"
         />
         <img
           class="home__image__big"
           src="http://css3.bradshawenterprises.com/images/Clown%20Fish.jpg"
-          alt="Description of image"
+          alt="Description of an image"
         />
       </div>
 

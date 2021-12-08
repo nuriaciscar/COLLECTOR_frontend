@@ -107,6 +107,7 @@ export default defineComponent({
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
     &__text {
       display: flex;
       margin-top: 80px;
@@ -148,6 +149,11 @@ export default defineComponent({
 .bigImage {
   width: 100%;
   height: 230px;
+
+  &:active {
+    transform: scale(1.7);
+    z-index: 11;
+  }
 }
 
 .divImage {

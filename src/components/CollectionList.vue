@@ -1,12 +1,14 @@
 <template>
   <section class="collectionList">
-    <ul v-for="collection in user.user.collections" :key="collection.id">
-      <Collection
-        :name="collection.name"
-        :date="collection.date"
-        :images="collection.images"
-        :id="collection.id"
-      />
+    <ul>
+      <li v-for="collection in user.user.collections" :key="collection.id">
+        <Collection
+          :name="collection.name"
+          :date="collection.date"
+          :images="collection.images"
+          :id="collection.id"
+        />
+      </li>
     </ul>
   </section>
 </template>

@@ -10,7 +10,7 @@
       <div class="buttonn">
         <router-link to="/addCollection">
           <button class="buttonn__add">
-            <img src="../assets/addButton.png" alt="Add buton" />
+            <img src="../assets/addButton.png" alt="Add buton" height="20" width="20" />
           </button>
         </router-link>
         <p class="buttonn__sort">New album</p>
@@ -107,8 +107,10 @@ export default defineComponent({
   height: 20px;
   background-color: transparent;
   z-index: 10;
+  cursor: pointer;
   &__add {
     border: none;
+    background-color: transparent;
   }
   &__sort {
     font-family: "Public Sans", sans-serif;

@@ -33,10 +33,10 @@ export default defineComponent({
   position: fixed;
   margin-top: 50px;
   padding-bottom: 40px;
-  background-color: $beige;
   padding-top: 40px;
-  z-index: 0;
+  z-index: 30;
   width: 100vw;
+  background-color: $beige;
 
   &__left {
     display: flex;

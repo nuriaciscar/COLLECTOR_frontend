@@ -38,7 +38,7 @@
         </router-link>
       </div>
     </section>
-    <router-link to="/login">
+    <router-link to="/collections">
       <div class="logo"><p class="header__logo">COLLECTOR</p></div>
     </router-link>
   </nav>
@@ -57,10 +57,6 @@ export default defineComponent({
   methods: {
     ...mapActions(["fetchUser", "logoutUserAction"]),
   },
-
-  // mounted() {
-  //   this.fetchUser(this.user.user.id);
-  // },
 });
 </script>
 
@@ -118,8 +114,9 @@ export default defineComponent({
   position: absolute;
   display: flex;
   justify-content: center;
-  margin-top: 27px;
+  margin-top: 32px;
   font-size: 17px;
+  z-index: 30;
 }
 
 .left {
@@ -156,11 +153,12 @@ export default defineComponent({
     &__feed {
       margin-left: 0;
     }
+    &__logo {
+      font-size: 21px;
+      color: black;
+    }
   }
-  .logo {
-    margin-top: 30px;
-    font-size: 21px;
-  }
+
   .left {
     align-items: center;
     width: 120px;
@@ -201,6 +199,11 @@ export default defineComponent({
     }
     &__feed {
       margin-left: 0;
+    }
+    &__logo {
+      font-size: 21px;
+      color: black;
+      margin-top: 2px;
     }
   }
   .logo {

@@ -59,7 +59,7 @@
         @change="onFileChange($event)"
         @input="pickFile"
         multiple
-        class="input--avatar"
+        class="avatar"
       />
       <div class="bottom">
         <div class="sign">
@@ -105,6 +105,7 @@ export default defineComponent({
       isWrongEmail: false,
       previewImage: null,
       file: "",
+      isLoading: false,
     };
   },
   methods: {
@@ -112,19 +113,6 @@ export default defineComponent({
     onFileChange(event: any) {
       [this.images] = event.target.files;
     },
-
-    // pickFile() {
-    //   const input: HTMLInputElement = this.$refs.fileInput as HTMLInputElement;
-    //   const file = input.files;
-    //   if (file && file[0]) {
-    //     [this.images] = file;
-    //     const reader = new FileReader();
-    //     reader.onload = (event: any) => {
-    //       this.previewImage = event.target.result;
-    //     };
-    //     reader.readAsDataURL(file[0]);
-    //   }
-    // },
 
     onChangeForm() {
       if (this.username.length > 2 && this.password.length > 2) {
@@ -208,8 +196,10 @@ export default defineComponent({
     @include form;
   }
 }
-.input--avatar {
+.avatar {
+  border: transparent;
   border: none;
+  margin-top: 15px;
 }
 
 .arrow {
@@ -230,6 +220,9 @@ export default defineComponent({
     outline: inherit;
     margin-left: 0;
     font-size: 22px;
+  }
+  & :hover {
+    color: $yellow;
   }
 }
 

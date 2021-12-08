@@ -157,14 +157,11 @@ const actions = {
   },
 
   async fetchLoginUser({ commit }: ActionContext<State, State>, user: UserLogin): Promise<void> {
-    commit("loadingStart");
     const { data } = await axios.post(`${process.env.VUE_APP_API_URL}/user/login`, user);
     const { token } = data;
-
     const userData = jwtDecode(token);
     localStorage.setItem("token", JSON.stringify({ token }));
     commit("loginUser", userData);
-    commit("loadingStop");
   },
 
   getToken({ commit, dispatch }: ActionContext<State, State>): string | void {
@@ -185,14 +182,12 @@ const actions = {
   },
 
   async fetchRegisterUser({ commit }: ActionContext<State, State>, user: User): Promise<void> {
-    commit("loadingStart");
     const { data: userData } = await axios.post(
       `${process.env.VUE_APP_API_URL}/user/register`,
       user
     );
     localStorage.setItem("user", JSON.stringify(userData));
     commit("registerUser", userData);
-    commit("loadingStop");
   },
 
   async fetchUser({ commit }: ActionContext<State, State>, id: string): Promise<void | string> {

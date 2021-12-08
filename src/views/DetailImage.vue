@@ -1,7 +1,7 @@
 <template>
   <div class="detail">
     <div class="detail__items__top">
-      <router-link :to="`/collections`">
+      <router-link to="/collections">
         <img src="../assets/next.png" class="back" width="25" height="13" alt="Arrow icon" />
       </router-link>
 
@@ -30,14 +30,10 @@ import { defineComponent } from "vue";
 import { mapActions, mapState } from "vuex";
 import { useRoute } from "vue-router";
 
-// import Collection from "../components/Collection.vue";
-
 export default defineComponent({
   name: "DetailImage",
   props: { collection: String, name: String, description: String },
-  components: {
-    // Collection,
-  },
+
   data() {
     return {
       currentImage: 0,
@@ -81,6 +77,7 @@ export default defineComponent({
   display: flex;
   align-items: center;
   flex-direction: column;
+  justify-content: flex-start;
 
   &__items {
     justify-content: space-around;
@@ -90,10 +87,10 @@ export default defineComponent({
       display: flex;
       flex-direction: row;
       border: none;
-      justify-content: flex-start;
+      justify-content: space-around;
       align-items: center;
-      width: 320px;
-      margin-top: 70px;
+      width: 340px;
+      margin-top: 75px;
 
       &__title {
         font-weight: inherit;
@@ -226,7 +223,7 @@ export default defineComponent({
 
   .delete {
     display: none;
-    font-size: 25px;
+    font-size: 22px;
     width: 55px;
     height: 55px;
   }

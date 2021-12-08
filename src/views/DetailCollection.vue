@@ -5,16 +5,18 @@
         <router-link to="/collections">
           <img src="../assets/next.png" class="back" width="25" height="13" alt="Arrow icon" />
         </router-link>
-        <button @click="deleteCollection" class="delete">
+      </div>
+      <h1 class="detail__top__title">{{ collection.name }}</h1>
+      <div class="buttons">
+        <router-link :to="`/collections/addImage/${collection.id}`">
+          <button class="buttons__addImage">
+            <img class="addImage--button" src="../assets/addButton.png" alt="Add button" />
+          </button>
+        </router-link>
+        <button @click="deleteCollection" class="buttons__delete">
           <em class="fas fa-trash-alt"></em>
         </button>
       </div>
-      <h1 class="detail__top__title">{{ collection.name }}</h1>
-      <router-link :to="`/collections/addImage/${collection.id}`">
-        <button class="addImage">
-          <img class="addImage--button" src="../assets/addButton.png" alt="Add button" />
-        </button>
-      </router-link>
     </div>
     <div class="detail__grid">
       <ul v-for="image in collection.images" :key="image.id">
@@ -117,6 +119,33 @@ export default defineComponent({
     &__li {
       list-style: none;
     }
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+
+  &__addImage {
+    border: none;
+  }
+  &__addImage :hover {
+    transform: scale(1.3);
+  }
+
+  &__delete {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 22px;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    color: $blue;
+  }
+  &__delete :hover {
+    color: $red;
+    transform: scale(1.2);
   }
 }
 

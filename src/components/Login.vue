@@ -179,6 +179,9 @@ export default defineComponent({
     margin-left: 0;
     font-size: 22px;
   }
+  & :hover {
+    color: $yellow;
+  }
 }
 
 .bottom {

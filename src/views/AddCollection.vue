@@ -75,28 +75,7 @@ export default defineComponent({
   methods: {
     ...mapActions(["fetchAddCollection"]),
 
-    // pickFile() {
-    //   const input = this.$refs.fileInput;
-    //   const file = input.files;
-    //   console.log(file);
-    //   if (file && file[0]) {
-    //     this.images = [...this.images, file];
-    //     console.log(this.images);
-    //     const reader = new FileReader();
-    //     reader.onload = (event) => {
-    //       this.previewImage = event.target.result;
-    //     };
-    //     reader.readAsDataURL(file[0]);
-    //   }
-    // },
-
     onFileChange(event) {
-      // const newImage = file[0];
-      // // if (file.length > 0) {
-      //   const imageUrl = URL.createObjectURL(newImage);
-      // this.images = [...this.images, newImage];
-      // console.log(newImage);
-
       [this.images] = event.target.files;
     },
 
@@ -140,19 +119,19 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
+  padding-bottom: 150px;
   &__top {
     display: flex;
     flex-direction: row;
     border: none;
     justify-content: space-around;
     align-items: center;
-    width: 340px;
+    width: 300px;
 
     &__title {
       font-weight: inherit;
       font-size: 45px;
-      padding-left: 40px;
+      padding-left: 30px;
     }
     &__arrow {
       display: flex;
@@ -234,7 +213,6 @@ export default defineComponent({
       align-items: flex-end;
       padding-bottom: 50px;
       margin-top: 20px;
-      padding-top: 60px;
       &__title {
         font-weight: inherit;
         font-size: 50px;
@@ -267,7 +245,7 @@ export default defineComponent({
       &__title {
         font-weight: inherit;
         font-size: 70px;
-        padding-left: 220px;
+        padding-left: 210px;
       }
     }
   }

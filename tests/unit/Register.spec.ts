@@ -140,7 +140,7 @@ describe("When the register form is submitted but axios fails", () => {
     expect(wrapper.vm.isIncorrect).toBe(true);
   });
 });
-describe("When the inputs are filled correctly and button submit is clicked", () => {
+describe("When the form inputs are filled correctly and the user clicks the button submit", () => {
   test("Then it should call the method onSubmit", async () => {
     const $store = {
       methods: {
@@ -158,7 +158,6 @@ describe("When the inputs are filled correctly and button submit is clicked", ()
       },
     });
 
-    await router.isReady();
 
     $store.methods.onSubmit = jest.fn();
     $store.methods.onSubmit();
@@ -170,11 +169,11 @@ describe("When the inputs are filled correctly and button submit is clicked", ()
     const email = wrapper.findAll("input")[4];
     const avatar = wrapper.findAll("input")[5];
 
-    name.setValue("oleguer");
-    username.setValue("oleguer123");
-    password.setValue("oleguer");
-    repeatPassword.setValue("oleguer");
-    email.setValue("oleguer@gmail.com");
+    name.setValue("lola");
+    username.setValue("lola123");
+    password.setValue("lola");
+    repeatPassword.setValue("lola");
+    email.setValue("lola@gmail.com");
     avatar.setValue("");
 
     wrapper.find("form").trigger("submit");

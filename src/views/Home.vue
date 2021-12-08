@@ -9,7 +9,7 @@
         />
         <img
           class="home__image__big"
-          src="http://css3.bradshawenterprises.com/images/Clown%20Fish.jpg"
+          src="https://i.ibb.co/zJgjpLr/pexels-photo-2086620.jpg"
           alt="Description of an image"
         />
       </div>

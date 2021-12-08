@@ -136,7 +136,7 @@ export default defineComponent({
 
 .buttonn {
   border: none;
-  margin-left: 76%;
+  margin-right: 25px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -144,6 +144,8 @@ export default defineComponent({
   background-color: transparent;
   z-index: 10;
   cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
   &__add {
     border: none;
     background-color: transparent;
@@ -152,7 +154,7 @@ export default defineComponent({
     font-family: "Public Sans", sans-serif;
     color: $blue;
     padding-left: 8px;
-    font-size: 16px;
+    font-size: 15px;
   }
 }
 

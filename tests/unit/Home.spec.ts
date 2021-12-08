@@ -8,21 +8,13 @@ import CollectionList from "../../src/components/CollectionList.vue";
 describe("Given a Home component", () => {
   describe("When is rendered", () => {
     test("Then it should render a home page with an image and a collection list ", async () => {
-      const store = createStore({
-        state() {
-          return state;
-        },
-        actions: { getToken: jest.fn() },
-      });
-
       const wrapper = mount(Home, {
         global: {
           mocks: {
             methods: {
               redirectToLogin: jest.fn(),
-              
             },
-            plugins: [router, store],
+            plugins: [router],
           },
           components: {
             CollectionList,

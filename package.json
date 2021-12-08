@@ -25,7 +25,10 @@
     "jwt-decode": "^3.1.2",
     "moment": "^2.29.1",
     "vue": "^3.0.0",
+    "vue-cool-lightbox": "^2.7.4",
+    "vue-easy-lightbox": "^1.2.4",
     "vue-horizontal-scroll": "^0.2.4",
+    "vue-my-photos": "^3.0.1",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"
   },

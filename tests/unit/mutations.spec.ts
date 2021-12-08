@@ -134,6 +134,69 @@ describe("Given a store mutations object", () => {
       expect(mockedState.image).toEqual(payload);
     });
   });
+  describe("When addCollection receives a state and payload with a new collection", () => {
+    test("Then collections should contain the new collection", () => {
+      const payload: Collection = {
+        id: "6121343543426545676bt",
+        name: "summer",
+        date: "2021 July",
+        images: [],
+      };
+
+      mutations.addCollection(state, payload);
+
+      expect(state.collections).toContainEqual(payload);
+    });
+  });
+  describe("When deleteCollection receives a state and payload with a new collection", () => {
+    test("Then collections should not contain the deleted collection", () => {
+      const collectionToDelete: Collection = {
+        id: "6121343543426545676bt",
+        name: "summer",
+        date: "2021 July",
+        images: [],
+      };
+      const payload = "6121343543426545676bt";
+
+      mutations.deleteCollection(state, payload);
+
+      expect(state.collections).not.toContainEqual(collectionToDelete);
+    });
+  });
+  describe("When deleteImage receives a state and payload with a new image", () => {
+    test("Then images should contain the new image", () => {
+      const imageToDelete: Image = {
+        id: "6121343543426545676bt",
+        description: "summer",
+        date: "2021 July",
+        image: "image.jpg",
+        imageLocal: "image.jpg",
+        owner: ["6121343543426545676ref"],
+        category: "art",
+        collectionImage: ["6121343543426545676rer"],
+        grid: false,
+      };
+      const payload = "6121343543426545676bt";
+
+      mutations.deleteImage(state, payload);
+
+      expect(state.images).not.toContainEqual(imageToDelete);
+    });
+  });
+  describe("When addImageToCollection receives a state and payload with an updated collection", () => {
+    test("Then collections should contain the collection updated", () => {
+      const payload: Collection = {
+        id: "1233",
+        name: "winter",
+        date: "2021",
+        images: [],
+      };
+
+      mutations.addImageToCollection(state, payload);
+
+      expect(state.collections).toContainEqual(payload);
+    });
+  });
   describe("When loginUser receives a state and payload with a user", () => {
     test("Then isAuthenticated should be true in store", () => {
       const payload: User = {

@@ -28,7 +28,13 @@
           <p @click="logoutUserAction" class="header__logout">Logout</p>
         </router-link>
         <router-link :to="`/user/${user.user.id}`">
-          <img class="header__avatar" :src="user.user.avatar" alt=" " width="35" height="35" />
+          <img
+            class="header__avatar"
+            :src="user.user.avatar"
+            alt="Avatar image"
+            width="35"
+            height="35"
+          />
         </router-link>
       </div>
     </section>

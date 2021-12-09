@@ -208,7 +208,6 @@ export default defineComponent({
   .home {
     &__image {
       display: flex;
-      justify-content: flex-start;
       align-items: center;
       flex-direction: column;
       margin-top: 100px;

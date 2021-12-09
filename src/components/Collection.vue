@@ -75,6 +75,7 @@ export default defineComponent({
     align-items: flex-start;
     flex-direction: column;
     bottom: 0;
+    padding-right: 20px;
 
     &__date {
       font-size: 14px;

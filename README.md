@@ -19,6 +19,7 @@ Personal project of a website where you can create your own photo albums as a be
 
 
 
+
 ### Project setup
 ```
 npm run build

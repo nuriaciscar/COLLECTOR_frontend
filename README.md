@@ -19,7 +19,7 @@ Personal project of a website where you can create your own photo albums as a be
 
 
 
-
+#### Link: https://collector-nuria.netlify.app
 
 
 ### Project setup

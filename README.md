@@ -17,11 +17,13 @@ Personal project of a website where you can create your own photo albums as a be
 
 
 
-###Project setup
+
+
+### Project setup
 ```
 npm run build
 ```
-###Compiles and hot-reloads for development
+### Compiles and hot-reloads for development
 ```
 npm run serve
 ```

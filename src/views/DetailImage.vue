@@ -123,9 +123,7 @@ export default defineComponent({
   }
 
   img {
-    object-fit: cover;
     font-size: 18px;
-    padding-bottom: 20px;
   }
 }
 .buttons {
@@ -146,6 +144,8 @@ export default defineComponent({
 .bigImage {
   width: 100%;
   height: 230px;
+  object-fit: cover;
+  padding-bottom: 20px;
 
   &:active {
     transform: scale(1.7);
@@ -189,6 +189,8 @@ export default defineComponent({
     &__items__top {
       width: 1100px;
       margin-top: 135px;
+      display: flex;
+      justify-content: flex-start;
     }
     &__image {
       max-width: 450px;

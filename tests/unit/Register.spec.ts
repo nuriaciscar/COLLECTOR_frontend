@@ -101,8 +101,8 @@ test("Then it should invoke onCorrectEmail function", () => {
   expect(correctEmail).toHaveBeenCalled();
 });
 
-describe("When the register form is submitted but axios fails", () => {
-  test("Then isIncorrect should be set to false", () => {
+describe("When the register form is submitted but some inputs are incorrect", () => {
+  test("Then isIncorrect should be false", () => {
     const store = createStore({
       state() {
         return state;
@@ -157,7 +157,6 @@ describe("When the form inputs are filled correctly and the user clicks the butt
         $store,
       },
     });
-
 
     $store.methods.onSubmit = jest.fn();
     $store.methods.onSubmit();

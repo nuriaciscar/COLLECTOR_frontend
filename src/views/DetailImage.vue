@@ -189,6 +189,8 @@ export default defineComponent({
     &__items__top {
       width: 1100px;
       margin-top: 135px;
+      display: flex;
+      justify-content: flex-start;
     }
     &__image {
       max-width: 450px;

@@ -2,7 +2,7 @@
   <section class="collection">
     <div class="collection__single">
       <ul v-for="image in images" :key="image.id">
-        <router-link :to="`/image/${image.id}`">
+        <router-link :to="`/image/${image.id}`" @click="scrollToTop">
           <Image
             :description="image.description"
             :date="image.date"

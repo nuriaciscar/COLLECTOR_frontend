@@ -65,9 +65,6 @@ export default defineComponent({
       this.fetchDeleteCollection(this.collection.id);
       this.$router.push("/collections");
     },
-    scrollToTop() {
-      window.scrollTo(0, 0);
-    },
   },
 
   mounted() {

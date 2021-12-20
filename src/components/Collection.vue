@@ -14,7 +14,7 @@
         </router-link>
       </ul>
       <div class="collection__single__text">
-        <router-link :to="{ name: 'DetailCollection', params: { id: id } }">
+        <router-link :to="{ name: 'DetailCollection', params: { id: id } }" @click="scrollToTop">
           <p class="collection__single__text__date">{{ date }}</p>
           <p class="collection__single__text__name">{{ name }}</p>
         </router-link>
@@ -41,6 +41,10 @@ export default defineComponent({
   },
   methods: {
     ...mapActions(["fetchLoadImages", "fetchLoadCollection"]),
+
+    scrollToTop() {
+      window.scrollTo(0, 0);
+    },
   },
 
   mounted() {

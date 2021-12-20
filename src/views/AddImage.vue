@@ -226,6 +226,23 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
 }
+.datepicker-input {
+  border: 0.1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 60px;
+  background-color: transparent;
+  width: 240px;
+  height: 30px;
+  color: #000;
+  font-family: "Public Sans", sans-serif;
+  padding: 15px;
+  padding-left: 18px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  margin-top: 7px;
+}
 @media (min-width: $tablet) {
   .create {
     &__top {
@@ -275,34 +292,35 @@ export default defineComponent({
       padding-top: 0;
     }
   }
-}
-.create__form {
-  display: flex;
-  flex-direction: row;
 
-  &__text__label {
-    padding-bottom: 10px;
+  .create__form {
+    display: flex;
+    flex-direction: row;
+
+    &__text__label {
+      padding-bottom: 10px;
+    }
   }
-}
-.button {
-  padding-top: 20px;
-}
+  .button {
+    padding-top: 20px;
+  }
 
-.datepicker-input {
-  border: 0.1px solid #000000;
-  box-sizing: border-box;
-  border-radius: 60px;
-  background-color: transparent;
-  width: 240px;
-  height: 30px;
-  color: #000;
-  font-family: "Public Sans", sans-serif;
-  padding: 15px;
-  padding-left: 18px;
-  margin-bottom: 10px;
-  font-size: 15px;
-  display: flex;
-  align-items: center;
-  margin-top: 7px;
+  .datepicker-input {
+    border: 0.1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 60px;
+    background-color: transparent;
+    width: 240px;
+    height: 30px;
+    color: #000;
+    font-family: "Public Sans", sans-serif;
+    padding: 15px;
+    padding-left: 18px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    margin-top: 7px;
+  }
 }
 </style>

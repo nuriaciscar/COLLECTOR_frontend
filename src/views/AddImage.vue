@@ -103,8 +103,6 @@ export default defineComponent({
       if (this.name !== "") {
         updatedCollection.append("name", this.name);
       }
-
-      updatedCollection.forEach((val) => console.log(val));
       try {
         await this.fetchAddImageToCollection(updatedCollection);
 

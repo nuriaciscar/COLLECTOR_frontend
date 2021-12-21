@@ -65,6 +65,9 @@ export default defineComponent({
       this.fetchDeleteCollection(this.collection.id);
       this.$router.push("/collections");
     },
+    scrollToTop() {
+      window.scrollTo(0, 0);
+    },
   },
 
   mounted() {
@@ -116,6 +119,7 @@ export default defineComponent({
     grid-template-rows: 1fr 1fr 1fr;
     grid-row-gap: 0;
     width: 100%;
+    padding-bottom: 130px;
 
     &__li {
       list-style: none;
@@ -175,6 +179,7 @@ export default defineComponent({
     &__grid {
       grid-template-columns: 1fr 1fr 1fr 1fr;
       grid-template-rows: 1fr 1fr 1fr 1fr;
+      padding-bottom: 200px;
     }
   }
 }
@@ -204,6 +209,7 @@ export default defineComponent({
     &__grid {
       grid-template-columns: 1fr 1fr 1fr 1fr;
       grid-template-rows: 1fr 1fr 1fr 1fr;
+      padding-bottom: 200px;
     }
   }
 }

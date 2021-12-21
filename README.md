@@ -17,10 +17,14 @@ Personal project of a website where you can create your own photo albums as a be
 
 💫  Other: Figma 
 
+#### Link: https://collector-nuria.netlify.app
+
+
+
 
 ![](12.gif)
 
-#### Link: https://collector-nuria.netlify.app
+
 
 
 ### Project setup

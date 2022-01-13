@@ -198,10 +198,9 @@ export default defineComponent({
     &__search {
       margin-right: 0;
       margin-top: 0;
-      padding-right: 20px;
+      padding-right: 10px;
       width: 28px;
       cursor: pointer;
-      transition: 0.6s;
     }
     &__feed {
       margin-left: 0;
@@ -231,35 +230,49 @@ export default defineComponent({
     justify-content: flex-end;
 
     &__searchBox {
-      height: 40px;
+      height: 30px;
       border-radius: 40px;
       padding: 10px;
+      transition: 0.4s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 
-  .right__searchBox:hover > .searchInput {
+  .right__searchBox:hover {
     padding: 0 6px;
     border: 0.1px solid #000000;
     border-radius: 60px;
-    width: 800px;
-    height: 30px;
   }
-  .right__searchBox:hover > .header__search {
-    display: none;
+
+  .right__searchBox:hover > .searchInput {
+    width: 780px;
+  }
+
+  .right__searchBox:hover {
+    .header__logo {
+      color: red;
+    }
   }
   .searchInput {
     box-sizing: border-box;
-    border: none;
-    background: none;
     outline: none;
     float: left;
-    padding: 0;
+    padding: 10px;
     font-family: "Public Sans", sans-serif;
-    font-size: 15px;
+    font-size: 14px;
     color: #000;
     line-height: 40px;
+  }
+
+  .right__searchBox .searchInput {
+    background: transparent;
+    border: none;
+    outline: none;
     width: 0px;
-    transition: 0.4s;
+    font-weight: 500;
+    transition: 0.8s;
   }
 }
 </style>

@@ -201,7 +201,7 @@ export default defineComponent({
       padding-right: 20px;
       width: 28px;
       cursor: pointer;
-      transition: 0.4s;
+      transition: 0.6s;
     }
     &__feed {
       margin-left: 0;
@@ -231,7 +231,6 @@ export default defineComponent({
     justify-content: flex-end;
 
     &__searchBox {
-      background: pink;
       height: 40px;
       border-radius: 40px;
       padding: 10px;
@@ -239,18 +238,14 @@ export default defineComponent({
   }
 
   .right__searchBox:hover > .searchInput {
-    width: 240px;
     padding: 0 6px;
     border: 0.1px solid #000000;
-
     border-radius: 60px;
-
-    width: 240px;
+    width: 800px;
     height: 30px;
-    color: #000;
-    font-family: "Public Sans", sans-serif;
-
-    font-size: 15px;
+  }
+  .right__searchBox:hover > .header__search {
+    display: none;
   }
   .searchInput {
     box-sizing: border-box;
@@ -259,10 +254,12 @@ export default defineComponent({
     outline: none;
     float: left;
     padding: 0;
-    font-size: 16px;
-    transition: 0.4s;
+    font-family: "Public Sans", sans-serif;
+    font-size: 15px;
+    color: #000;
     line-height: 40px;
     width: 0px;
+    transition: 0.4s;
   }
 }
 </style>

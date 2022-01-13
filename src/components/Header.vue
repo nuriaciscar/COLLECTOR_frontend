@@ -196,6 +196,7 @@ export default defineComponent({
       margin-right: 0;
       margin-top: 0;
       padding-right: 20px;
+      width: 28px;
     }
     &__feed {
       margin-left: 0;

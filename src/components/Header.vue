@@ -44,6 +44,7 @@
     <router-link to="/collections">
       <div class="logo"><p class="header__logo">COLLECTOR</p></div>
     </router-link>
+    <!-- <div class="bodyBlur"></div> -->
   </nav>
 </template>
 
@@ -238,25 +239,28 @@ export default defineComponent({
       background-color: $beige;
     }
   }
-
+  // .bodyBlur {
+  //   position: absolute;
+  //   width: 100vw;
+  //   z-index: -1;
+  //   height: 100vh;
+  // }
   .right__searchBox:hover {
     padding: 0 6px;
     border: 0.1px solid #000000;
     border-radius: 60px;
   }
 
+  // .right__searchBox:hover {
+  //   .bodyBlur {
+  //     background: rgba(251, 250, 249, 0.7);
+  //     filter: blur(22px);
+  //     backdrop-filter: blur(10px);
+  //     z-index: 40;
+  //   }
+  // }
   .right__searchBox:hover > .searchInput {
     width: 780px;
-  }
-
-  .right__searchBox:hover .logo {
-    position: relative;
-  }
-
-  .right__searchBox:hover {
-    .header__logo {
-      color: red;
-    }
   }
 
   .searchInput {

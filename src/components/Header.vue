@@ -114,7 +114,6 @@ export default defineComponent({
 }
 
 .logo {
-  position: absolute;
   display: flex;
   justify-content: center;
   margin-top: 32px;
@@ -207,7 +206,6 @@ export default defineComponent({
     }
     &__logo {
       font-size: 21px;
-      color: black;
       margin-top: 2px;
     }
   }
@@ -237,6 +235,7 @@ export default defineComponent({
       display: flex;
       justify-content: center;
       align-items: center;
+      background-color: pink;
     }
   }
 
@@ -250,11 +249,16 @@ export default defineComponent({
     width: 780px;
   }
 
+  .right__searchBox:hover .logo {
+    position: relative;
+  }
+
   .right__searchBox:hover {
     .header__logo {
       color: red;
     }
   }
+
   .searchInput {
     box-sizing: border-box;
     outline: none;

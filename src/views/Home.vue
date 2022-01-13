@@ -210,15 +210,17 @@ export default defineComponent({
       display: flex;
       align-items: center;
       flex-direction: column;
-      margin-top: 100px;
+      margin-top: 50px;
+
       &__big {
         height: 500px;
         object-fit: cover;
         width: 950px;
+        padding-top: 10px;
       }
       &__date {
         position: absolute;
-        font-size: 15px;
+        font-size: 14px;
         width: 950px;
         margin-top: 22px;
         justify-content: flex-start;

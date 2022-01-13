@@ -17,13 +17,16 @@
         <p class="header__feed">Feed</p>
       </div>
       <div class="right">
-        <img
-          class="header__search"
-          src="@/assets/lupa.png"
-          alt="Search lens icon"
-          width="26"
-          height="24"
-        />
+        <div class="right__searchBox">
+          <input class="searchInput" type="text" name="" placeholder="Search" />
+          <img
+            class="header__search"
+            src="@/assets/lupa.png"
+            alt="Search lens icon"
+            width="26"
+            height="24"
+          />
+        </div>
         <router-link to="/login">
           <p @click="logoutUserAction" class="header__logout">Logout</p>
         </router-link>
@@ -197,6 +200,8 @@ export default defineComponent({
       margin-top: 0;
       padding-right: 20px;
       width: 28px;
+      cursor: pointer;
+      transition: 0.4s;
     }
     &__feed {
       margin-left: 0;
@@ -224,6 +229,40 @@ export default defineComponent({
     width: 275px;
     align-items: center;
     justify-content: flex-end;
+
+    &__searchBox {
+      background: pink;
+      height: 40px;
+      border-radius: 40px;
+      padding: 10px;
+    }
+  }
+
+  .right__searchBox:hover > .searchInput {
+    width: 240px;
+    padding: 0 6px;
+    border: 0.1px solid #000000;
+
+    border-radius: 60px;
+
+    width: 240px;
+    height: 30px;
+    color: #000;
+    font-family: "Public Sans", sans-serif;
+
+    font-size: 15px;
+  }
+  .searchInput {
+    box-sizing: border-box;
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 0px;
   }
 }
 </style>

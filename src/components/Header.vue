@@ -235,7 +235,7 @@ export default defineComponent({
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: pink;
+      background-color: $beige;
     }
   }
 

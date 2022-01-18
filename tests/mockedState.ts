@@ -12,6 +12,7 @@ const mockedState = {
       collections: [],
     },
   },
+  value: [],
   collections: [],
   collection: {},
   images: [],

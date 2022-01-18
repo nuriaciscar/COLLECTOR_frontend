@@ -65,6 +65,7 @@ interface State {
   images: Array<Image>;
   image: Image;
   isLoading: boolean;
+  value: Array<Collection>;
 }
 
 export {

@@ -1,8 +1,8 @@
 <template>
   <section class="searchlist">
-    <div v-if="collections.length >= 1" class="searchlist__collections">
+    <div v-if="value.length >= 1" class="searchlist__collections">
       <p class="searchlist__header">Estos son las colecciones que corresponden a tu búsqueda:</p>
-      <div v-for="collection in this.collections" :key="collection.name">
+      <div v-for="collection in this.value" :key="collection.name">
         <router-link :to="'/collections/:id' + collection._id">
           <div class="searchlist__collection">
             <p>{{ collection.name }}</p>
@@ -33,11 +33,9 @@ import CollectionList from "@/components/CollectionList.vue";
 
 export default defineComponent({
   name: "SearchCollection",
-  // components: {
-  //   CollectionList,
-  // },
+
   computed: {
-    ...mapState(["collections", "user"]),
+    ...mapState(["value", "user"]),
   },
   methods: {
     redirectToLogin() {

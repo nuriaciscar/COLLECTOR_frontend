@@ -19,7 +19,7 @@
       <div class="right">
         <router-link to="/collections/search">
           <div class="right__searchBox">
-            <input class="searchInput" type="text" name="" placeholder="Search" />
+            <input class="searchInput" type="text" name="" placeholder="Search a collection" />
             <img
               class="header__search"
               src="@/assets/lupa.png"

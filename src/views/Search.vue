@@ -16,10 +16,10 @@
       </div>
     </div>
     <div v-else class="searchlist__notFound">
-      <p class="searchlist__notFound__header">No hay laboratorios que coincidan con tu búsqueda.</p>
+      <p class="searchlist__notFound__header">Any collection found...</p>
       <img
-        class="searchlist__header__image"
-        src="https://i.ibb.co/BwWCRnJ/pexels-markus-spiske-4201333.jpg"
+        class="searchlist__notFound__header__image"
+        src="https://icon-library.com/images/unhappy-face-icon/unhappy-face-icon-29.jpg"
         alt="Image of a film"
       />
     </div>
@@ -60,6 +60,22 @@ export default defineComponent({
 @import "../styles/variables";
 @import "../styles/mixins";
 
+.searchlist {
+  &__notFound {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 300px;
+    margin-top: 210px;
+    &__header {
+      font-size: 35px;
+      &__image {
+        transform: scale(0.17);
+        margin-top: -160px;
+      }
+    }
+  }
+}
 @media (min-width: $tablet) {
 }
 

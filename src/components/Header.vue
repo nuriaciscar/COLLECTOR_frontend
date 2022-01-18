@@ -17,16 +17,18 @@
         <p class="header__feed">Feed</p>
       </div>
       <div class="right">
-        <div class="right__searchBox">
-          <input class="searchInput" type="text" name="" placeholder="Search" />
-          <img
-            class="header__search"
-            src="@/assets/lupa.png"
-            alt="Search lens icon"
-            width="26"
-            height="24"
-          />
-        </div>
+        <router-link to="/collections/search">
+          <div class="right__searchBox">
+            <input class="searchInput" type="text" name="" placeholder="Search" />
+            <img
+              class="header__search"
+              src="@/assets/lupa.png"
+              alt="Search lens icon"
+              width="26"
+              height="24"
+            />
+          </div>
+        </router-link>
         <router-link to="/login">
           <p @click="logoutUserAction" class="header__logout">Logout</p>
         </router-link>

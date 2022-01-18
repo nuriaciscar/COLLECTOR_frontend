@@ -14,7 +14,7 @@ const state = {
     },
   },
   isLoading: false,
-
+  value: [],
   collections: [],
   collection: {
     id: "",

@@ -204,6 +204,22 @@ const actions = {
       return "Cannot access to user";
     }
   },
+
+  async searchCollection(
+    { commit }: ActionContext<State, State>,
+    inputValue: string
+  ): Promise<void | string> {
+    const { token } = JSON.parse(localStorage.getItem("token") || "");
+    const { data } = await axios.get(`${process.env.VUE_APP_API_URL}/collections`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const returnedCollection = data.filter((collection: any) =>
+      collection.name.toLowerCase().startsWith(inputValue.toLowerCase())
+    );
+    commit("foundCollection", returnedCollection);
+  },
 };
 
 export default actions;

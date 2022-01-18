@@ -49,6 +49,9 @@ const mutations = {
   loadingStop(state: State): void {
     state.isLoading = false;
   },
+  foundCollection(state: State, payload: Array<Collection>): void {
+    state.value = payload;
+  },
 };
 
 export default mutations;

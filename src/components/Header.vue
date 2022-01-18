@@ -19,7 +19,14 @@
       <div class="right">
         <router-link to="/collections/search">
           <div class="right__searchBox">
-            <input class="searchInput" type="text" name="" placeholder="Search" />
+            <input
+              class="searchInput"
+              v-model="inputValue"
+              v-on:input="searchingCollection()"
+              type="text"
+              name=""
+              placeholder="Search a collection"
+            />
             <img
               class="header__search"
               src="@/assets/lupa.png"
@@ -58,10 +65,23 @@ export default defineComponent({
   name: "Header",
 
   computed: {
-    ...mapState(["user", "isAuthenticated"]),
+    ...mapState(["user", "isAuthenticated", "collection"]),
   },
   methods: {
-    ...mapActions(["fetchUser", "logoutUserAction"]),
+    ...mapActions(["fetchUser", "logoutUserAction", "searchCollection"]),
+    searchingCollection() {
+      if (this.inputValue !== "") {
+        this.searchCollection(this.inputValue);
+        this.$router.push("/search");
+      } else {
+        this.$router.push("/");
+      }
+    },
+  },
+  data() {
+    return {
+      inputValue: "",
+    };
   },
 });
 </script>

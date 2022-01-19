@@ -2,14 +2,21 @@
   <section class="searchlist">
     <div v-if="value.length >= 1" class="searchlist__collections">
       <div v-for="collection in this.value" :key="collection.name">
-        <router-link :to="'/collections/:id' + collection._id">
+        <router-link :to="`/collections/${collection.id}`">
           <div class="searchlist__collection">
             <p>{{ collection.name }}</p>
-            <img
-              class="searchlist__collection-image"
-              :src="collection.images"
-              alt="Logo of the lab"
-            />
+            <ul v-for="image in collection.images" :key="image.id">
+              <router-link :to="`/image/${image.id}`" @click="scrollToTop">
+                <Image
+                  :description="image.description"
+                  :date="image.date"
+                  :image="image.image"
+                  :category="image.category"
+                  :owner="image.owner"
+                  :id="image.id"
+                />
+              </router-link>
+            </ul>
           </div>
         </router-link>
       </div>
@@ -28,11 +35,13 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapActions, mapState } from "vuex";
-import CollectionList from "@/components/CollectionList.vue";
+import Image from "@/components/Image.vue";
 
 export default defineComponent({
   name: "SearchCollection",
-
+  components: {
+    Image,
+  },
   computed: {
     ...mapState(["value", "user"]),
   },

@@ -133,6 +133,7 @@ export default defineComponent({
     margin-top: -6px;
     font-size: 17px;
     color: black;
+    cursor: pointer;
   }
 }
 
@@ -141,7 +142,7 @@ export default defineComponent({
   justify-content: center;
   margin-top: 32px;
   font-size: 17px;
-  z-index: 30;
+  cursor: pointer;
 }
 
 .left {
@@ -230,6 +231,8 @@ export default defineComponent({
     &__logo {
       font-size: 21px;
       margin-top: 2px;
+      cursor: pointer;
+      pointer-events: auto;
     }
   }
   .logo {
@@ -259,6 +262,7 @@ export default defineComponent({
       justify-content: center;
       align-items: center;
       background-color: $beige;
+      z-index: 25;
     }
   }
   // .bodyBlur {
@@ -283,6 +287,7 @@ export default defineComponent({
   // }
   .right__searchBox:hover > .searchInput {
     width: 780px;
+    z-index: 20;
   }
 
   .searchInput {
@@ -294,6 +299,7 @@ export default defineComponent({
     font-size: 14px;
     color: #000;
     line-height: 40px;
+    z-index: 20;
   }
 
   .right__searchBox .searchInput {
@@ -303,6 +309,7 @@ export default defineComponent({
     width: 0px;
     font-weight: 500;
     transition: 0.8s;
+    z-index: 20;
   }
 }
 </style>

@@ -26,6 +26,7 @@
               type="text"
               name=""
               placeholder="Search a collection"
+              @change="searchingCollection()"
             />
             <img
               class="header__search"

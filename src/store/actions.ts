@@ -209,6 +209,7 @@ const actions = {
     { commit }: ActionContext<State, State>,
     inputValue: string
   ): Promise<void | string> {
+    commit("loadingStart");
     const { token } = JSON.parse(localStorage.getItem("token") || "");
     const { data } = await axios.get(`${process.env.VUE_APP_API_URL}/collections`, {
       headers: {
@@ -219,6 +220,7 @@ const actions = {
       collection.name.toLowerCase().startsWith(inputValue.toLowerCase())
     );
     commit("foundCollection", returnedCollection);
+    commit("loadingStop");
   },
 };
 

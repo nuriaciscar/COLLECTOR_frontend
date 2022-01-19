@@ -107,6 +107,7 @@ export default defineComponent({
     -webkit-overflow-scrolling: touch;
     justify-content: center;
     align-items: flex-end;
+
     &__text {
       &__name {
         padding-top: 5px;

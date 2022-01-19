@@ -1,14 +1,13 @@
 <template>
   <section class="searchlist">
     <div v-if="value.length >= 1" class="searchlist__collections">
-      <p class="searchlist__header">Estos son las colecciones que corresponden a tu búsqueda:</p>
       <div v-for="collection in this.value" :key="collection.name">
         <router-link :to="'/collections/:id' + collection._id">
           <div class="searchlist__collection">
             <p>{{ collection.name }}</p>
             <img
               class="searchlist__collection-image"
-              :src="collection.image"
+              :src="collection.images"
               alt="Logo of the lab"
             />
           </div>

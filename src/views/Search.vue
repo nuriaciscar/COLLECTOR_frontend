@@ -1,22 +1,24 @@
 <template>
   <section class="searchlist">
-    <div v-if="value.length >= 1" class="searchlist__collections">
+    <div v-if="value.length >= 1" class="wrapper">
       <div v-for="collection in this.value" :key="collection.name">
         <router-link :to="`/collections/${collection.id}`">
           <div class="searchlist__collection">
-            <p>{{ collection.name }}</p>
-            <ul v-for="image in collection.images" :key="image.id">
-              <router-link :to="`/image/${image.id}`" @click="scrollToTop">
-                <Image
-                  :description="image.description"
-                  :date="image.date"
-                  :image="image.image"
-                  :category="image.category"
-                  :owner="image.owner"
-                  :id="image.id"
-                />
-              </router-link>
-            </ul>
+            <p class="searchlist__collection__title">{{ collection.name }}</p>
+            <div class="searchlist__collection__images">
+              <ul v-for="image in collection.images" :key="image.id">
+                <router-link :to="`/image/${image.id}`" @click="scrollToTop">
+                  <Image
+                    :description="image.description"
+                    :date="image.date"
+                    :image="image.image"
+                    :category="image.category"
+                    :owner="image.owner"
+                    :id="image.id"
+                  />
+                </router-link>
+              </ul>
+            </div>
           </div>
         </router-link>
       </div>
@@ -67,6 +69,31 @@ export default defineComponent({
 @import "../styles/mixins";
 
 .searchlist {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 250px;
+  &__collection {
+    display: flex;
+    flex-direction: column;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: scroll;
+    width: 100vw;
+    margin-top: 100px;
+    width: 900px;
+    justify-content: center;
+    align-items: flex-start;
+    &__title {
+      font-size: 50px;
+      color: #000;
+      padding: 15px;
+      padding-bottom: 25px;
+    }
+    &__images {
+      display: flex;
+      flex-direction: row;
+    }
+  }
   &__notFound {
     display: flex;
     flex-direction: column;
